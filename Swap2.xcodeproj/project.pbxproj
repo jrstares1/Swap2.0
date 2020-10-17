@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4EF000D752303BD883BB753F /* Pods_Swap2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36596AA07F85050142B3104F /* Pods_Swap2.framework */; };
+		72AB1D55253B41C40099FD50 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AB1D54253B41C40099FD50 /* Home.storyboard */; };
 		B3E778DC66F0AB4CF30FAB4E /* Pods_Swap2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6A9490786A569D1DCB2056 /* Pods_Swap2Tests.framework */; };
 		C51811714694CE8D5187C0C5 /* Pods_Swap2_Swap2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B4AA6C39572B083EC500DE /* Pods_Swap2_Swap2UITests.framework */; };
 		F7300A0C2537953B00E02B82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7300A0B2537953B00E02B82 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		36596AA07F85050142B3104F /* Pods_Swap2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AD43FE8DC2E12BA3596C9A /* Pods-Swap2-Swap2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2-Swap2UITests.release.xcconfig"; path = "Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		64ED1755D96E9E575069C2F9 /* Pods-Swap2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2Tests.release.xcconfig"; path = "Target Support Files/Pods-Swap2Tests/Pods-Swap2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		72AB1D54253B41C40099FD50 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		797A6612FD73AB3DCAB7E6FE /* Pods-Swap2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2.debug.xcconfig"; path = "Target Support Files/Pods-Swap2/Pods-Swap2.debug.xcconfig"; sourceTree = "<group>"; };
 		BCE9944F57605D14B75EEB60 /* Pods-Swap2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2.release.xcconfig"; path = "Target Support Files/Pods-Swap2/Pods-Swap2.release.xcconfig"; sourceTree = "<group>"; };
 		D159544C40643619663A0DB8 /* Pods-Swap2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2Tests.debug.xcconfig"; path = "Target Support Files/Pods-Swap2Tests/Pods-Swap2Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			children = (
 				F7300A162537953D00E02B82 /* LaunchScreen.storyboard */,
 				F7300A112537953B00E02B82 /* Main.storyboard */,
+				72AB1D54253B41C40099FD50 /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7300A182537953D00E02B82 /* LaunchScreen.storyboard in Resources */,
+				72AB1D55253B41C40099FD50 /* Home.storyboard in Resources */,
 				F7300A6F2537DD1600E02B82 /* GoogleService-Info.plist in Resources */,
 				F7300A152537953D00E02B82 /* Assets.xcassets in Resources */,
 				F7300A132537953B00E02B82 /* Main.storyboard in Resources */,

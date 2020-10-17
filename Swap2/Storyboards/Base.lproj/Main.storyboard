@@ -98,6 +98,7 @@
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="loginTapped:" destination="j35-ft-mT4" eventType="touchUpInside" id="q0p-e4-JYL"/>
+                                            <segue destination="3rb-oa-pL9" kind="presentation" modalPresentationStyle="fullScreen" id="yGR-et-zYm"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NrY-aM-Qto">
@@ -249,37 +250,15 @@
             </objects>
             <point key="canvasLocation" x="1889.8550724637682" y="581.25"/>
         </scene>
-        <!--Home Page View Controller-->
-        <scene sceneID="KQn-4w-hfc">
+        <!--HomeNav-->
+        <scene sceneID="RgR-Ft-yAG">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="IaL-E2-M8K" customClass="homePageViewController" customModule="Swap2" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o57-Pm-Ekf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Screen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUZ-r5-EuC">
-                                <rect key="frame" x="97" y="397" width="220" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BIe-90-5oB">
-                                <rect key="frame" x="190" y="736" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="Back:" destination="IaL-E2-M8K" eventType="touchUpInside" id="oWu-0q-W8h"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="C56-kh-F5g"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="We1-y1-XQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="Home" referencedIdentifier="HomeNav" id="3rb-oa-pL9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="wDZ-2u-nHx"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="czf-aD-QlX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2899" y="173"/>
+            <point key="canvasLocation" x="2677" y="176"/>
         </scene>
     </scenes>
     <resources>
