@@ -157,7 +157,6 @@
 				F7300A5825379C7000E02B82 /* ViewControllers */,
 				F7300A5925379C9600E02B82 /* Storyboards */,
 				F7300A142537953D00E02B82 /* Assets.xcassets */,
-				F7300A162537953D00E02B82 /* LaunchScreen.storyboard */,
 				F7300A192537953D00E02B82 /* Info.plist */,
 				F7300A6E2537DD1600E02B82 /* GoogleService-Info.plist */,
 			);
@@ -196,6 +195,7 @@
 		F7300A5925379C9600E02B82 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				F7300A162537953D00E02B82 /* LaunchScreen.storyboard */,
 				F7300A112537953B00E02B82 /* Main.storyboard */,
 			);
 			path = Storyboards;
