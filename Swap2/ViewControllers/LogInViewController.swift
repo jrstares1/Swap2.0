@@ -11,10 +11,14 @@ import Firebase
 
 
 class LogInViewController: UIViewController {
-
+    let userDefault = UserDefaults.standard
+    let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if userDefault.bool(forKey: "usersignedin") {
+            performSegue(withIdentifier: "Verified", sender: self)
+        }
         // Do any additional setup after loading the view.
         setUpElements()
     }
@@ -58,18 +62,18 @@ class LogInViewController: UIViewController {
         
         // Signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            
             if error != nil {
                 // Couldn't sign in
                 self.errorLabel.text = error!.localizedDescription
                 self.errorLabel.alpha = 1
             }
             else {
-                
+                self.userDefault.set(true, forKey: "usersignedin")
+                self.userDefault.synchronize()
                 let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? homePageViewController
-                
                 self.view.window?.rootViewController = homeViewController
                 self.view.window?.makeKeyAndVisible()
+               // self.performSegue(withIdentifier: "Verified", sender: self.storyboard)
             }
         }
     }

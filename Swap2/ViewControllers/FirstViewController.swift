@@ -11,6 +11,7 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
 
         // Do any additional setup after loading the view.
         setUpElements()
@@ -36,6 +37,8 @@ class FirstViewController: UIViewController {
     
     @IBAction func signUpTapped(_ sender: Any) {
     }
+    
+   
     
     /*
     // MARK: - Navigation

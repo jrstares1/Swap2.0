@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YXm-XH-xkI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -98,7 +99,7 @@
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="loginTapped:" destination="j35-ft-mT4" eventType="touchUpInside" id="q0p-e4-JYL"/>
-                                            <segue destination="3rb-oa-pL9" kind="presentation" modalPresentationStyle="fullScreen" id="yGR-et-zYm"/>
+                                            <segue destination="3rb-oa-pL9" kind="presentation" identifier="Verified" modalPresentationStyle="fullScreen" id="yGR-et-zYm"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NrY-aM-Qto">
@@ -250,10 +251,10 @@
             </objects>
             <point key="canvasLocation" x="1889.8550724637682" y="581.25"/>
         </scene>
-        <!--HomeNav-->
+        <!--HomeTab-->
         <scene sceneID="RgR-Ft-yAG">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="Home" referencedIdentifier="HomeNav" id="3rb-oa-pL9" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="Home" referencedIdentifier="HomeTab" id="3rb-oa-pL9" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="wDZ-2u-nHx"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czf-aD-QlX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
