@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4EF000D752303BD883BB753F /* Pods_Swap2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36596AA07F85050142B3104F /* Pods_Swap2.framework */; };
+		72A69E44253DDC1E00AEE3B5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A69E43253DDC1E00AEE3B5 /* CustomTextField.swift */; };
 		72AB1D55253B41C40099FD50 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AB1D54253B41C40099FD50 /* Home.storyboard */; };
 		72C477BA253BB598004EF8EA /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C477B9253BB598004EF8EA /* ScanViewController.swift */; };
 		72C477C5253BCA19004EF8EA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C477C4253BCA19004EF8EA /* AccountViewController.swift */; };
@@ -54,6 +55,7 @@
 		36596AA07F85050142B3104F /* Pods_Swap2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AD43FE8DC2E12BA3596C9A /* Pods-Swap2-Swap2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2-Swap2UITests.release.xcconfig"; path = "Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		64ED1755D96E9E575069C2F9 /* Pods-Swap2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2Tests.release.xcconfig"; path = "Target Support Files/Pods-Swap2Tests/Pods-Swap2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		72A69E43253DDC1E00AEE3B5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		72AB1D54253B41C40099FD50 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		72C477B9253BB598004EF8EA /* ScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewController.swift; sourceTree = "<group>"; };
 		72C477C4253BCA19004EF8EA /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				F7300A652537B0C800E02B82 /* Utilities.swift */,
 				F77049202538051000EF3869 /* Constants.swift */,
+				72A69E43253DDC1E00AEE3B5 /* CustomTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F77048F32537FE8C00EF3869 /* homePageViewController.swift in Sources */,
+				72A69E44253DDC1E00AEE3B5 /* CustomTextField.swift in Sources */,
 				F7300A662537B0C800E02B82 /* Utilities.swift in Sources */,
 				F7300A5E25379CC700E02B82 /* FirstViewController.swift in Sources */,
 				F7300A0C2537953B00E02B82 /* AppDelegate.swift in Sources */,
