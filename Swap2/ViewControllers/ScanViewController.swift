@@ -19,6 +19,7 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
 
     
     @IBAction func scan(_ sender: Any) {
+        print("scanning")
         let image = UIImagePickerController()
         image.delegate = self
         image.sourceType = UIImagePickerController.SourceType.camera
