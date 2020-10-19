@@ -53,9 +53,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     
-    @IBAction func Back(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
+
     
     //if everything correct return nil
     //if not correct return error message

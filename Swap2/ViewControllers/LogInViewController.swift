@@ -86,11 +86,7 @@ class LogInViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func Back(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
 
-    }
     
     
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YXm-XH-xkI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YXm-XH-xkI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -73,7 +73,7 @@
                                                 <state key="normal" title="LogIn"/>
                                                 <connections>
                                                     <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ato-CY-3r7"/>
-                                                    <segue destination="j35-ft-mT4" kind="presentation" modalPresentationStyle="fullScreen" id="dME-Lo-Rth"/>
+                                                    <segue destination="j35-ft-mT4" kind="show" id="dME-Lo-Rth"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yO3-6d-XTe">
@@ -85,7 +85,7 @@
                                                 <state key="normal" title="Sign Up"/>
                                                 <connections>
                                                     <action selector="signUpTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hmp-fV-gzq"/>
-                                                    <segue destination="5gB-OG-XC4" kind="presentation" modalPresentationStyle="overFullScreen" id="Uss-me-IWS"/>
+                                                    <segue destination="5gB-OG-XC4" kind="show" id="Uss-me-IWS"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -122,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Deb-NV-s95">
-                                <rect key="frame" x="40" y="84" width="334" height="260"/>
+                                <rect key="frame" x="40" y="128" width="334" height="260"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKc-68-bOl">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -158,16 +158,6 @@
                                     <constraint firstItem="55W-hI-4e5" firstAttribute="height" secondItem="IKc-68-bOl" secondAttribute="height" id="vrU-P6-pak"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22r-uA-nDi">
-                                <rect key="frame" x="158" y="526" width="89" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="Back:" destination="5gB-OG-XC4" eventType="touchUpInside" id="Qel-Yy-Qir"/>
-                                    <action selector="Back:" destination="j35-ft-mT4" eventType="touchUpInside" id="rLr-UO-SJ0"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fdj-hR-Uz4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -215,17 +205,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="819-LX-WDa">
-                                <rect key="frame" x="163" y="540" width="89" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <action selector="Back:" destination="5gB-OG-XC4" eventType="touchUpInside" id="wzP-Kv-aLD"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="JyJ-QL-s3K">
-                                <rect key="frame" x="40" y="84" width="334" height="400"/>
+                                <rect key="frame" x="40" y="128" width="334" height="400"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kIh-Jv-1sO">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
@@ -281,6 +262,7 @@
                             <constraint firstItem="JyJ-QL-s3K" firstAttribute="leading" secondItem="mUF-aA-ASp" secondAttribute="leading" constant="40" id="bUh-zq-e74"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bdG-yD-N64"/>
                     <connections>
                         <outlet property="emailTextField" destination="sv6-4O-b2x" id="Kvy-nh-X4H"/>
                         <outlet property="errorLabel" destination="NwH-Lt-Lgf" id="E0Z-pX-bYF"/>
@@ -308,9 +290,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
