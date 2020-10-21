@@ -76,6 +76,7 @@ class LogInViewController: UIViewController {
                 self.errorLabel.alpha = 1
             }
             else {
+                print("here")
                 self.userDefault.set(true, forKey: "usersignedin")
                 self.userDefault.synchronize()
                 let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? homePageViewController

@@ -15,7 +15,7 @@
         <!--Account-->
         <scene sceneID="Qbg-jH-cmT">
             <objects>
-                <viewController title="Account" id="EHh-Jk-Mfv" sceneMemberID="viewController">
+                <viewController title="Account" id="EHh-Jk-Mfv" customClass="AccountViewController" customModule="Swap2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lxx-ns-CZf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,6 +125,7 @@
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="Logout:" destination="EHh-Jk-Mfv" eventType="touchUpInside" id="HSt-dk-Cvj"/>
                                             <action selector="Logout:" destination="lIG-SX-zxc" eventType="touchUpInside" id="cYb-Ex-m9S"/>
                                         </connections>
                                     </button>
@@ -178,6 +179,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XM-S1-fbE">
                                 <rect key="frame" x="165" y="693" width="84" height="30"/>
                                 <state key="normal" title="Scan"/>
+                                <connections>
+                                    <action selector="scan:" destination="4jq-WR-5sY" eventType="touchUpInside" id="NhS-7k-ct2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kHo-cJ-yAK"/>
@@ -202,7 +206,7 @@
         <!--Home-->
         <scene sceneID="8eJ-xn-CRQ">
             <objects>
-                <viewController title="Home" id="GF7-vi-Vvu" sceneMemberID="viewController">
+                <viewController title="Home" id="GF7-vi-Vvu" customClass="homePageViewController" customModule="Swap2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uLY-sV-MwY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

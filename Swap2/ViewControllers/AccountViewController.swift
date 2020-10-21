@@ -19,6 +19,7 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func Logout(_ sender: Any) {
+        print("signing out")
         self.userDefault.set(false, forKey: "usersignedin")
         self.userDefault.synchronize()
     }
