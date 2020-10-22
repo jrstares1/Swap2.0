@@ -16,18 +16,9 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if userDefault.bool(forKey: "usersignedin") {
-            performSegue(withIdentifier: "Verified", sender: self)
-        }
+        
         // Do any additional setup after loading the view.
-       // for family: String in UIFont.familyNames
-//               {
-//                   print(family)
-//                   for names: String in UIFont.fontNames(forFamilyName: family)
-//                   {
-//                       print("== \(names)")
-//                   }
-//               }
+      
         setUpElements()
     }
     
@@ -72,17 +63,22 @@ class LogInViewController: UIViewController {
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
                 // Couldn't sign in
+                print("login error")
                 self.errorLabel.text = error!.localizedDescription
                 self.errorLabel.alpha = 1
             }
             else {
-                print("here")
+                print("login in authenticated here")
                 self.userDefault.set(true, forKey: "usersignedin")
                 self.userDefault.synchronize()
-                let homeViewController = self.storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? homePageViewController
-                self.view.window?.rootViewController = homeViewController
-                self.view.window?.makeKeyAndVisible()
-               // self.performSegue(withIdentifier: "Verified", sender: self.storyboard)
+                
+                
+                let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
+                self.present(initViewController, animated: true, completion: nil)
+                
+                
+
             }
         }
     }

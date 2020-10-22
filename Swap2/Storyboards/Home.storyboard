@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GF7-vi-Vvu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GF7-vi-Vvu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -158,6 +158,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Account" image="person.circle" catalog="system" landscapeImage="person.circle" selectedImage="person.circle" id="Qjb-w3-eQq"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="FWe-eS-GRa" id="l6O-Am-M8p"/>
+                        <outlet property="nameLabel" destination="tfu-qc-8AN" id="zbW-wl-kJA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xye-my-amL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="lIG-SX-zxc" userLabel="Exit" sceneMemberID="exit"/>
@@ -294,6 +298,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" landscapeImage="house.fill" selectedImage="house.fill" id="w3X-dO-2ao"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="EV4-nY-zAA" id="Yzu-sv-G5B"/>
+                        <outlet property="nameLabel" destination="aZ1-gx-m3L" id="kwY-qA-i0s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QX4-2v-xRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -302,7 +310,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Gdb-vQ-hon">
             <objects>
-                <tabBarController storyboardIdentifier="HomeTab" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Jh-2H-gOh" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeVC" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Jh-2H-gOh" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hja-sx-mhJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

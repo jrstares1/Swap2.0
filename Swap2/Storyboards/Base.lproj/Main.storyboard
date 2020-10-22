@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YXm-XH-xkI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YXm-XH-xkI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -142,7 +142,6 @@
                                         <state key="normal" title="Log In"/>
                                         <connections>
                                             <action selector="loginTapped:" destination="j35-ft-mT4" eventType="touchUpInside" id="q0p-e4-JYL"/>
-                                            <segue destination="3rb-oa-pL9" kind="presentation" identifier="Verified" animates="NO" modalPresentationStyle="fullScreen" id="yGR-et-zYm"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NrY-aM-Qto">
@@ -182,7 +181,7 @@
         <!--Navigation Controller-->
         <scene sceneID="tVB-lf-2w8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YXm-XH-xkI" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginVC" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="overFullScreen" id="YXm-XH-xkI" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BJd-Tt-ByY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -236,7 +235,6 @@
                                         <state key="normal" title="Sign Up"/>
                                         <connections>
                                             <action selector="signUpTapped:" destination="5gB-OG-XC4" eventType="touchUpInside" id="AqP-gy-DXu"/>
-                                            <segue destination="3rb-oa-pL9" kind="presentation" animates="NO" id="979-pR-DVp"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NwH-Lt-Lgf">
@@ -277,20 +275,7 @@
             </objects>
             <point key="canvasLocation" x="1889.8550724637682" y="581.25"/>
         </scene>
-        <!--HomeTab-->
-        <scene sceneID="RgR-Ft-yAG">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="Home" referencedIdentifier="HomeTab" id="3rb-oa-pL9" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="wDZ-2u-nHx"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="czf-aD-QlX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2677" y="176"/>
-        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="979-pR-DVp"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

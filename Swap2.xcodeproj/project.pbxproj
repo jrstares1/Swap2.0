@@ -30,7 +30,6 @@
 		F7300A662537B0C800E02B82 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7300A652537B0C800E02B82 /* Utilities.swift */; };
 		F7300A6F2537DD1600E02B82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7300A6E2537DD1600E02B82 /* GoogleService-Info.plist */; };
 		F77048F32537FE8C00EF3869 /* homePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77048F22537FE8C00EF3869 /* homePageViewController.swift */; };
-		F77049212538051000EF3869 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77049202538051000EF3869 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +84,6 @@
 		F7300A652537B0C800E02B82 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F7300A6E2537DD1600E02B82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F77048F22537FE8C00EF3869 /* homePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = homePageViewController.swift; path = Swap2/ViewControllers/homePageViewController.swift; sourceTree = SOURCE_ROOT; };
-		F77049202538051000EF3869 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +229,6 @@
 			isa = PBXGroup;
 			children = (
 				F7300A652537B0C800E02B82 /* Utilities.swift */,
-				F77049202538051000EF3869 /* Constants.swift */,
 				72A69E43253DDC1E00AEE3B5 /* CustomTextField.swift */,
 			);
 			path = Helpers;
@@ -525,7 +522,6 @@
 				F7300A5425379BA300E02B82 /* LogInViewController.swift in Sources */,
 				72C477C5253BCA19004EF8EA /* AccountViewController.swift in Sources */,
 				F7300A4F2537970100E02B82 /* SignUpViewController.swift in Sources */,
-				F77049212538051000EF3869 /* Constants.swift in Sources */,
 				72C477BA253BB598004EF8EA /* ScanViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

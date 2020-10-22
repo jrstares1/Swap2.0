@@ -115,6 +115,8 @@ class SignUpViewController: UIViewController {
                     
                     db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
                         
+                        
+                        
                         if error != nil {
                             // Show error message
                             self.showError("Error saving user data")
@@ -141,10 +143,9 @@ class SignUpViewController: UIViewController {
     
     func transitionToHome() {
 
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? homePageViewController
-
-        view.window?.rootViewController = homeViewController
-        view.window?.makeKeyAndVisible()
+        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+        let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
+        self.present(initViewController, animated: true, completion: nil)
 
     }
     
