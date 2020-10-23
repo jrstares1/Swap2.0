@@ -245,8 +245,8 @@
 				F7300A042537953B00E02B82 /* Sources */,
 				F7300A052537953B00E02B82 /* Frameworks */,
 				F7300A062537953B00E02B82 /* Resources */,
-				5EFEE5808097676743DE8385 /* [CP] Embed Pods Frameworks */,
-				8A413BE92D30D36A980D9B83 /* [CP] Copy Pods Resources */,
+				D6D2F9C5B6782289AF61E1C0 /* [CP] Embed Pods Frameworks */,
+				B60A70314787C21B0BF608C6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -284,8 +284,8 @@
 				F7300A252537953E00E02B82 /* Sources */,
 				F7300A262537953E00E02B82 /* Frameworks */,
 				F7300A272537953E00E02B82 /* Resources */,
-				62B5EEFFE989E4BA1535289C /* [CP] Embed Pods Frameworks */,
-				72877147BC95BD3F759FF2C3 /* [CP] Copy Pods Resources */,
+				A5EFF610E38BF35F6E07FDC0 /* [CP] Embed Pods Frameworks */,
+				B6A73547E60541369F640075 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -416,24 +416,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5EFEE5808097676743DE8385 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		62B5EEFFE989E4BA1535289C /* [CP] Embed Pods Frameworks */ = {
+		A5EFF610E38BF35F6E07FDC0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -450,7 +433,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		72877147BC95BD3F759FF2C3 /* [CP] Copy Pods Resources */ = {
+		B60A70314787C21B0BF608C6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B6A73547E60541369F640075 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -467,21 +467,21 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8A413BE92D30D36A980D9B83 /* [CP] Copy Pods Resources */ = {
+		D6D2F9C5B6782289AF61E1C0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Swap2/Pods-Swap2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D6D58B2BBBE1E573469E6672 /* [CP] Check Pods Manifest.lock */ = {
