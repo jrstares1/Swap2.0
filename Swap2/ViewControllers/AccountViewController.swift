@@ -19,7 +19,10 @@ class AccountViewController: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.isScrollEnabled = true
+       // tableView.delegate = self
+        //tableView.dataSource = self
+        tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
         
         // Do any additional setup after loading the view.
         if (Auth.auth().currentUser != nil) {
@@ -122,5 +125,10 @@ class AccountViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+   
 }
+//extension ViewController: UITableViewDataSource, UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//    }
+//}
