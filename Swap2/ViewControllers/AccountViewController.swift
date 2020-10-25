@@ -13,7 +13,9 @@ class AccountViewController: UIViewController {
 
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
-    
+    var transparentView = UIView()
+    var tableView = UITableView()
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,7 +71,28 @@ class AccountViewController: UIViewController {
     
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBAction func addAccounts(_ sender: Any) {
+        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        transparentView.frame = self.view.frame
+        self.view.addSubview(transparentView)
+            
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
+        transparentView.addGestureRecognizer(tapGesture)
+        
+        transparentView.alpha = 0
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+            self.transparentView.alpha = 0.5
+        } , completion: nil)
+
+    }
     
+    @objc func onClickTransparentView(){
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+            self.transparentView.alpha = 0
+        } , completion: nil)
+    }
     @IBOutlet weak var emailLabel: UILabel!
     
     @IBAction func Logout(_ sender: Any) {
@@ -80,7 +103,6 @@ class AccountViewController: UIViewController {
         let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as UIViewController
 //        initViewController.modalTransitionStyle = .crossDissolve
         self.present(initViewController, animated: true, completion: nil)
-        
     }
     
     /*
