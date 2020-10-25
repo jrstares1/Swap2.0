@@ -15,6 +15,7 @@ class AccountViewController: UIViewController {
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     var transparentView = UIView()
     var tableView = UITableView()
+    let height: CGFloat = 400
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +76,10 @@ class AccountViewController: UIViewController {
         transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         transparentView.frame = self.view.frame
         self.view.addSubview(transparentView)
-            
+        self.view.addSubview(tableView)
+        
+        let screensize = UIScreen.main.bounds.size
+        tableView.frame = CGRect(x: 0, y: screensize.height, width: screensize.width, height: height)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
         transparentView.addGestureRecognizer(tapGesture)
@@ -84,13 +88,17 @@ class AccountViewController: UIViewController {
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
             self.transparentView.alpha = 0.5
+            self.tableView.frame = CGRect(x: 0, y: screensize.height - self.height, width: screensize.width, height: self.height)
         } , completion: nil)
 
     }
     
     @objc func onClickTransparentView(){
+        let screensize = UIScreen.main.bounds.size
+
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
             self.transparentView.alpha = 0
+            self.tableView.frame = CGRect(x: 0, y: screensize.height, width: screensize.width, height: self.height)
         } , completion: nil)
     }
     @IBOutlet weak var emailLabel: UILabel!
