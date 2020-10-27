@@ -16,6 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        
+        
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 
@@ -29,6 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -46,6 +50,47 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>){
+        // Determine who sent the URL.
+
+
+        guard let context = URLContexts.first else { return }
+
+        //swap2://github/?code=9cd5551a9c46cf7e4388
+        print("url: \(context.url.absoluteURL)") // https://app.donnywals.com/post/10
+        print("scheme: \(context.url.scheme)") // https
+        print("host: \(context.url.host)") // app.donnywals.com
+        print("path: \(context.url.path)") // /post/10
+        print("components: \(context.url.pathComponents)") // ["/", "posts", "10"]
+        //get code here
+        var code = context.url.absoluteURL.absoluteString
+        
+        UserDefaults.standard.set(code, forKey: "Code")  //String
+
+        //this way of transition reloads the view controller. I send it to accountVC
+        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+        let rootVC: UIViewController = storyboard.instantiateViewController(withIdentifier: "AccountVC") as UIViewController
+        
+        let rootNC = UINavigationController(rootViewController: rootVC)
+        self.window?.rootViewController = rootNC
+        self.window?.makeKeyAndVisible()
+        
+        
+
+//        this way of transistion does not reload the view controller
+//        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+//        let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
+//        let rootViewController = self.window!.rootViewController as! UINavigationController;
+//        rootViewController.pushViewController(initViewController, animated: true);
+//
+    }
+    
+   
+
+        
+            
+
 
 
 }

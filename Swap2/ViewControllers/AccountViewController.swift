@@ -16,20 +16,31 @@ class AccountViewController: UIViewController {
     var transparentView = UIView()
     var tableView = UITableView()
     let height: CGFloat = 400
+    
+ 
   
     override func viewDidLoad() {
+
+        
+        print("account view did load")
         super.viewDidLoad()
+        
+        
         tableView.isScrollEnabled = true
-       // tableView.delegate = self
-        //tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
+        
         
         // Do any additional setup after loading the view.
         if (Auth.auth().currentUser != nil) {
           // User is signed in.
-          
             let user = Auth.auth().currentUser
             if let user = user {
+                
+                print("here6")
+                print(UserDefaults.standard.string(forKey: "Code"))
+
               // The user's ID, unique to the Firebase project.
               // Do NOT use this value to authenticate with your backend server,
               // if you have one. Use getTokenWithCompletion:completion: instead.
@@ -48,10 +59,8 @@ class AccountViewController: UIViewController {
                         for document in snapshot.documents {
                             let documentId = document.documentID
                             print("doc id " + documentId) //This print all objects
-                            
                             let firstname = document.get("firstname") as! String
                             print("first name " + firstname)
-                            
                             let lastname = document.get("lastname") as! String
                             print("last name " + lastname)
                             
@@ -116,6 +125,92 @@ class AccountViewController: UIViewController {
         self.present(initViewController, animated: true, completion: nil)
     }
     
+    
+    
+    @IBAction func githubButton(_ sender: Any) {
+        if (Auth.auth().currentUser != nil) {
+          // User is signed in.
+            let user = Auth.auth().currentUser
+            if let user = user {
+                
+                user.getIDTokenForcingRefresh(true) { idToken, error in
+                if let error = error {
+                    // Handle error
+                    print("Something is wrong with the token")
+                    return;
+                }
+
+                // Send token to your backend via HTTPS
+                let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/user")
+                guard let requestUrl = url else { fatalError() }
+
+                // Create URL Request
+                var request = URLRequest(url: requestUrl)
+
+                // Specify HTTP Method to use
+                request.httpMethod = "GET"
+                  
+                // Request Header
+                request.setValue("Bearer " + idToken!, forHTTPHeaderField: "Authorization")
+
+
+                // Send HTTP Request
+                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                        
+                // Check if Error took place
+                if let error = error {
+                    print("Error took place \(error)")
+                        return
+                }
+                        
+                // Read HTTP Response Status code
+                if let response = response as? HTTPURLResponse {
+                    print("Response HTTP Status code: \(response.statusCode)")
+                }
+                    
+                //ADD Later if we get a 403 error stop.
+                
+                // Convert HTTP Response Data to a simple String
+                if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                    print("Response data string:\n \(dataString)")
+                }
+                        
+                }
+                task.resume()
+
+            
+                //Now send to the url
+                if let url = URL(string: "https://github.com/login/oauth/authorize?client_id=79be74dce9c0e8b91df0&scope=user:follow") {
+                    UIApplication.shared.open(url)
+                }
+                    
+                    
+                
+                //get code here and make put request
+//                    let mySceneDelegate = self.view.window?.windowScene?.delegate
+//                    let codeVar = (self.window?.windowScene?.delegate as! SceneDelegate).codeVariable
+
+
+            }
+                
+                
+                
+        }
+        
+                
+                
+                } else {
+                  // No user is signed in.
+                    print("sign them out")
+                }
+    
+    
+    
+        }
+    
+    
+    
+
     /*
     // MARK: - Navigation
 
@@ -125,8 +220,15 @@ class AccountViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
    
 }
+
+
+
+
 //extension ViewController: UITableViewDataSource, UITableViewDelegate {
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //
