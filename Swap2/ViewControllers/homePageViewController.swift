@@ -14,7 +14,7 @@ class homePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("home page view did load")
         // Do any additional setup after loading the view.
         if (Auth.auth().currentUser != nil) {
           // User is signed in.
@@ -24,6 +24,7 @@ class homePageViewController: UIViewController {
               // Do NOT use this value to authenticate with your backend server,
               // if you have one. Use getTokenWithCompletion:completion: instead.
                 let uid = user.uid
+                print("uid" + uid)
                 let email = user.email
     //           let photoURL = user.photoURL
                 let db = Firestore.firestore()

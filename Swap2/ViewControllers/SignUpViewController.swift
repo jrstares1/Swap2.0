@@ -129,12 +129,15 @@ class SignUpViewController: UIViewController {
                                 if error != nil {
                                     // Show error message
                                     print(error)
+                                    print("error adding user data")
                                     self.showError("Error changin user data")
                                 }
                             }
                             
                             
                         }
+                    }else{
+                        print("USER NULL")
                     }
                     
 //                    db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
