@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GF7-vi-Vvu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GF7-vi-Vvu">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -191,14 +191,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="BJm-fL-kUY">
-                                <rect key="frame" x="0.0" y="64" width="414" height="749"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="CP6-v6-whQ">
+                                <rect key="frame" x="0.0" y="55" width="414" height="731.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-gv-4AY">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                        <rect key="frame" x="109.5" y="0.0" width="195" height="87"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNa-cL-JPt">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="195" height="87"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="73"/>
                                                 <nil key="textColor"/>
@@ -207,36 +207,31 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="268" text="MY CARD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFQ-Ar-d4B">
-                                        <rect key="frame" x="142.5" y="104" width="129.5" height="34.5"/>
+                                        <rect key="frame" x="142.5" y="98" width="129.5" height="34.5"/>
                                         <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="29"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="755" placeholderIntrinsicWidth="101" placeholderIntrinsicHeight="81" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfw-LL-QDy">
-                                        <rect key="frame" x="156.5" y="156.5" width="101" height="101.5"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-AO-XzV">
+                                        <rect key="frame" x="107" y="143.5" width="200" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="101" id="2Tr-4v-YIV"/>
-                                            <constraint firstAttribute="height" constant="104" id="Ree-GV-Q0Z"/>
+                                            <constraint firstAttribute="height" constant="200" id="Z3s-sY-2wh"/>
                                         </constraints>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" backgroundImage="qrcode" catalog="system">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-gx-m3L">
-                                        <rect key="frame" x="158.5" y="276.5" width="97.5" height="28.5"/>
+                                        <rect key="frame" x="158.5" y="354.5" width="97.5" height="28.5"/>
                                         <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="johndoe@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EV4-nY-zAA">
-                                        <rect key="frame" x="109" y="322" width="196.5" height="26.5"/>
+                                        <rect key="frame" x="109" y="394" width="196.5" height="26.5"/>
                                         <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ozr-MS-xrK">
-                                        <rect key="frame" x="87" y="365.5" width="240" height="383.5"/>
+                                        <rect key="frame" x="0.0" y="431.5" width="414" height="300"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AWG-lx-zf1">
                                             <size key="itemSize" width="128" height="128"/>
@@ -246,7 +241,7 @@
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="homeCollectionCell" id="Ved-QG-kEn">
-                                                <rect key="frame" x="56" y="0.0" width="128" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pGK-xC-7iF">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
@@ -257,24 +252,20 @@
                                         </cells>
                                     </collectionView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="SAU-gv-4AY" secondAttribute="trailing" id="1Vl-TO-xnh"/>
-                                    <constraint firstItem="SAU-gv-4AY" firstAttribute="leading" secondItem="BJm-fL-kUY" secondAttribute="leading" id="32e-tO-3Mw"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bGO-fH-mhS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bGO-fH-mhS" firstAttribute="bottom" secondItem="BJm-fL-kUY" secondAttribute="bottom" id="4x3-YU-kYD"/>
-                            <constraint firstItem="BJm-fL-kUY" firstAttribute="top" secondItem="bGO-fH-mhS" secondAttribute="top" constant="20" id="Fka-3P-53x"/>
-                            <constraint firstItem="bGO-fH-mhS" firstAttribute="bottom" secondItem="BJm-fL-kUY" secondAttribute="bottom" id="Ne7-6w-5jf"/>
-                            <constraint firstItem="bGO-fH-mhS" firstAttribute="trailing" secondItem="BJm-fL-kUY" secondAttribute="trailing" id="gVp-iK-pgx"/>
-                            <constraint firstItem="BJm-fL-kUY" firstAttribute="leading" secondItem="bGO-fH-mhS" secondAttribute="leading" id="nek-6n-ZWp"/>
+                            <constraint firstItem="CP6-v6-whQ" firstAttribute="top" secondItem="bGO-fH-mhS" secondAttribute="top" constant="11" id="22B-Nq-obZ"/>
+                            <constraint firstItem="CP6-v6-whQ" firstAttribute="centerX" secondItem="bGO-fH-mhS" secondAttribute="centerX" id="bge-9L-Siv"/>
+                            <constraint firstItem="bGO-fH-mhS" firstAttribute="bottom" secondItem="CP6-v6-whQ" secondAttribute="bottom" constant="26.5" id="c9m-YA-7im"/>
+                            <constraint firstItem="CP6-v6-whQ" firstAttribute="centerX" secondItem="uLY-sV-MwY" secondAttribute="centerX" id="vRb-Fr-Sqb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" landscapeImage="house.fill" selectedImage="house.fill" id="w3X-dO-2ao"/>
                     <connections>
+                        <outlet property="displayQR" destination="pj5-AO-XzV" id="ADj-UC-r35"/>
                         <outlet property="emailLabel" destination="EV4-nY-zAA" id="Yzu-sv-G5B"/>
                         <outlet property="nameLabel" destination="aZ1-gx-m3L" id="kwY-qA-i0s"/>
                     </connections>
@@ -308,7 +299,6 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
-        <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="qrcode.viewfinder" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

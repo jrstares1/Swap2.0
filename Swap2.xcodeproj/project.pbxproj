@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E4AAED22549138700A47DBB /* GenerateQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AAED12549138700A47DBB /* GenerateQRCode.swift */; };
+		0E4AAED42549247E00A47DBB /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AAED32549247E00A47DBB /* GetRequest.swift */; };
 		4EF000D752303BD883BB753F /* Pods_Swap2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36596AA07F85050142B3104F /* Pods_Swap2.framework */; };
 		7245A8312545055800E532BE /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7245A8302545055800E532BE /* AccountTableViewCell.swift */; };
 		72A69E44253DDC1E00AEE3B5 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A69E43253DDC1E00AEE3B5 /* CustomTextField.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		05BAAFBAAEAC32F63BB6B0EB /* Pods-Swap2-Swap2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2-Swap2UITests.debug.xcconfig"; path = "Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0E4AAED12549138700A47DBB /* GenerateQRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateQRCode.swift; sourceTree = "<group>"; };
+		0E4AAED32549247E00A47DBB /* GetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
 		36596AA07F85050142B3104F /* Pods_Swap2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AD43FE8DC2E12BA3596C9A /* Pods-Swap2-Swap2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2-Swap2UITests.release.xcconfig"; path = "Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		64ED1755D96E9E575069C2F9 /* Pods-Swap2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2Tests.release.xcconfig"; path = "Target Support Files/Pods-Swap2Tests/Pods-Swap2Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 			children = (
 				F7300A0B2537953B00E02B82 /* AppDelegate.swift */,
 				F7300A0D2537953B00E02B82 /* SceneDelegate.swift */,
+				0E4AAED12549138700A47DBB /* GenerateQRCode.swift */,
+				0E4AAED32549247E00A47DBB /* GetRequest.swift */,
 				F7300A6A2537B0D200E02B82 /* Helpers */,
 				F7300A5825379C7000E02B82 /* ViewControllers */,
 				F7300A5925379C9600E02B82 /* Storyboards */,
@@ -524,6 +530,8 @@
 				7245A8312545055800E532BE /* AccountTableViewCell.swift in Sources */,
 				F7300A0E2537953B00E02B82 /* SceneDelegate.swift in Sources */,
 				F7300A5425379BA300E02B82 /* LogInViewController.swift in Sources */,
+				0E4AAED42549247E00A47DBB /* GetRequest.swift in Sources */,
+				0E4AAED22549138700A47DBB /* GenerateQRCode.swift in Sources */,
 				72C477C5253BCA19004EF8EA /* AccountViewController.swift in Sources */,
 				F7300A4F2537970100E02B82 /* SignUpViewController.swift in Sources */,
 				72C477BA253BB598004EF8EA /* ScanViewController.swift in Sources */,
@@ -712,7 +720,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JS.Swap2;
+				PRODUCT_BUNDLE_IDENTIFIER = JustinStares.Swap2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -735,7 +743,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JS.Swap2;
+				PRODUCT_BUNDLE_IDENTIFIER = JustinStares.Swap2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

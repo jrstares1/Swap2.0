@@ -10,7 +10,10 @@ import FirebaseAuth
 import Firebase
 
 class homePageViewController: UIViewController {
+    
+    var uid = "";
 
+    @IBOutlet weak var displayQR: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +26,7 @@ class homePageViewController: UIViewController {
               // The user's ID, unique to the Firebase project.
               // Do NOT use this value to authenticate with your backend server,
               // if you have one. Use getTokenWithCompletion:completion: instead.
-                let uid = user.uid
+                uid = user.uid
                 let email = user.email
     //           let photoURL = user.photoURL
                 let db = Firestore.firestore()
@@ -50,7 +53,15 @@ class homePageViewController: UIViewController {
                 }
             }
         
-    
+        if (uid != "" ) {
+            displayQR.image = generateCode(uid: uid)
+        } else {
+            let ac = UIAlertController(title: "Failed to Receive User ID", message: nil, preferredStyle: .alert)
+            let submitAction = UIAlertAction(title: "Dismiss", style: .default)
+            
+            ac.addAction(submitAction)
+            self.present(ac, animated: true)
+        }
     }
     
     

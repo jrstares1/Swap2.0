@@ -94,6 +94,8 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
         //Going to change this to whatever our landing page is; google is just a placeholder
         let userId = code.replacingOccurrences(of: "http://www.google.com/?uid=", with: "")
         print(userId)
+        
+        swapWith(string: "/api/swap/:" + userId)
     }
     
     
