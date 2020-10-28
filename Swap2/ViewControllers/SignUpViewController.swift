@@ -111,16 +111,38 @@ class SignUpViewController: UIViewController {
                 }
                 else {
                     // User creation successful!, now store first name and last name
-                    let db = Firestore.firestore()
                     
-                    db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
-                        
-                        
-                        
-                        if error != nil {
-                            // Show error message
-                            self.showError("Error saving user data")
+                    if (Auth.auth().currentUser != nil) {
+                      // User is signed in.
+                      
+                        let user = Auth.auth().currentUser
+                        if let user = user {
+                          // The user's ID, unique to the Firebase project.
+                          // Do NOT use this value to authenticate with your backend server,
+                          // if you have one. Use getTokenWithCompletion:completion: instead.
+                            let uid = user.uid
+                            let email = user.email
+                            print("uid " + uid)
+                            let db = Firestore.firestore()
+                            db.collection("users").document(uid).setData(["firstName":firstName, "lastName":lastName, "phoneNumber":123], merge: true){ (error) in
+                                
+                                if error != nil {
+                                    // Show error message
+                                    print(error)
+                                    self.showError("Error changin user data")
+                                }
+                            }
+                            
+                            
                         }
+                    }
+                    
+//                    db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
+//
+//                        if error != nil {
+//                            // Show error message
+//                            self.showError("Error saving user data")
+//                        }
                     }
                     
                     // Transition to the home screen
@@ -133,7 +155,7 @@ class SignUpViewController: UIViewController {
             
         }
         
-    }
+    
     
     func showError(_ message:String) {
         

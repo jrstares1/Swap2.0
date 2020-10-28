@@ -69,12 +69,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         UserDefaults.standard.set(code, forKey: "Code")  //String
 
         //this way of transition reloads the view controller. I send it to accountVC
-        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-        let rootVC: UIViewController = storyboard.instantiateViewController(withIdentifier: "AccountVC") as UIViewController
-        
-        let rootNC = UINavigationController(rootViewController: rootVC)
-        self.window?.rootViewController = rootNC
-        self.window?.makeKeyAndVisible()
+//        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+//        let rootVC: UIViewController = storyboard.instantiateViewController(withIdentifier: "AccountVC") as UIViewController
+//        
+//        let rootNC = UINavigationController(rootViewController: rootVC)
+//        self.window?.rootViewController = rootNC
+//        self.window?.makeKeyAndVisible()
         
         
 
