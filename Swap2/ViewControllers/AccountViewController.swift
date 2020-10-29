@@ -138,10 +138,20 @@ class AccountViewController: UIViewController {
         print("signing out")
         self.userDefault.set(false, forKey: "usersignedin")
         self.userDefault.synchronize()
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as UIViewController
-//        initViewController.modalTransitionStyle = .crossDissolve
-        self.present(initViewController, animated: true, completion: nil)
+        
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as UIViewController
+    //        initViewController.modalTransitionStyle = .crossDissolve
+            self.present(initViewController, animated: true, completion: nil)
+            
+            
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+        
     }
     
     
@@ -202,28 +212,19 @@ class AccountViewController: UIViewController {
                 if let url = URL(string: "https://github.com/login/oauth/authorize?client_id=79be74dce9c0e8b91df0&scope=user:follow") {
                     UIApplication.shared.open(url)
                 }
-                    
-                    
                 
                 //get code here and make put request
 //                    let mySceneDelegate = self.view.window?.windowScene?.delegate
 //                    let codeVar = (self.window?.windowScene?.delegate as! SceneDelegate).codeVariable
 
-
             }
                 
                 
-                
         }
-        
-                
-                
                 } else {
                   // No user is signed in.
                     print("sign them out")
                 }
-    
-    
     
         }
     
