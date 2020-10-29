@@ -26,7 +26,7 @@ class homePageViewController: UIViewController {
               // The user's ID, unique to the Firebase project.
               // Do NOT use this value to authenticate with your backend server,
               // if you have one. Use getTokenWithCompletion:completion: instead.
-                let uid = user.uid
+                uid = user.uid
                 print("uid" + uid)
                 let email = user.email
     //           let photoURL = user.photoURL
