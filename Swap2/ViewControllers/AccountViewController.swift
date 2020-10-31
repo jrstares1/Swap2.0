@@ -19,6 +19,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     var tableView = UITableView()
     let height: CGFloat = 400
     var accountArray = ["Github", "LinkedIn"]
+    
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AccountTableViewCell else{
             fatalError("Unable to deque cell")
@@ -265,22 +268,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
    
 }
-//extension ViewController: UITableViewDataSource, UITableViewDelegate {
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AccountTableViewCell else{
-//            fatalError("Unable to deque cell")
-//        }
-//        cell.imageView?.image = UIImage((named: accountArray[indexPath.row]))!
-//        return cell
-//    }
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return accountArray.count
-//    }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 50
-//    }
-//}
+
 
 
 

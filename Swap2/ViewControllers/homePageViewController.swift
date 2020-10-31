@@ -14,7 +14,8 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     var uid = ""
     var numCells = 0
     var currentImage : UIImage?
-
+    var accountArray = ["Github", "LinkedIn"]
+    
     @IBOutlet weak var displayQR: UIImageView!
     @IBOutlet weak var socialsTableView: UITableView!
     
@@ -24,6 +25,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
         
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
+        socialsTableView.isScrollEnabled = true
         let nib = UINib(nibName: "ActiveSocialsTableViewCell", bundle: nil)
         socialsTableView.register(nib, forCellReuseIdentifier: "ActiveSocialsTableViewCell")
         
@@ -49,6 +51,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                     } else {
                         for document in querySnapshot!.documents {
                             print("\(document.documentID)")
+                            self.accountArray.append(document.documentID)
                             if (document.documentID == "Github") {
                                 self.currentImage = #imageLiteral(resourceName: "Github")
                             }
@@ -102,15 +105,36 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return numCells
+        return accountArray.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
-        cell.socialToggle.setOn(true, animated: true)
-        cell.socialLogo.image = currentImage!
+        cell.socialLogo.image = UIImage(named: accountArray[indexPath.row])!
+        cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        cell.socialToggle.isEnabled = true
+        
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let type = accountArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
+        cell.socialToggle.isEnabled = true
+        print(type)
+        print("herereeeeeee")
+        
+    }
+    @objc func switchChanged(mySwitch: UISwitch) {
+        print("switching state")
+     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    
+    
+    
     
     
 
