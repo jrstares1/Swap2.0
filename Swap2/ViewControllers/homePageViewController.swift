@@ -50,10 +50,10 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                         for document in querySnapshot!.documents {
                             print("\(document.documentID)")
                             if (document.documentID == "Github") {
-                                self.currentImage = #imageLiteral(resourceName: "githubLogo")
+                                self.currentImage = #imageLiteral(resourceName: "Github")
                             }
                             if (document.documentID == "LinkedIn") {
-                                self.currentImage = #imageLiteral(resourceName: "linkedinLogo")
+                                self.currentImage = #imageLiteral(resourceName: "LinkedIn")
                             }
                             callingObject.numCells+=1
                             self.socialsTableView.reloadData()
