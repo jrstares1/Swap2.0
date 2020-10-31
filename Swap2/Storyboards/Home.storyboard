@@ -191,8 +191,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="CP6-v6-whQ">
-                                <rect key="frame" x="0.0" y="55" width="414" height="731.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="B4a-jB-kcA">
+                                <rect key="frame" x="0.0" y="55" width="414" height="757.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-gv-4AY">
                                         <rect key="frame" x="109.5" y="0.0" width="195" height="87"/>
@@ -207,60 +207,46 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="268" text="MY CARD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFQ-Ar-d4B">
-                                        <rect key="frame" x="142.5" y="98" width="129.5" height="34.5"/>
+                                        <rect key="frame" x="142.5" y="102" width="129.5" height="34.5"/>
                                         <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="29"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-AO-XzV">
-                                        <rect key="frame" x="107" y="143.5" width="200" height="200"/>
+                                        <rect key="frame" x="107" y="151.5" width="200" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="Z3s-sY-2wh"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-gx-m3L">
-                                        <rect key="frame" x="158.5" y="354.5" width="97.5" height="28.5"/>
+                                        <rect key="frame" x="158.5" y="366.5" width="97.5" height="28.5"/>
                                         <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="johndoe@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EV4-nY-zAA">
-                                        <rect key="frame" x="109" y="394" width="196.5" height="26.5"/>
+                                        <rect key="frame" x="109" y="410" width="196.5" height="26.5"/>
                                         <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ozr-MS-xrK">
-                                        <rect key="frame" x="0.0" y="431.5" width="414" height="300"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bME-wX-8LQ">
+                                        <rect key="frame" x="0.0" y="451.5" width="414" height="306"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AWG-lx-zf1">
-                                            <size key="itemSize" width="128" height="128"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="homeCollectionCell" id="Ved-QG-kEn">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pGK-xC-7iF">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </collectionViewCellContentView>
-                                                <color key="backgroundColor" red="0.73354346619999999" green="1" blue="0.86820924529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
+                                    </tableView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="bME-wX-8LQ" firstAttribute="leading" secondItem="B4a-jB-kcA" secondAttribute="leadingMargin" id="qb8-mM-0Md"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bGO-fH-mhS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="CP6-v6-whQ" firstAttribute="top" secondItem="bGO-fH-mhS" secondAttribute="top" constant="11" id="22B-Nq-obZ"/>
-                            <constraint firstItem="CP6-v6-whQ" firstAttribute="centerX" secondItem="bGO-fH-mhS" secondAttribute="centerX" id="bge-9L-Siv"/>
-                            <constraint firstItem="bGO-fH-mhS" firstAttribute="bottom" secondItem="CP6-v6-whQ" secondAttribute="bottom" constant="26.5" id="c9m-YA-7im"/>
-                            <constraint firstItem="CP6-v6-whQ" firstAttribute="centerX" secondItem="uLY-sV-MwY" secondAttribute="centerX" id="vRb-Fr-Sqb"/>
+                            <constraint firstItem="B4a-jB-kcA" firstAttribute="centerX" secondItem="uLY-sV-MwY" secondAttribute="centerX" id="9Hk-4c-2KR"/>
+                            <constraint firstItem="bGO-fH-mhS" firstAttribute="bottom" secondItem="B4a-jB-kcA" secondAttribute="bottom" constant="0.5" id="LHV-PR-RSO"/>
+                            <constraint firstItem="B4a-jB-kcA" firstAttribute="leading" secondItem="bGO-fH-mhS" secondAttribute="leading" id="R8v-Hm-boL"/>
+                            <constraint firstItem="B4a-jB-kcA" firstAttribute="top" secondItem="bGO-fH-mhS" secondAttribute="top" constant="11" id="cI8-f1-t0c"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" landscapeImage="house.fill" selectedImage="house.fill" id="w3X-dO-2ao"/>
@@ -268,6 +254,7 @@
                         <outlet property="displayQR" destination="pj5-AO-XzV" id="ADj-UC-r35"/>
                         <outlet property="emailLabel" destination="EV4-nY-zAA" id="Yzu-sv-G5B"/>
                         <outlet property="nameLabel" destination="aZ1-gx-m3L" id="kwY-qA-i0s"/>
+                        <outlet property="socialsTableView" destination="bME-wX-8LQ" id="c1a-kB-YBm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QX4-2v-xRR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

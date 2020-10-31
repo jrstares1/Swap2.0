@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="ActiveSocialsTableViewCell" customModule="Swap2" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SM3-l8-S4y">
+                        <rect key="frame" x="0.0" y="7" width="160" height="31"/>
+                    </imageView>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htE-vu-lak">
+                        <rect key="frame" x="255" y="7" width="51" height="31"/>
+                        <connections>
+                            <action selector="toggleSocial:" destination="KGk-i7-Jjw" eventType="valueChanged" id="Pn8-wH-K9Q"/>
+                        </connections>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="SM3-l8-S4y" secondAttribute="trailing" constant="160" id="2ud-yl-g03"/>
+                    <constraint firstItem="SM3-l8-S4y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Bcn-vQ-sRf"/>
+                    <constraint firstItem="SM3-l8-S4y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="VP8-Z9-BRC"/>
+                    <constraint firstItem="htE-vu-lak" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="255" id="bDd-bp-25M"/>
+                    <constraint firstItem="htE-vu-lak" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="fd4-zb-9gP"/>
+                    <constraint firstItem="htE-vu-lak" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SM3-l8-S4y" secondAttribute="trailing" constant="95" id="nbq-Mu-ihZ"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="htE-vu-lak" secondAttribute="trailing" constant="16" id="r2i-IE-BEw"/>
+                    <constraint firstItem="htE-vu-lak" firstAttribute="centerY" secondItem="SM3-l8-S4y" secondAttribute="centerY" id="rt4-NE-XTb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="socialLogo" destination="SM3-l8-S4y" id="ESx-Av-XYO"/>
+                <outlet property="socialToggle" destination="htE-vu-lak" id="Tck-jZ-tbc"/>
+            </connections>
+            <point key="canvasLocation" x="140.57971014492756" y="84.375"/>
+        </tableViewCell>
+    </objects>
+</document>
