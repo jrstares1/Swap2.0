@@ -32,6 +32,12 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let type = accountArray[indexPath.row]
+        if(type == "Github"){
+            githubButton()
+        }
+    }
     override func viewDidLoad() {
 
         
@@ -169,7 +175,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-    @IBAction func githubButton(_ sender: Any) {
+    func githubButton() {
         if (Auth.auth().currentUser != nil) {
           // User is signed in.
             let user = Auth.auth().currentUser
