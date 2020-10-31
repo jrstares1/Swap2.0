@@ -10,12 +10,12 @@ import UIKit
 class AccountTableViewCell: UITableViewCell {
     
     lazy var backView : UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 50))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100))
         return view
     }()
     
     lazy var settingImage: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 15, y: 10, width: 30, height: 30))
+        let imageView = UIImageView(frame: CGRect(x: self.frame.width/2 - 50, y: 10, width: 180, height: 100))
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()

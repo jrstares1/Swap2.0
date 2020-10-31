@@ -9,16 +9,29 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
 
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     var transparentView = UIView()
     var tableView = UITableView()
     let height: CGFloat = 400
-    
- 
-  
+    var accountArray = ["Github", "LinkedIn"]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AccountTableViewCell else{
+            fatalError("Unable to deque cell")
+        }
+        cell.settingImage.image = UIImage(named: accountArray[indexPath.row])!
+        return cell
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return accountArray.count
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
     override func viewDidLoad() {
 
         
@@ -27,8 +40,8 @@ class AccountViewController: UIViewController {
         
         
         tableView.isScrollEnabled = true
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
         
         
@@ -242,15 +255,26 @@ class AccountViewController: UIViewController {
     */
     
     
+
     
    
 }
-
-
-
-
 //extension ViewController: UITableViewDataSource, UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AccountTableViewCell else{
+//            fatalError("Unable to deque cell")
+//        }
+//        cell.imageView?.image = UIImage((named: accountArray[indexPath.row]))!
+//        return cell
+//    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return accountArray.count
+//    }
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 50
 //    }
 //}
+
+
+
