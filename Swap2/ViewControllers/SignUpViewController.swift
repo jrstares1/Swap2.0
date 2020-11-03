@@ -143,7 +143,10 @@ class SignUpViewController: UIViewController {
                           // if you have one. Use getTokenWithCompletion:completion: instead.
                             let uid = user.uid
                             let email = user.email
+                            
                             print("uid " + uid)
+                            GlobalVar.Name = firstName + " " + lastName
+                            GlobalVar.Number = phoneNumber
                             let db = Firestore.firestore()
                             db.collection("users").document(uid).setData(["firstName":firstName, "lastName":lastName, "phoneNumber":phoneNumber], merge: true){ (error) in
                                 
@@ -169,6 +172,9 @@ class SignUpViewController: UIViewController {
 //                        }
                     }
                     
+                    //assign global varaibles
+                    
+                
                     // Transition to the home screen
                     self.transitionToHome()
                 }

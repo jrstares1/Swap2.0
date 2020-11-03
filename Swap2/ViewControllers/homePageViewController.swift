@@ -40,6 +40,10 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 uid = user.uid
                 let email = user.email
                 
+                //setting labels
+                self.nameLabel.text = GlobalVar.Name
+                self.emailLabel.text = email
+                
                 let db = Firestore.firestore()
                 let docRef = db.collection("users").document(uid)
                 let callingObject = self
@@ -65,38 +69,20 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
 //                    self.socialsTableView.reloadData()
                 }
 
-                docRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//                        print("Document data: \(dataDescription)")
-                        
-                        let firstName = document.get("firstName") as! String
-                        let lastName = document.get("lastName") as! String
-                            
-                        //setting the labels
-                        self.nameLabel.text = firstName + " " + lastName
-                        self.emailLabel.text = email
-                            
-                        }
-                    }
-                
-                } else {
-                  // No user is signed in.
-                    print("sign them out")
-                }
+
             }
         
-        if (uid != "" ) {
-            displayQR.image = generateCode(uid: uid)
-        } else {
-            let ac = UIAlertController(title: "Failed to Receive User ID", message: nil, preferredStyle: .alert)
-            let submitAction = UIAlertAction(title: "Dismiss", style: .default)
-            
-            ac.addAction(submitAction)
-            self.present(ac, animated: true)
+            if (uid != "" ) {
+                displayQR.image = generateCode(uid: uid)
+            } else {
+                let ac = UIAlertController(title: "Failed to Receive User ID", message: nil, preferredStyle: .alert)
+                let submitAction = UIAlertAction(title: "Dismiss", style: .default)
+                
+                ac.addAction(submitAction)
+                self.present(ac, animated: true)
+            }
         }
     }
-    
     
     
     @IBOutlet weak var nameLabel: UILabel!

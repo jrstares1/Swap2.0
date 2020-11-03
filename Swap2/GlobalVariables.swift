@@ -8,5 +8,8 @@
 import Foundation
 
 struct GlobalVar {
-   static var IdToken: String=" "
+    static var IdToken: String = " "
+    static var Name: String = " "
+    static var Number: String = " "
+    
 }

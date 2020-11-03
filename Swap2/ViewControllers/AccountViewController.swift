@@ -54,75 +54,28 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
         
         
+        
+        
         // Do any additional setup after loading the view.
         if (Auth.auth().currentUser != nil) {
           // User is signed in.
             let user = Auth.auth().currentUser
             if let user = user {
-                
-//                print("here6")
-//                print(UserDefaults.standard.string(forKey: "Code"))
-
-              // The user's ID, unique to the Firebase project.
-              // Do NOT use this value to authenticate with your backend server,
-              // if you have one. Use getTokenWithCompletion:completion: instead.
                 let uid = user.uid
                 let email = user.email
-    //           let photoURL = user.photoURL
-                let db = Firestore.firestore()
-                let docRef = db.collection("users").document(uid)
-
-                docRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                        print("Document data: \(dataDescription)")
+                self.nameLabel.text = GlobalVar.Name
+                self.emailLabel.text = email
+                self.phoneLabel.text = GlobalVar.Number
                         
-                        let firstName = document.get("firstName") as! String
-                        let lastName = document.get("lastName") as! String
-                        let phoneNumber = document.get("phoneNumber") as! String
-
-
-                        self.nameLabel.text = (firstName + " " + lastName)
-                        self.emailLabel.text = email
-                        self.phoneLabel.text = phoneNumber
-                        
-                    } else {
-                        print("Document does not exist")
-                    }
                 }
             }
-//                let docRef = db.collection("users").whereField("uid", isEqualTo: uid)
-//
-//                docRef.getDocuments { (snapshot, error) in
-//                        guard let snapshot = snapshot else {
-//                            print("Error \(error!)")
-//                            return
-//                        }
-//                        for document in snapshot.documents {
-//                            let documentId = document.documentID
-//                            print("doc id " + documentId) //This print all objects
-//                            let firstname = document.get("firstname") as! String
-//                            print("first name " + firstname)
-//                            let lastname = document.get("lastname") as! String
-//                            print("last name " + lastname)
-//
-//                            //setting the labels
-//                            self.nameLabel.text = firstname + " " + lastname
-//                            self.emailLabel.text = email
-//
-//
-//                            }
-//                        }
-//
-//                } else {
-//                  // No user is signed in.
-//                    print("sign them out")
-//                }
-            
         }
 
+            
+        
+
         // Do any additional setup after loading the view.
-    }
+    
     
     
     @IBOutlet weak var nameLabel: UILabel!
