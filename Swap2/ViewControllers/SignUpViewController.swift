@@ -28,6 +28,9 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(lastNameTextField)
 
         Utilities.styleTextField(emailTextField)
+        
+        Utilities.styleTextField(phoneTextField)
+
 
         Utilities.styleTextField(passwordTextField)
         
@@ -42,11 +45,11 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var lastNameTextField: UITextField!
     
-    
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var phoneTextField: UITextField!
+        
     @IBOutlet weak var passwordTextField: UITextField!
-    
     
     @IBOutlet weak var signUpButton: UIButton!
     
@@ -72,11 +75,26 @@ class SignUpViewController: UIViewController {
         // Check if password is secure
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        let cleanedEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        let cleanedPhone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        
         //the method below is from utilities
         if Utilities.isPasswordValid(cleanedPassword) == false {
             // this means password isnt secure
             return "Please make sure your password is at least 8 characters, contains a special character and a number."
         }
+        
+        if (Utilities.isValidEmail(cleanedEmail) == false){
+            return "Not a valid email"
+        }
+        
+        if (Utilities.isValidPhone(cleanedPhone) == false){
+            return "Not a valid phone number"
+
+        }
+        
         
         //add correct email address method later here
         
@@ -101,6 +119,9 @@ class SignUpViewController: UIViewController {
             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let phoneNumber = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            
             
             // Create the user. Have to import to get this method
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
@@ -124,7 +145,7 @@ class SignUpViewController: UIViewController {
                             let email = user.email
                             print("uid " + uid)
                             let db = Firestore.firestore()
-                            db.collection("users").document(uid).setData(["firstName":firstName, "lastName":lastName, "phoneNumber":123], merge: true){ (error) in
+                            db.collection("users").document(uid).setData(["firstName":firstName, "lastName":lastName, "phoneNumber":phoneNumber], merge: true){ (error) in
                                 
                                 if error != nil {
                                     // Show error message

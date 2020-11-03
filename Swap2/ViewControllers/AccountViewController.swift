@@ -79,9 +79,12 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                         
                         let firstName = document.get("firstName") as! String
                         let lastName = document.get("lastName") as! String
+                        let phoneNumber = document.get("phoneNumber") as! String
+
 
                         self.nameLabel.text = (firstName + " " + lastName)
                         self.emailLabel.text = email
+                        self.phoneLabel.text = phoneNumber
                         
                     } else {
                         print("Document does not exist")
@@ -154,6 +157,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         } , completion: nil)
     }
     @IBOutlet weak var emailLabel: UILabel!
+    
+    
+    @IBOutlet weak var phoneLabel: UILabel!
     
     @IBAction func Logout(_ sender: Any) {
         print("signing out")
