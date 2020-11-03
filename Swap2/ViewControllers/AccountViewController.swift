@@ -12,7 +12,10 @@ import Firebase
 class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-
+    var uid = ""
+    var numCells = 0
+    var currentImage : UIImage?
+    //var accountArray = [String]()
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     var transparentView = UIView()
@@ -41,9 +44,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             githubButton()
         }
     }
+    
     override func viewDidLoad() {
-
-        
         print("account view did load")
         super.viewDidLoad()
         
@@ -52,8 +54,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
-        
-        
         
         
         // Do any additional setup after loading the view.
@@ -70,15 +70,18 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             }
         }
+    
 
             
-        
 
         // Do any additional setup after loading the view.
     
     
     
     @IBOutlet weak var nameLabel: UILabel!
+    
+    
+    @IBOutlet weak var socialsTableView: UITableView!
     
     @IBAction func addAccounts(_ sender: Any) {
         transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)

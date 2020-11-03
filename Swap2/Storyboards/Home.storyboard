@@ -8,7 +8,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -72,37 +71,20 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Cq7-Ej-KVX">
-                                        <rect key="frame" x="20" y="248" width="374" height="27.5"/>
+                                        <rect key="frame" x="121" y="248" width="172" height="27.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linked Accounts:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdg-AW-dcV">
-                                                <rect key="frame" x="101" y="0.0" width="172" height="27.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="172" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="23"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9DN-da-C0s">
-                                        <rect key="frame" x="20" y="307.5" width="374" height="300"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Hp-3v-f3V">
+                                        <rect key="frame" x="43.5" y="307.5" width="327" height="300"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Cvv-7m-lgf">
-                                            <size key="itemSize" width="128" height="128"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="accountCollectionCell" id="Yii-2p-NU5">
-                                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="SAU-sK-VYj">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </collectionViewCellContentView>
-                                                <color key="backgroundColor" red="0.73354346619999999" green="1" blue="0.86820924529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </collectionViewCell>
-                                        </cells>
-                                    </collectionView>
+                                    </tableView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O64-mH-qPh">
                                         <rect key="frame" x="189.5" y="640" width="35" height="34"/>
                                         <constraints>
@@ -136,7 +118,6 @@
                                     <constraint firstItem="Cq7-Ej-KVX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZG3-tC-xbo" secondAttribute="leading" constant="20" id="MMi-6d-Ddq"/>
                                     <constraint firstItem="uYX-nk-T0N" firstAttribute="leading" secondItem="ZG3-tC-xbo" secondAttribute="leadingMargin" id="YkY-bd-qLm"/>
                                     <constraint firstItem="uYX-nk-T0N" firstAttribute="leading" secondItem="IZg-hh-XpG" secondAttribute="leading" id="hm4-ws-56h"/>
-                                    <constraint firstItem="Cq7-Ej-KVX" firstAttribute="leading" secondItem="9DN-da-C0s" secondAttribute="leading" id="q2q-xz-O4C"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -154,6 +135,7 @@
                         <outlet property="emailLabel" destination="FWe-eS-GRa" id="l6O-Am-M8p"/>
                         <outlet property="nameLabel" destination="tfu-qc-8AN" id="zbW-wl-kJA"/>
                         <outlet property="phoneLabel" destination="c42-Rz-Bnh" id="3v9-1m-Gbx"/>
+                        <outlet property="socialsTableView" destination="1Hp-3v-f3V" id="93F-26-NGe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xye-my-amL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

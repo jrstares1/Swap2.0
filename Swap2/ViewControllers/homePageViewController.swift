@@ -14,10 +14,23 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     var uid = ""
     var numCells = 0
     var currentImage : UIImage?
-    var accountArray = ["Github", "LinkedIn"]
+    var accountArray = [String]()
     
     @IBOutlet weak var displayQR: UIImageView!
     @IBOutlet weak var socialsTableView: UITableView!
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+        print("home page view did appear")
+//        socialsTableView.reloadData()
+        auth()
+        
+
+    }
+
+   
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +41,10 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
         socialsTableView.isScrollEnabled = true
         let nib = UINib(nibName: "ActiveSocialsTableViewCell", bundle: nil)
         socialsTableView.register(nib, forCellReuseIdentifier: "ActiveSocialsTableViewCell")
-        
+        auth();
+            }
+    
+    func auth(){
         // Query Firebase for user info to display
         if (Auth.auth().currentUser != nil) {
           // User is signed in.
@@ -43,11 +59,9 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 //setting labels
                 self.nameLabel.text = GlobalVar.Name
                 self.emailLabel.text = email
-                
                 let db = Firestore.firestore()
                 let docRef = db.collection("users").document(uid)
                 let callingObject = self
-                
                 let appData = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {
@@ -55,21 +69,17 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                     } else {
                         for document in querySnapshot!.documents {
 //                            print("\(document.documentID)")
-                            self.accountArray.append(document.documentID)
-                            if (document.documentID == "Github") {
-                                self.currentImage = #imageLiteral(resourceName: "Github")
+                            if(!self.accountArray.contains(document.documentID)){
+                                self.accountArray.append(document.documentID)
+                                print("check here")
+                                print(self.accountArray)
+                                callingObject.numCells+=1
+                                self.socialsTableView.reloadData()
                             }
-                            if (document.documentID == "LinkedIn") {
-                                self.currentImage = #imageLiteral(resourceName: "LinkedIn")
-                            }
-                            callingObject.numCells+=1
-                            self.socialsTableView.reloadData()
+                            
                         }
                     }
-//                    self.socialsTableView.reloadData()
                 }
-
-
             }
         
             if (uid != "" ) {
@@ -82,8 +92,8 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.present(ac, animated: true)
             }
         }
+
     }
-    
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
@@ -98,15 +108,15 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
         cell.socialLogo.image = UIImage(named: accountArray[indexPath.row]) ?? nil
-        cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
-        cell.socialToggle.isEnabled = true
+       // cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        //cell.socialToggle.isEnabled = true
         
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = accountArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
-        cell.socialToggle.isEnabled = true
+        //cell.socialToggle.isEnabled = true
         print(type)
         print("herereeeeeee")
         
