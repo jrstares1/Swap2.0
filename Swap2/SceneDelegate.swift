@@ -111,6 +111,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
         }
         
+        
 //        UserDefaults.standard.set(code, forKey: "Code")  //String
 
         //this way of transition reloads the view controller. I send it to accountVC
@@ -131,6 +132,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
     }
     
+    class func sceneDelegate() -> SceneDelegate {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = windowScene.delegate as? SceneDelegate
+        else {
+            return (SceneDelegate.self as? SceneDelegate)!
+        }
+        return sceneDelegate
+    }
    
 
         

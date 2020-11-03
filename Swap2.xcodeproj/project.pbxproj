@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E27FAD2255109F40044CC1D /* AddContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E27FAD1255109F40044CC1D /* AddContact.swift */; };
 		0E4AAED22549138700A47DBB /* GenerateQRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AAED12549138700A47DBB /* GenerateQRCode.swift */; };
 		0E4AAED42549247E00A47DBB /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AAED32549247E00A47DBB /* GetRequest.swift */; };
 		0E82ECDB254CA6EB002844DB /* ActiveSocialsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E82ECD9254CA6EB002844DB /* ActiveSocialsTableViewCell.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		05BAAFBAAEAC32F63BB6B0EB /* Pods-Swap2-Swap2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2-Swap2UITests.debug.xcconfig"; path = "Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0E27FAD1255109F40044CC1D /* AddContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContact.swift; sourceTree = "<group>"; };
 		0E4AAED12549138700A47DBB /* GenerateQRCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateQRCode.swift; sourceTree = "<group>"; };
 		0E4AAED32549247E00A47DBB /* GetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
 		0E82ECD9254CA6EB002844DB /* ActiveSocialsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSocialsTableViewCell.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 		F7300A6A2537B0D200E02B82 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0E27FAD1255109F40044CC1D /* AddContact.swift */,
 				0E4AAED12549138700A47DBB /* GenerateQRCode.swift */,
 				0E4AAED32549247E00A47DBB /* GetRequest.swift */,
 				F7300A652537B0C800E02B82 /* Utilities.swift */,
@@ -532,6 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E27FAD2255109F40044CC1D /* AddContact.swift in Sources */,
 				F77048F32537FE8C00EF3869 /* homePageViewController.swift in Sources */,
 				72A69E44253DDC1E00AEE3B5 /* CustomTextField.swift in Sources */,
 				F7300A662537B0C800E02B82 /* Utilities.swift in Sources */,
@@ -725,7 +729,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B64Y5G4VBV;
 				INFOPLIST_FILE = Swap2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -748,7 +752,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = B64Y5G4VBV;
 				INFOPLIST_FILE = Swap2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (

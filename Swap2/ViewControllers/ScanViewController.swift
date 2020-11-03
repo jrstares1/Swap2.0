@@ -96,6 +96,7 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
         print("User ID is: " + userId)
         
         swapWith(string: userId)
+        
     }
     
     

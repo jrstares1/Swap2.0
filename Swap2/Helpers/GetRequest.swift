@@ -8,12 +8,19 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import SwiftyJSON
+
 
 func swapWith(string: String) {
+    
+    var userInfo = [String:String]()
     
     if (Auth.auth().currentUser != nil) {
         // User is signed in.
         let user = Auth.auth().currentUser
+        
+        
+        
         if let user = user {
             
             user.getIDTokenForcingRefresh(true) { idToken, error in
@@ -52,7 +59,22 @@ func swapWith(string: String) {
                     // Print out the response data as a string
                     if let data = data, let dataString = String(data: data, encoding: .utf8) {
                         print("Response data string:\n \(dataString)")
+                        
+                        do {
+                            let json = try JSON(data: data)
+                            
+                            userInfo["firstName"] = json["userData"]["firstName"].string ?? "no first"
+                            userInfo["lastName"] = json["userData"]["lastName"].string ?? "no last name"
+                            userInfo["email"] = json["userData"]["email"].string ?? "no email"
+                            userInfo["phoneNumber"] = (json["userData"]["phoneNumber "].string ?? "no phone number").replacingOccurrences(of: "-", with: "")
+                            
+                           addContact(info: userInfo)
+                            
+                        } catch{
+                            print(error)
+                        }
                     }
+                
                     
                     print("Errors and responses printed")
                 }
@@ -62,3 +84,4 @@ func swapWith(string: String) {
         }
     }
 }
+

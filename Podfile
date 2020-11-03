@@ -13,6 +13,8 @@ target 'Swap2' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
   
+  pod 'SwiftyJSON', '~> 4.0'
+  
   # Link to other firebase pods
   # https://firebase.google.com/docs/ios/setup#available-pods
   

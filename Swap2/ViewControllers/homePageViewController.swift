@@ -111,7 +111,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
-        cell.socialLogo.image = UIImage(named: accountArray[indexPath.row])!
+        cell.socialLogo.image = UIImage(named: accountArray[indexPath.row]) ?? nil
         cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         cell.socialToggle.isEnabled = true
         
