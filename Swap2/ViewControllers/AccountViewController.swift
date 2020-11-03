@@ -73,7 +73,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
        
-       // auth()
+        auth()
         
 
     }
@@ -93,45 +93,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
         
-       // auth()
+        auth()
         // Do any additional setup after loading the view.
-        if (Auth.auth().currentUser != nil) {
-          // User is signed in.
-            let user = Auth.auth().currentUser
-            if let user = user {
-                let uid = user.uid
-                let email = user.email
-                //self.nameLabel.text = GlobalVar.Name
-                //self.emailLabel.text = email
-                //self.phoneLabel.text = GlobalVar.Number
-                
-               // let uid = user.uid
-               //let email = user.email
-               //           let photoURL = user.photoURL
-                let db = Firestore.firestore()
-                let docRef = db.collection("users").document(uid)
 
-             docRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                        print("Document data: \(dataDescription)")
-                        
-                        let firstName = document.get("firstName") as! String
-                        let lastName = document.get("lastName") as! String
-                        let phoneNumber = document.get("phoneNumber") as! String
-
-
-                        self.nameLabel.text = (firstName + " " + lastName)
-                        self.emailLabel.text = email
-                        self.phoneLabel.text = phoneNumber
-                        
-                    } else {
-                        print("Document does not exist")
-                    }
-                }
-                }
-
-                }
             }
         
 
@@ -143,10 +107,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             let user = Auth.auth().currentUser
             if let user = user {
                 let uid = user.uid
-               
                 let email = user.email
-               // self.nameLabel.text = GlobalVar.Name
-                //self.emailLabel.text = email
+                self.nameLabel.text = GlobalVar.Name
+                self.emailLabel.text = email
                 self.phoneLabel.text = GlobalVar.Number
                 let db = Firestore.firestore()
                 let appData = db.collection("users/\(uid)/appData").getDocuments() {

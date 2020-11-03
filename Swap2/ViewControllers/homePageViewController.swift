@@ -61,26 +61,28 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 //self.emailLabel.text = email
                 let db = Firestore.firestore()
                 let docRef = db.collection("users").document(uid)
+                self.nameLabel.text = GlobalVar.Name
+                self.emailLabel.text = email
 
 
-             docRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                        print("Document data: \(dataDescription)")
-                        
-                        let firstName = document.get("firstName") as! String
-                        let lastName = document.get("lastName") as! String
-                        let phoneNumber = document.get("phoneNumber") as! String
-
-
-                        self.nameLabel.text = (firstName + " " + lastName)
-                        self.emailLabel.text = email
-                        //self.phoneLabel.text = phoneNumber
-                        
-                    } else {
-                        print("Document does not exist")
-                    }
-                }
+//             docRef.getDocument { (document, error) in
+//                    if let document = document, document.exists {
+//                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                        print("Document data: \(dataDescription)")
+//
+//                        let firstName = document.get("firstName") as! String
+//                        let lastName = document.get("lastName") as! String
+//                        let phoneNumber = document.get("phoneNumber") as! String
+//
+//
+//                        self.nameLabel.text = (firstName + " " + lastName)
+//                        self.emailLabel.text = email
+//                        //self.phoneLabel.text = phoneNumber
+//
+//                    } else {
+//                        print("Document does not exist")
+//                    }
+//                }
                 
                 let callingObject = self
                 let appData = db.collection("users/\(uid)/appData").getDocuments() {
