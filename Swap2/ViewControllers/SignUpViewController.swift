@@ -189,9 +189,13 @@ class SignUpViewController: UIViewController {
     
     func transitionToHome() {
 
-        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-        let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
+        let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "OnBoardingVC") as! OnBoardingViewController
+        initViewController.modalPresentationStyle = .fullScreen
         self.present(initViewController, animated: true, completion: nil)
+        
+        
+        
 
     }
     

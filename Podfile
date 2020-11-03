@@ -12,8 +12,8 @@ target 'Swap2' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Core'
-  
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'lottie-ios'
   
   # Link to other firebase pods
   # https://firebase.google.com/docs/ios/setup#available-pods
