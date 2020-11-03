@@ -36,7 +36,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         }
         else{
-            print("here bitch")
             let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
             cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
             return cell
@@ -157,9 +156,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                     } else {
                         for document in querySnapshot!.documents {
 //                            print("\(document.documentID)")
-                            print("here bitch")
                             if(!self.userAccountArray.contains(document.documentID)){
-                                print("here bitch2")
                                 self.userAccountArray.append(document.documentID)
                                 print(self.userAccountArray)
                                 print("check here")
