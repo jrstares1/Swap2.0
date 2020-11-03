@@ -50,7 +50,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                         print("Error Getting appData Documents: \(err)")
                     } else {
                         for document in querySnapshot!.documents {
-                            print("\(document.documentID)")
+//                            print("\(document.documentID)")
                             self.accountArray.append(document.documentID)
                             if (document.documentID == "Github") {
                                 self.currentImage = #imageLiteral(resourceName: "Github")
@@ -68,7 +68,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 docRef.getDocument { (document, error) in
                     if let document = document, document.exists {
                         let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                        print("Document data: \(dataDescription)")
+//                        print("Document data: \(dataDescription)")
                         
                         let firstName = document.get("firstName") as! String
                         let lastName = document.get("lastName") as! String

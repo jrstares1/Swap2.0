@@ -80,7 +80,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                         let firstName = document.get("firstName") as! String
                         let lastName = document.get("lastName") as! String
 
-
                         self.nameLabel.text = (firstName + " " + lastName)
                         self.emailLabel.text = email
                         
@@ -190,6 +189,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                     print("Something is wrong with the token")
                     return;
                 }
+                GlobalVar.IdToken = idToken!
+                print("Token Below2")
+                print(GlobalVar.IdToken)
+                
 
                 // Send token to your backend via HTTPS
                 let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/user")
@@ -203,7 +206,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                   
                 // Request Header
                 request.setValue("Bearer " + idToken!, forHTTPHeaderField: "Authorization")
-
+                    
 
                 // Send HTTP Request
                 let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

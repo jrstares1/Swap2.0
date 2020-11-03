@@ -54,19 +54,64 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>){
         // Determine who sent the URL.
 
-
         guard let context = URLContexts.first else { return }
 
-        //swap2://github/?code=9cd5551a9c46cf7e4388
-        print("url: \(context.url.absoluteURL)") // https://app.donnywals.com/post/10
-        print("scheme: \(context.url.scheme)") // https
-        print("host: \(context.url.host)") // app.donnywals.com
-        print("path: \(context.url.path)") // /post/10
-        print("components: \(context.url.pathComponents)") // ["/", "posts", "10"]
-        //get code here
-        var code = context.url.absoluteURL.absoluteString
+//        print("url: \(context.url.absoluteURL)")
+//        print("scheme: \(context.url.scheme)")
+//        print("host: \(context.url.host)")
         
-        UserDefaults.standard.set(code, forKey: "Code")  //String
+        guard let components = NSURLComponents(url: context.url.absoluteURL, resolvingAgainstBaseURL: true),
+                let albumPath = components.path,
+                let params = components.queryItems else {
+                    print("Invalid URL or album path missing")
+                    return
+            }
+
+        if let code = params.first(where: { $0.name == "code" })?.value {
+            print("Code: \(code)")
+            
+            // Send token to your backend via HTTPS
+            let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/github/" + code)
+            guard let requestUrl = url else { fatalError() }
+
+            // Create URL Request
+            var request = URLRequest(url: requestUrl)
+
+            // Specify HTTP Method to use
+            request.httpMethod = "POST"
+            // Request Header
+            print("Token Below1")
+            print(GlobalVar.IdToken)
+            request.setValue("Bearer " + GlobalVar.IdToken, forHTTPHeaderField: "Authorization")
+
+            // Send HTTP Request
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    
+            // Check if Error took place
+            if let error = error {
+                print("Error took place \(error)")
+                    return
+            }
+                    
+            // Read HTTP Response Status code
+            if let response = response as? HTTPURLResponse {
+                print("Response HTTP Status code: \(response.statusCode)")
+            }
+                
+            //ADD Later if we get a 403 error stop.
+            
+            // Convert HTTP Response Data to a simple String
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("Response data string:\n \(dataString)")
+            }
+                    
+            }
+            task.resume()
+
+            
+        }
+        
+//        UserDefaults.standard.set(code, forKey: "Code")  //String
 
         //this way of transition reloads the view controller. I send it to accountVC
 //        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
