@@ -60,6 +60,10 @@ class LogInViewController: UIViewController {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        
+        
+        
+        
         // Signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
@@ -73,7 +77,11 @@ class LogInViewController: UIViewController {
                 self.userDefault.set(true, forKey: "usersignedin")
                 self.userDefault.synchronize()
                 
+                //mkae database call here
                 
+//                GlobalVar.Name = firstName + " " + lastName
+//                GlobalVar.Number = phoneNumber
+//
                 let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
                 let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
                 self.present(initViewController, animated: true, completion: nil)

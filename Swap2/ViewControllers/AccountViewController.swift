@@ -22,57 +22,134 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     var tableView = UITableView()
     let height: CGFloat = 400
     var accountArray = ["Github", "LinkedIn"]
+    var userAccountArray = [String]()
     
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AccountTableViewCell else{
-            fatalError("Unable to deque cell")
+        
+        if(tableView == self.tableView){
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AccountTableViewCell else{
+                fatalError("Unable to deque cell")
+            }
+            cell.settingImage.image = UIImage(named: accountArray[indexPath.row])!
+            return cell
         }
-        cell.settingImage.image = UIImage(named: accountArray[indexPath.row])!
-        return cell
+        else{
+            print("here bitch")
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
+            cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
+            return cell
+        }
+       
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return accountArray.count
+        if(tableView == self.tableView){
+            return accountArray.count
+        }
+        else{
+            return userAccountArray.count
+        }
+       
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let type = accountArray[indexPath.row]
-        if(type == "Github"){
-            githubButton()
+        if(tableView == self.tableView){
+            let type = accountArray[indexPath.row]
+            if(type == "Github"){
+                githubButton()
+            }
         }
+        else{
+            let type = accountArray[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
+            //cell.socialToggle.isEnabled = true
+            print(type)
+            print("herereeeeeee")
+        }
+        
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+       
+        auth()
+        
+
+    }
+ 
     override func viewDidLoad() {
         print("account view did load")
         super.viewDidLoad()
         
+        socialsTableView.delegate = self
+        socialsTableView.dataSource = self
+        socialsTableView.isScrollEnabled = true
+        let nib = UINib(nibName: "ActiveSocialsTableViewCell", bundle: nil)
+        socialsTableView.register(nib, forCellReuseIdentifier: "ActiveSocialsTableViewCell")
         
         tableView.isScrollEnabled = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
         
-        
+       // auth()
         // Do any additional setup after loading the view.
+//        if (Auth.auth().currentUser != nil) {
+//          // User is signed in.
+//            let user = Auth.auth().currentUser
+//            if let user = user {
+//                let uid = user.uid
+//                let email = user.email
+//                self.nameLabel.text = GlobalVar.Name
+//                self.emailLabel.text = email
+//                self.phoneLabel.text = GlobalVar.Number
+//
+//                }
+//            }
+        }
+    
+
+    func auth(){
         if (Auth.auth().currentUser != nil) {
           // User is signed in.
             let user = Auth.auth().currentUser
             if let user = user {
                 let uid = user.uid
+               
                 let email = user.email
                 self.nameLabel.text = GlobalVar.Name
                 self.emailLabel.text = email
                 self.phoneLabel.text = GlobalVar.Number
-                        
+                let db = Firestore.firestore()
+                let appData = db.collection("users/\(uid)/appData").getDocuments() {
+                    (querySnapshot, err) in
+                    if let err = err {
+                        print("Error Getting appData Documents: \(err)")
+                    } else {
+                        for document in querySnapshot!.documents {
+//                            print("\(document.documentID)")
+                            print("here bitch")
+                            if(!self.userAccountArray.contains(document.documentID)){
+                                print("here bitch2")
+                                self.userAccountArray.append(document.documentID)
+                                print(self.userAccountArray)
+                                print("check here")
+                                //print(self.userAccountArray)
+                                //callingObject.numCells+=1
+                                self.socialsTableView.reloadData()
+                            }
+                            
+                        }
+                    }
+                }
                 }
             }
+        
         }
-    
 
-            
+    
 
         // Do any additional setup after loading the view.
     
