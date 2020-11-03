@@ -131,15 +131,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        rootViewController.pushViewController(initViewController, animated: true);
 //
     }
-    
-    class func sceneDelegate() -> SceneDelegate {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let sceneDelegate = windowScene.delegate as? SceneDelegate
-        else {
-            return (SceneDelegate.self as? SceneDelegate)!
-        }
-        return sceneDelegate
-    }
    
 
         
