@@ -108,7 +108,7 @@
                                         <size key="customSize" width="335" height="801"/>
                                         <connections>
                                             <outlet property="actionButton" destination="9tF-0I-IMt" id="qJw-h1-VC8"/>
-                                            <outlet property="animationView" destination="si7-lf-v3l" id="QGM-KQ-YTv"/>
+                                            <outlet property="animationView" destination="si7-lf-v3l" id="4ut-Ux-KWM"/>
                                             <outlet property="titleLabel" destination="qcI-IM-4l4" id="uuW-JQ-CNq"/>
                                         </connections>
                                     </collectionViewCell>

@@ -17,7 +17,7 @@ struct Slide {
     
     static let collection: [Slide] = [
         .init(title: "Welcome to Swap", anmimationName: "welcomeAnim", buttonColor: .systemYellow, buttonTitle: "Next"),
-        .init(title: "More info here", anmimationName: "scanAnim", buttonColor: .systemGreen, buttonTitle: "Get Started")
+        .init(title: "Scan another users qr code to swap profile information", anmimationName: "scanAnim", buttonColor: .systemGreen, buttonTitle: "Get Started")
     ]
 
 }
@@ -31,8 +31,7 @@ class OnBoardingViewController: UIViewController, UICollectionViewDelegate, UICo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! OnboardingCollectionViewCell
         let slide = slides[indexPath.item]
         cell.configure(with: slide)
-        cell.actionButtonDidTap = {
-            [weak self] in
+        cell.actionButtonDidTap = { [weak self] in
             self?.handleActionButtonTapped(at: indexPath)
             print(indexPath)
         }
@@ -100,9 +99,8 @@ class OnBoardingViewController: UIViewController, UICollectionViewDelegate, UICo
 class OnboardingCollectionViewCell: UICollectionViewCell{
         
     
-
-    @IBOutlet weak var animationView: AnimationView!
     
+    @IBOutlet weak var animationView: AnimationView!
     
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -128,7 +126,7 @@ class OnboardingCollectionViewCell: UICollectionViewCell{
         animationView.animation = animation
         animationView.loopMode = .loop
         
-        if animationView.isAnimationPlaying{
+        if !animationView.isAnimationPlaying {
             animationView.play()
         }
         

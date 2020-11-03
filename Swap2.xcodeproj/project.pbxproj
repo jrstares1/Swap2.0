@@ -41,6 +41,7 @@
 		F7DA97B025513C2F00C9A711 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DA97AF25513C2F00C9A711 /* OnBoardingViewController.swift */; };
 		F7DA97B52551411700C9A711 /* welcomeAnim.json in Resources */ = {isa = PBXBuildFile; fileRef = F7DA97B32551411600C9A711 /* welcomeAnim.json */; };
 		F7DA97B62551411700C9A711 /* scanAnim.json in Resources */ = {isa = PBXBuildFile; fileRef = F7DA97B42551411700C9A711 /* scanAnim.json */; };
+		F7DA97B825514B3C00C9A711 /* qr.json in Resources */ = {isa = PBXBuildFile; fileRef = F7DA97B725514B3C00C9A711 /* qr.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		F7DA97AF25513C2F00C9A711 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		F7DA97B32551411600C9A711 /* welcomeAnim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = welcomeAnim.json; sourceTree = "<group>"; };
 		F7DA97B42551411700C9A711 /* scanAnim.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = scanAnim.json; sourceTree = "<group>"; };
+		F7DA97B725514B3C00C9A711 /* qr.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = qr.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +271,7 @@
 		F7DA97B2255140F400C9A711 /* Assetss */ = {
 			isa = PBXGroup;
 			children = (
+				F7DA97B725514B3C00C9A711 /* qr.json */,
 				F7DA97B42551411700C9A711 /* scanAnim.json */,
 				F7DA97B32551411600C9A711 /* welcomeAnim.json */,
 			);
@@ -386,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72C477E2253BCFBE004EF8EA /* PlayfairDisplay-Regular.ttf in Resources */,
+				F7DA97B825514B3C00C9A711 /* qr.json in Resources */,
 				F7DA97AC25513BE600C9A711 /* Onboarding.storyboard in Resources */,
 				72C477DE253BCFBA004EF8EA /* Montserrat-Light.ttf in Resources */,
 				72C477D4253BCD97004EF8EA /* Info.plist in Resources */,
