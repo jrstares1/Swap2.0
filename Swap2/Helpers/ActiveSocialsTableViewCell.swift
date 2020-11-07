@@ -12,7 +12,7 @@ class ActiveSocialsTableViewCell: UITableViewCell {
     
    // @IBOutlet weak var socialToggle: UISwitch!
     
-//    @IBAction func toggleSocial(_ sender: Any) {
+//   @IBAction func toggleSocial(_ sender: Any) {
 //
 //    }
     
@@ -28,14 +28,14 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         return imageView
     }()
     
-//    lazy var socialToggle: UISwitch = {
-//        let toggleView = UISwitch(frame: CGRect(x: self.frame.width - 10, y: 40, width: 50, height: 30))
-//        toggleView.onTintColor = UIColor.systemTeal
-//        toggleView.isOn = true
-//
-//        toggleView.addTarget(self, action: #selector(statusChanged), for: .valueChanged)
-//        return toggleView
-//    }()
+    lazy var socialToggle: UISwitch = {
+        let toggleView = UISwitch(frame: CGRect(x: self.frame.width - 10, y: 40, width: 50, height: 30))
+        toggleView.onTintColor = UIColor.systemTeal
+        toggleView.isOn = true
+
+        toggleView.addTarget(self, action: #selector(statusChanged), for: .valueChanged)
+        return toggleView
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,11 +46,11 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         addSubview(backView)
         backView.addSubview(socialLogo)
-      //  backView.addSubview(socialToggle)
+        backView.addSubview(socialToggle)
     }
-//    @IBAction func statusChanged(sender: UISwitch) {
-//        print("this is here in the cell view")
-//        self.socialToggle.isOn = socialToggle.isOn ? false : true
-//         }
+    @IBAction func statusChanged(sender: UISwitch) {
+        print("this is here in the cell view")
+        self.socialToggle.isOn = socialToggle.isOn ? false : true
+         }
     
 }

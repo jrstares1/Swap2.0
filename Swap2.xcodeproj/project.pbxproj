@@ -21,6 +21,7 @@
 		72C477D4253BCD97004EF8EA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7300A192537953D00E02B82 /* Info.plist */; };
 		72C477DE253BCFBA004EF8EA /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72C477CF253BCC9E004EF8EA /* Montserrat-Light.ttf */; };
 		72C477E2253BCFBE004EF8EA /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72C477CA253BCC03004EF8EA /* PlayfairDisplay-Regular.ttf */; };
+		72F18D442557311000DD2767 /* UserAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F18D432557311000DD2767 /* UserAccountTableViewCell.swift */; };
 		B3E778DC66F0AB4CF30FAB4E /* Pods_Swap2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6A9490786A569D1DCB2056 /* Pods_Swap2Tests.framework */; };
 		C51811714694CE8D5187C0C5 /* Pods_Swap2_Swap2UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4B4AA6C39572B083EC500DE /* Pods_Swap2_Swap2UITests.framework */; };
 		F7300A0C2537953B00E02B82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7300A0B2537953B00E02B82 /* AppDelegate.swift */; };
@@ -78,6 +79,7 @@
 		72C477C4253BCA19004EF8EA /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		72C477CA253BCC03004EF8EA /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
 		72C477CF253BCC9E004EF8EA /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		72F18D432557311000DD2767 /* UserAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountTableViewCell.swift; sourceTree = "<group>"; };
 		797A6612FD73AB3DCAB7E6FE /* Pods-Swap2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2.debug.xcconfig"; path = "Target Support Files/Pods-Swap2/Pods-Swap2.debug.xcconfig"; sourceTree = "<group>"; };
 		BCE9944F57605D14B75EEB60 /* Pods-Swap2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2.release.xcconfig"; path = "Target Support Files/Pods-Swap2/Pods-Swap2.release.xcconfig"; sourceTree = "<group>"; };
 		D159544C40643619663A0DB8 /* Pods-Swap2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2Tests.debug.xcconfig"; path = "Target Support Files/Pods-Swap2Tests/Pods-Swap2Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				0E82ECDA254CA6EB002844DB /* ActiveSocialsTableViewCell.xib */,
 				72A69E43253DDC1E00AEE3B5 /* CustomTextField.swift */,
 				7245A8302545055800E532BE /* AccountTableViewCell.swift */,
+				72F18D432557311000DD2767 /* UserAccountTableViewCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -566,6 +569,7 @@
 				F77048F32537FE8C00EF3869 /* homePageViewController.swift in Sources */,
 				72A69E44253DDC1E00AEE3B5 /* CustomTextField.swift in Sources */,
 				F7300A662537B0C800E02B82 /* Utilities.swift in Sources */,
+				72F18D442557311000DD2767 /* UserAccountTableViewCell.swift in Sources */,
 				F7300A5E25379CC700E02B82 /* FirstViewController.swift in Sources */,
 				0E82ECDB254CA6EB002844DB /* ActiveSocialsTableViewCell.swift in Sources */,
 				F7300A0C2537953B00E02B82 /* AppDelegate.swift in Sources */,

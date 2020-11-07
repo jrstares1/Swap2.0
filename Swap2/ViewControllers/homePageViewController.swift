@@ -23,7 +23,6 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
         print("home page view did appear")
-//        socialsTableView.reloadData()
         auth()
         
 
@@ -65,25 +64,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.emailLabel.text = email
 
 
-//             docRef.getDocument { (document, error) in
-//                    if let document = document, document.exists {
-//                        let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//                        print("Document data: \(dataDescription)")
-//
-//                        let firstName = document.get("firstName") as! String
-//                        let lastName = document.get("lastName") as! String
-//                        let phoneNumber = document.get("phoneNumber") as! String
-//
-//
-//                        self.nameLabel.text = (firstName + " " + lastName)
-//                        self.emailLabel.text = email
-//                        //self.phoneLabel.text = phoneNumber
-//
-//                    } else {
-//                        print("Document does not exist")
-//                    }
-//                }
-                
+
                 let callingObject = self
                 let appData = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
@@ -131,15 +112,15 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
         cell.socialLogo.image = UIImage(named: accountArray[indexPath.row]) ?? nil
-       // cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
-        //cell.socialToggle.isEnabled = true
+        cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        cell.socialToggle.isEnabled = true
         
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = accountArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
-        //cell.socialToggle.isEnabled = true
+        cell.socialToggle.isEnabled = true
         print(type)
         print("herereeeeeee")
         

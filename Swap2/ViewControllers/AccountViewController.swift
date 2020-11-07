@@ -35,11 +35,15 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.settingImage.image = UIImage(named: accountArray[indexPath.row])!
             return cell
         }
-        else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
+        else {
+            print("social table view")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as? UserAccountTableViewCell else{
+                fatalError("Unable to deque cell")
+            }
             cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
             return cell
         }
+       
        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +51,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             return accountArray.count
         }
         else{
+            print(userAccountArray.count)
             return userAccountArray.count
         }
        
@@ -62,9 +67,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         else{
+            print("second tableview")
             let type = accountArray[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
-            //cell.socialToggle.isEnabled = true
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as! UserAccountTableViewCell
             print(type)
             print("herereeeeeee")
         }
@@ -79,14 +84,16 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
  
     override func viewDidLoad() {
-        print("account view did load")
+        
         super.viewDidLoad()
         
+       //self.view.addSubview(socialsTableView)
+        
+    
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
-        let nib = UINib(nibName: "ActiveSocialsTableViewCell", bundle: nil)
-        socialsTableView.register(nib, forCellReuseIdentifier: "ActiveSocialsTableViewCell")
+        socialsTableView.register(UserAccountTableViewCell.self, forCellReuseIdentifier: "UserAccountTableViewCell")
         
         tableView.isScrollEnabled = true
         tableView.delegate = self
@@ -94,9 +101,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
         
         auth()
-        // Do any additional setup after loading the view.
 
-            }
+        }
         
 
     
@@ -118,13 +124,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                         print("Error Getting appData Documents: \(err)")
                     } else {
                         for document in querySnapshot!.documents {
-//                            print("\(document.documentID)")
                             if(!self.userAccountArray.contains(document.documentID)){
                                 self.userAccountArray.append(document.documentID)
                                 print(self.userAccountArray)
-                                print("check here")
-                                //print(self.userAccountArray)
-                                //callingObject.numCells+=1
                                 self.socialsTableView.reloadData()
                             }
                             
@@ -192,7 +194,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
           try firebaseAuth.signOut()
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as UIViewController
-    //        initViewController.modalTransitionStyle = .crossDissolve
             self.present(initViewController, animated: true, completion: nil)
             
             
@@ -265,10 +266,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                     UIApplication.shared.open(url)
                 }
                 
-                //get code here and make put request
-//                    let mySceneDelegate = self.view.window?.windowScene?.delegate
-//                    let codeVar = (self.window?.windowScene?.delegate as! SceneDelegate).codeVariable
-
+               
             }
                 
                 
@@ -282,17 +280,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+ 
     
 
     
