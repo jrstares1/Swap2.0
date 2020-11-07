@@ -41,6 +41,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 fatalError("Unable to deque cell")
             }
             cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
+            cell.deleteButton.isEnabled = true
             return cell
         }
        
@@ -69,7 +70,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         else{
             print("second tableview")
             let type = accountArray[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as! UserAccountTableViewCell
+            tableView.allowsSelection = true
             print(type)
             print("herereeeeeee")
         }
