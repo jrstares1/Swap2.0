@@ -40,6 +40,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as? UserAccountTableViewCell else{
                 fatalError("Unable to deque cell")
             }
+            
             cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
             cell.deleteButton.isEnabled = true
             return cell
@@ -279,7 +280,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
         }
     
-    
+   
     
  
     

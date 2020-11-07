@@ -9,6 +9,9 @@ import UIKit
 
 class UserAccountTableViewCell: UITableViewCell {
 
+    weak var delegate: MyCellDelegate?
+    
+    
     lazy var backView : UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100))
         return view
@@ -36,6 +39,7 @@ class UserAccountTableViewCell: UITableViewCell {
     }
 
     @objc func buttonAction(_ sender:UIButton!) {
+        delegate?.didTapButton(sender)
        print("Button tapped")
     }
     
@@ -45,5 +49,9 @@ class UserAccountTableViewCell: UITableViewCell {
         backView.addSubview(socialLogo)
         backView.addSubview(deleteButton)
     }
+   
     
+}
+protocol MyCellDelegate: class {
+    func didTapButton(_ sender: UIButton)
 }
