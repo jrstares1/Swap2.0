@@ -37,15 +37,13 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else {
             print("social table view")
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as? UserAccountTableViewCell else{
-                fatalError("Unable to deque cell")
-            }
+            let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as! UserTableViewCell
+            cell.configure(with: userAccountArray[indexPath.row])
             
-            cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
-            cell.deleteButton.isEnabled = true
+//            cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
             return cell
         }
-       
+        
        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,7 +93,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
-        socialsTableView.register(UserAccountTableViewCell.self, forCellReuseIdentifier: "UserAccountTableViewCell")
+        socialsTableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserAccountTableViewCell")
         
         tableView.isScrollEnabled = true
         tableView.delegate = self
