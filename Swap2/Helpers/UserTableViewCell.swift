@@ -20,6 +20,7 @@ class UserTableViewCell: UITableViewCell {
     lazy var deleteButton: UIButton = {
         let btn = UIButton(frame:CGRect(x: self.frame.width - 20, y: 40, width: 30, height: 30))
         btn.isEnabled = true
+        //btn.setTitle("testing", for: .normal)
         let image = UIImage(named: "delete")
         btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         btn.setImage(image, for: .normal)
@@ -33,21 +34,9 @@ class UserTableViewCell: UITableViewCell {
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
-    
-    
-   // @IBOutlet var deleteButton: UIButton!
-  //  @IBOutlet var socialLogo: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        //deleteButton!.setTitle("test", for: .normal)
-        // Initialization code
-//        let delete = UIImage(named: "delete") as UIImage? //todo add image
-//        deleteButton.addTarget(self, action:  #selector(buttonAction(_:)), for: .touchUpInside)
-//        //deleteButton.setImage(delete, for: .normal)
-//        deleteButton.isEnabled = true
-//        deleteButton.setTitle("test", for: .normal)
         
     }
 
