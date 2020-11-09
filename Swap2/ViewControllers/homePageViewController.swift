@@ -114,7 +114,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.socialLogo.image = UIImage(named: accountArray[indexPath.row]) ?? nil
         cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         cell.socialToggle.isEnabled = true
-        
+        cell.accountName = accountArray[indexPath.row]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

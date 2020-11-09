@@ -21,7 +21,8 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         return view
     }()
     
-  
+    var accountName: String = ""
+    
     lazy var socialLogo: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: self.frame.width/2 - 50, y: 10, width: 180, height: 100))
         imageView.contentMode = .scaleAspectFit
@@ -34,6 +35,7 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         toggleView.isOn = true
 
         toggleView.addTarget(self, action: #selector(statusChanged), for: .valueChanged)
+        toggleView.isEnabled = true
         return toggleView
     }()
     
@@ -47,10 +49,12 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         addSubview(backView)
         backView.addSubview(socialLogo)
         backView.addSubview(socialToggle)
+        socialLogo.isUserInteractionEnabled = selected
     }
     @IBAction func statusChanged(sender: UISwitch) {
-        print("this is here in the cell view")
-        self.socialToggle.isOn = socialToggle.isOn ? false : true
+        print("status changed")
+        print(self.accountName)
+        //call to backend?
          }
     
 }

@@ -38,6 +38,8 @@ class UserTableViewCell: UITableViewCell {
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        //deleteButton!.setTitle("test", for: .normal)
         // Initialization code
 //        let delete = UIImage(named: "delete") as UIImage? //todo add image
 //        deleteButton.addTarget(self, action:  #selector(buttonAction(_:)), for: .touchUpInside)
@@ -52,12 +54,13 @@ class UserTableViewCell: UITableViewCell {
         print("Button tapped")
     }
     
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+       // deleteButton.isEnabled = selected
 //        addSubview(backView)
 //        backView.addSubview(socialLogo)
 //        backView.addSubview(deleteButton)
-//    }
+    }
    
     
 }

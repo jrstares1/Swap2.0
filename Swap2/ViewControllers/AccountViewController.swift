@@ -22,7 +22,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     var tableView = UITableView()
     let height: CGFloat = 400
     var accountArray = ["Github", "LinkedIn"]
-    var userAccountArray = [String]()
+    var userAccountArray = ["LinkedIn"]
     
     
     
@@ -36,10 +36,14 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         }
         else {
-            print("social table view")
-            let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as! UserTableViewCell
-            cell.configure(with: userAccountArray[indexPath.row])
+           
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as? UserTableViewCell else{
+                fatalError("Unable to deque cell")
+                //cell = UserTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "UserAccountTableViewCell")
+            }
             
+            cell.configure(with: userAccountArray[indexPath.row])
+            cell.backgroundColor = UIColor.systemTeal
 //            cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
             return cell
         }
@@ -51,7 +55,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             return accountArray.count
         }
         else{
-            print(userAccountArray.count)
             return userAccountArray.count
         }
        
@@ -71,7 +74,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             let type = accountArray[indexPath.row]
             tableView.allowsSelection = true
             print(type)
-            print("herereeeeeee")
         }
         
     }
@@ -93,8 +95,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
+       // let nib = UINib(nibName: "UserAccountTableViewCell", bundle: nil)
         socialsTableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserAccountTableViewCell")
         
+        //socialsTableView.register(nib, forCellReuseIdentifier: "ActiveSocialsTableViewCell")
         tableView.isScrollEnabled = true
         tableView.delegate = self
         tableView.dataSource = self
