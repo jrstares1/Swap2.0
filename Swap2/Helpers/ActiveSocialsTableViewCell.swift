@@ -35,7 +35,6 @@ class ActiveSocialsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -46,13 +45,14 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         socialToggle.isEnabled = true
         
     }
-    
-    
+
     @IBAction func statusChanged(sender: UISwitch) {
         print("status changed")
-        print(self.accountName)
+        print(sender.isOn)
+        print("account to remove " + self.accountName)
         
+        //TODO
         //call to backend -- Austin?
-         }
+    }
     
 }

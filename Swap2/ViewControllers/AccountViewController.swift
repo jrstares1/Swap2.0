@@ -36,15 +36,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         }
         else {
-           
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as? UserTableViewCell else{
                 fatalError("Unable to deque cell")
-                //cell = UserTableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "UserAccountTableViewCell")
             }
-            
-            cell.configure(with: userAccountArray[indexPath.row])
-            cell.backgroundColor = UIColor.systemTeal
-//            cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
+            cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
             return cell
         }
         
@@ -70,9 +65,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         else{
-            print("second tableview")
             let type = accountArray[indexPath.row]
-            tableView.allowsSelection = true
             print(type)
         }
         

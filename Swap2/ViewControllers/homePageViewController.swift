@@ -29,12 +29,8 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
 
     }
 
-   
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("home page view did load")
         
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
@@ -42,7 +38,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
         let nib = UINib(nibName: "ActiveSocialsTableViewCell", bundle: nil)
         socialsTableView.register(nib, forCellReuseIdentifier: "ActiveSocialsTableViewCell")
         auth();
-            }
+    }
     
     func auth(){
         // Query Firebase for user info to display
@@ -55,17 +51,10 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
               // if you have one. Use getTokenWithCompletion:completion: instead.
                 uid = user.uid
                 let email = user.email
-                
-                //setting labels
-                //self.nameLabel.text = GlobalVar.Name
-                //self.emailLabel.text = email
                 let db = Firestore.firestore()
                 let docRef = db.collection("users").document(uid)
                 self.nameLabel.text = GlobalVar.Name
                 self.emailLabel.text = email
-
-
-
                 let callingObject = self
                 let appData = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
@@ -73,7 +62,6 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                         print("Error Getting appData Documents: \(err)")
                     } else {
                         for document in querySnapshot!.documents {
-//                            print("\(document.documentID)")
                             if(!self.accountArray.contains(document.documentID)){
                                 self.accountArray.append(document.documentID)
                                 print("check here")
@@ -123,8 +111,6 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
         cell.socialToggle.isEnabled = true
         print(type)
-        print("herereeeeeee")
-        
     }
     @objc func switchChanged(mySwitch: UISwitch) {
         print("switching state")

@@ -12,30 +12,32 @@ class UserTableViewCell: UITableViewCell {
     weak var delegate: MyCellDelegate?
     
     
-//    lazy var backView : UIView = {
-//        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100))
-//        return view
-//    }()
-//    
-//    let deleteButton = UIButton(frame: CGRect(x: 300, y: 40, width: 10, height: 10))
+    lazy var backView : UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100))
+        return view
+    }()
+  
+    lazy var deleteButton: UIButton = {
+        let btn = UIButton(frame:CGRect(x: self.frame.width - 20, y: 40, width: 30, height: 30))
+        btn.isEnabled = true
+        btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        let image = UIImage(named: "delete")
+        btn.setImage(image, for: .normal)
+        btn.contentMode = .scaleAspectFit
+        return btn
+    }()
     
-    @IBOutlet var deleteButton: UIButton!
-    @IBOutlet var socialLogo: UIImageView!
     
-    static let identifier = "UserAccountTableViewCell"
+    lazy var socialLogo: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: self.frame.width/2 - 100, y: 10, width: 180, height: 100))
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     
-    static func nib() -> UINib {
-        return UINib(nibName: "UserAccountTableViewCell", bundle: nil)
-    }
-    //    lazy var socialLogo: UIImageView = {
-//        let imageView = UIImageView(frame: CGRect(x: self.frame.width/2 - 50, y: 10, width: 180, height: 100))
-//        imageView.contentMode = .scaleAspectFit
-//        return imageView
-//    }()
+    
+   // @IBOutlet var deleteButton: UIButton!
+  //  @IBOutlet var socialLogo: UIImageView!
 
-    func configure(with title: String){
-       // socialLogo!.image = UIImage(named: title) ?? nil
-    }
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -49,19 +51,30 @@ class UserTableViewCell: UITableViewCell {
         
     }
 
-    @IBAction func buttonAction(_ sender:UIButton!) {
-        delegate?.didTapButton(sender)
+    @objc func buttonAction(_ sender:UIButton!) {
+//        delegate?.didTapButton(sender)
         print("Button tapped")
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-       // deleteButton.isEnabled = selected
+        //super.setSelected(selected, animated: animated)
+       
 //        addSubview(backView)
 //        backView.addSubview(socialLogo)
 //        backView.addSubview(deleteButton)
+//
     }
-   
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubview(backView)
+        backView.addSubview(socialLogo)
+        backView.addSubview(deleteButton)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
 }
 protocol MyCellDelegate: class {
