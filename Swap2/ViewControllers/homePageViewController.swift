@@ -22,8 +22,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
-        print("home page view did appear")
+        super.viewDidAppear(animated)
         auth()
         
 
@@ -64,8 +63,6 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                         for document in querySnapshot!.documents {
                             if(!self.accountArray.contains(document.documentID)){
                                 self.accountArray.append(document.documentID)
-                                print("check here")
-                                print(self.accountArray)
                                 callingObject.numCells+=1
                                 self.socialsTableView.reloadData()
                             }

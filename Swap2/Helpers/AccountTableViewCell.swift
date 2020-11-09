@@ -34,7 +34,6 @@ class AccountTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        print("init")
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(backView)
         backView.addSubview(settingImage)

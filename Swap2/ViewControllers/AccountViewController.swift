@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     var uid = ""
@@ -22,7 +22,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     var tableView = UITableView()
     let height: CGFloat = 400
     var accountArray = ["Github", "LinkedIn"]
-    var userAccountArray = ["LinkedIn"]
+    var userAccountArray = [String]()
     
     
     
@@ -40,6 +40,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 fatalError("Unable to deque cell")
             }
             cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
+            cell.account = userAccountArray[indexPath.row]
+            cell.delegate = self
             return cell
         }
         
@@ -65,7 +67,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
         else{
-            let type = accountArray[indexPath.row]
+            let type = userAccountArray[indexPath.row]
             print(type)
         }
         
@@ -262,26 +264,19 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 if let url = URL(string: "https://github.com/login/oauth/authorize?client_id=79be74dce9c0e8b91df0&scope=user:follow") {
                     UIApplication.shared.open(url)
                 }
-                
-               
             }
-                
-                
         }
                 } else {
-                  // No user is signed in.
                     print("sign them out")
                 }
     
         }
+}
+extension AccountViewController: MyCellDelegate {
+    func didTapButton(account: String) {
+        print("fuck yea!!!!!")
+    }
     
-   
-    
- 
-    
-
-    
-   
 }
 
 

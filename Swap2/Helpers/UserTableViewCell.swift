@@ -9,8 +9,8 @@ import UIKit
 
 class UserTableViewCell: UITableViewCell {
 
-    weak var delegate: MyCellDelegate?
-    
+    var delegate: MyCellDelegate?
+    var account: String = ""
     
     lazy var backView : UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100))
@@ -20,8 +20,8 @@ class UserTableViewCell: UITableViewCell {
     lazy var deleteButton: UIButton = {
         let btn = UIButton(frame:CGRect(x: self.frame.width - 20, y: 40, width: 30, height: 30))
         btn.isEnabled = true
-        btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         let image = UIImage(named: "delete")
+        btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         btn.setImage(image, for: .normal)
         btn.contentMode = .scaleAspectFit
         return btn
@@ -52,23 +52,18 @@ class UserTableViewCell: UITableViewCell {
     }
 
     @objc func buttonAction(_ sender:UIButton!) {
-//        delegate?.didTapButton(sender)
+        delegate?.didTapButton(account: account)
         print("Button tapped")
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        //super.setSelected(selected, animated: animated)
-       
-//        addSubview(backView)
-//        backView.addSubview(socialLogo)
-//        backView.addSubview(deleteButton)
+//    override func setSelected(_ selected: Bool, animated: Bool) {
 //
-    }
+//    }
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(backView)
-        backView.addSubview(socialLogo)
-        backView.addSubview(deleteButton)
+        //addSubview(backView)
+        addSubview(socialLogo)
+        addSubview(deleteButton)
     }
     
     required init?(coder: NSCoder) {
@@ -77,8 +72,8 @@ class UserTableViewCell: UITableViewCell {
     
     
 }
-protocol MyCellDelegate: class {
-    func didTapButton(_ sender: UIButton)
+protocol MyCellDelegate{
+    func didTapButton(account: String)
 }
     
 
