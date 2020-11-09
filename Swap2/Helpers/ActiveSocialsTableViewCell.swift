@@ -9,12 +9,7 @@ import UIKit
 
 class ActiveSocialsTableViewCell: UITableViewCell {
     
-    
-   // @IBOutlet weak var socialToggle: UISwitch!
-    
-//   @IBAction func toggleSocial(_ sender: Any) {
-//
-//    }
+
     
     lazy var backView : UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100))
@@ -33,7 +28,6 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         let toggleView = UISwitch(frame: CGRect(x: self.frame.width - 10, y: 40, width: 50, height: 30))
         toggleView.onTintColor = UIColor.systemTeal
         toggleView.isOn = true
-
         toggleView.addTarget(self, action: #selector(statusChanged), for: .valueChanged)
         toggleView.isEnabled = true
         return toggleView
@@ -57,8 +51,8 @@ class ActiveSocialsTableViewCell: UITableViewCell {
     @IBAction func statusChanged(sender: UISwitch) {
         print("status changed")
         print(self.accountName)
-        self.socialToggle.isOn = !socialToggle.isOn
-        //call to backend?
+        
+        //call to backend -- Austin?
          }
     
 }
