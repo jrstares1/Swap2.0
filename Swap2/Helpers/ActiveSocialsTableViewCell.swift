@@ -49,11 +49,15 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         addSubview(backView)
         backView.addSubview(socialLogo)
         backView.addSubview(socialToggle)
-        socialLogo.isUserInteractionEnabled = selected
+        socialToggle.isEnabled = true
+        
     }
+    
+    
     @IBAction func statusChanged(sender: UISwitch) {
         print("status changed")
         print(self.accountName)
+        self.socialToggle.isOn = !socialToggle.isOn
         //call to backend?
          }
     
