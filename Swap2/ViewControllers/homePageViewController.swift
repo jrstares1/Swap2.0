@@ -62,6 +62,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                     } else {
                         for document in querySnapshot!.documents {
                             if(!self.accountArray.contains(document.documentID)){
+                                print("appending" + document.documentID)
                                 self.accountArray.append(document.documentID)
                                 callingObject.numCells+=1
                                 self.socialsTableView.reloadData()

@@ -93,7 +93,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
        // let nib = UINib(nibName: "UserAccountTableViewCell", bundle: nil)
         socialsTableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserAccountTableViewCell")
         
-        //socialsTableView.register(nib, forCellReuseIdentifier: "ActiveSocialsTableViewCell")
         tableView.isScrollEnabled = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -124,6 +123,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                     } else {
                         for document in querySnapshot!.documents {
                             if(!self.userAccountArray.contains(document.documentID)){
+                                print("appending " + document.documentID)
                                 self.userAccountArray.append(document.documentID)
                                 print(self.userAccountArray)
                                 self.socialsTableView.reloadData()
@@ -274,7 +274,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
 }
 extension AccountViewController: MyCellDelegate {
     func didTapButton(account: String) {
-        print("fuck yea!!!!!")
     }
     
 }
