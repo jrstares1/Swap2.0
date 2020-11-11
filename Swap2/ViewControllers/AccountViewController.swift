@@ -42,6 +42,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
             cell.account = userAccountArray[indexPath.row]
             cell.delegate = self
+            cell.deleteButton.isEnabled = true
             return cell
         }
         
@@ -68,6 +69,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         else{
             let type = userAccountArray[indexPath.row]
+            
             print(type)
         }
         
@@ -83,10 +85,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-       //self.view.addSubview(socialsTableView)
-        
-    
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
@@ -138,12 +136,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
 
-    
-
-        // Do any additional setup after loading the view.
-    
-    
-    
+ 
     @IBOutlet weak var nameLabel: UILabel!
     
     
@@ -274,6 +267,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
 }
 extension AccountViewController: MyCellDelegate {
     func didTapButton(account: String) {
+        print("fuck yeaaa")
     }
     
 }
