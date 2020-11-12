@@ -9,17 +9,13 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-
 class LogInViewController: UIViewController {
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
-        //here are some edits
-      
         setUpElements()
     }
     
@@ -28,41 +24,27 @@ class LogInViewController: UIViewController {
         
         //Styling elements
         Utilities.styleTextField(emailTextField)
-        
         Utilities.styleTextField(passwordTextField)
-
         Utilities.styleTextField(emailTextField)
-
         Utilities.styleTextField(passwordTextField)
-        
         Utilities.styleFilledButton(loginButton)
 
     }
     
-    
     @IBOutlet weak var emailTextField: UITextField!
     
-
     @IBOutlet weak var passwordTextField: UITextField!
-    
 
     @IBOutlet weak var loginButton: UIButton!
-    
     
     @IBOutlet weak var errorLabel: UILabel!
     
     
-    
     @IBAction func loginTapped(_ sender: Any) {
         // TODO: Validate Text Fields
-        
         // Create cleaned versions of the text field
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        
-        
-        
         
         // Signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
@@ -110,28 +92,17 @@ class LogInViewController: UIViewController {
                             }
                         }
                     }
-
                 }
-                
-                //mkae database call here
-                
-//                GlobalVar.Name = firstName + " " + lastName
-//                GlobalVar.Number = phoneNumber
 
                 let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
                 let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
                 self.present(initViewController, animated: true, completion: nil)
                 
-                
-
             }
         }
     }
     
 
-    
-    
-    
     /*
     // MARK: - Navigation
 

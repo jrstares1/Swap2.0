@@ -25,7 +25,6 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidAppear(animated)
         auth()
         
-
     }
 
     override func viewDidLoad() {

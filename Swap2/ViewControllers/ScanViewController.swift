@@ -99,7 +99,6 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
         
     }
     
-    
     //folliwng function start or stop the capture session if the view
     //is about to appear or disappear
     override func viewWillAppear(_ animated: Bool) {

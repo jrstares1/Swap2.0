@@ -157,31 +157,18 @@ class SignUpViewController: UIViewController {
                                     self.showError("Error changin user data")
                                 }
                             }
-                            
-                            
+            
                         }
                     }else{
                         print("USER NULL")
                     }
-                    
-//                    db.collection("users").addDocument(data: ["firstname":firstName, "lastname":lastName, "uid": result!.user.uid ]) { (error) in
-//
-//                        if error != nil {
-//                            // Show error message
-//                            self.showError("Error saving user data")
-//                        }
-                    }
-                    
-                    //assign global varaibles
-                    
+                }
                 
                     // Transition to the home screen
                     self.transitionToHome()
                 }
                 
             }
-            
-            
             
         }
         
@@ -199,9 +186,6 @@ class SignUpViewController: UIViewController {
         let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "OnBoardingVC") as! OnBoardingViewController
         initViewController.modalPresentationStyle = .fullScreen
         self.present(initViewController, animated: true, completion: nil)
-        
-        
-        
 
     }
     

@@ -18,7 +18,6 @@ class FirstViewController: UIViewController {
        
         if userDefault.bool(forKey: "usersignedin") {
             
-            
             if (Auth.auth().currentUser != nil) {
                 // User is signed in.
                 print("user has signed in before")
@@ -41,9 +40,7 @@ class FirstViewController: UIViewController {
                         }
                     }
                 }
-
             }
-            
             
             let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
             let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
@@ -55,19 +52,14 @@ class FirstViewController: UIViewController {
     }
     
     func setUpElements(){
-        
         //Styling elements
         Utilities.styleFilledButton(signUpButton)
-        
         Utilities.styleHollowButton(loginButton)
-
     }
-    
     
     @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var signUpButton: UIButton!
-    
     
     @IBAction func loginTapped(_ sender: Any) {
     }
@@ -76,7 +68,6 @@ class FirstViewController: UIViewController {
     }
     
    
-    
     /*
     // MARK: - Navigation
 
@@ -86,5 +77,4 @@ class FirstViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
