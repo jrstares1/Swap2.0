@@ -111,7 +111,7 @@ class LogInViewController: UIViewController {
                         }
                     }
 
-                        }
+                }
                 
                 //mkae database call here
                 
