@@ -18,9 +18,7 @@ func swapWith(string: String) {
     if (Auth.auth().currentUser != nil) {
         // User is signed in.
         let user = Auth.auth().currentUser
-        
-        
-        
+
         if let user = user {
             
             user.getIDTokenForcingRefresh(true) { idToken, error in
@@ -29,11 +27,10 @@ func swapWith(string: String) {
                     print("Something is wrong with the token\n Error: \(error)")
                     return;
                 }
-                
-                
+
                 // Create the url and subsequently the request
                 let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/swap/" + string)
-                print("User ID for get request is: " + string)
+                //print("User ID for get request is: " + string)
                 guard let requestUrl = url else {fatalError()}
                 
                 var request = URLRequest(url: requestUrl)

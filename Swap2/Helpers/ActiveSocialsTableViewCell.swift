@@ -19,7 +19,7 @@ class ActiveSocialsTableViewCell: UITableViewCell {
     var accountName: String = ""
     
     lazy var socialLogo: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: self.frame.width/2 - 50, y: 10, width: 180, height: 100))
+        let imageView = UIImageView(frame: CGRect(x: self.frame.width/2 - 50, y: 10, width: 180, height: 80))
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()

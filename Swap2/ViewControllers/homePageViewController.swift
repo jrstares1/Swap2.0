@@ -14,7 +14,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     var uid = ""
     var numCells = 0
     var currentImage : UIImage?
-    var accountArray = [String]()
+    var accountArray = ["contact"]
     //var accountArray = ["Github", "LinkedIn"]
     
     @IBOutlet weak var displayQR: UIImageView!
@@ -112,6 +112,7 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     @objc func switchChanged(mySwitch: UISwitch) {
         print("switching state")
+        
         
      }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
