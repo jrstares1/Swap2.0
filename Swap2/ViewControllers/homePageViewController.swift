@@ -79,11 +79,37 @@ class homePageViewController: UIViewController {
         }
 
     }
-    
-   
-    
-    
-    
+    func changeState(_ type: String){
+        if (Auth.auth().currentUser != nil) {
+          // User is signed in.
+            let user = Auth.auth().currentUser
+            if let user = user {
+              // The user's ID, unique to the Firebase project.
+              // Do NOT use this value to authenticate with your backend server,
+              // if you have one. Use getTokenWithCompletion:completion: instead.
+                uid = user.uid
+                let email = user.email
+                let db = Firestore.firestore()
+                let path = db.collection("users/\(uid)/appData").getDocuments() {  (querySnapshot, err) in
+                    if let err = err {
+                        print("Error Getting appData Documents: \(err)")
+                    }
+                    else{
+                        for document in querySnapshot!.documents {
+                            if(document.documentID == type){
+                                //write new data
+                                //TODO: fix harcoding here --> switch
+                                var ref = Database.database().reference()
+                                ref.child("users/\(self.uid)/appData/\(type)/username").setValue("friday")
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+
    
 }
 
@@ -104,11 +130,19 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
         let type = accountArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
         cell.socialToggle.isEnabled = true
+        cell.socialToggle.tag = indexPath.row
         print(type)
     }
     @objc func switchChanged(mySwitch: UISwitch) {
         print("switching state")
-        //TODO: ADD BACKEND FUNCTIONALITY
+        //TODO: get state of switch too
+        let state = mySwitch.isOn
+        //pass thru param
+        let type = accountArray[mySwitch.tag + 1]
+        print(type)
+        //todo: pass thru state
+        changeState(type)
+        
      }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100

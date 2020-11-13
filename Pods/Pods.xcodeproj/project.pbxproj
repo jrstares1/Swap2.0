@@ -2593,6 +2593,7 @@
 		71BDE90C6C8229B1569165640982C9E5 /* es-CL.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 4865178DB9D6E5BF0A1AB4FF75F9B426 /* es-CL.lproj */; };
 		71F512BB66034F6C03EF511328FF87F4 /* FBLPromise+Delay.h in Headers */ = {isa = PBXBuildFile; fileRef = F257157B73546E25A8EB742D5694E134 /* FBLPromise+Delay.h */; };
 		720E72B0DE01504EABFB29FDF8F8CF1F /* call.h in Copy impl/codegen Public Headers */ = {isa = PBXBuildFile; fileRef = 953832A6136A602595E8AE20C8849846 /* call.h */; };
+		72126242255F1C0500036E51 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72126241255F1C0500036E51 /* CoreServices.framework */; };
 		722D894D52EEBB63ACC0231F623539F0 /* hpack_table.cc in Sources */ = {isa = PBXBuildFile; fileRef = 2E9B521A37AD4C68C2A476E37303456A /* hpack_table.cc */; settings = {COMPILER_FLAGS = "-DGRPC_ARES=0 -Wno-comma -DGRPC_SHADOW_BORINGSSL_SYMBOLS -fno-objc-arc"; }; };
 		723BD1B7B539B561A306AA8766A719C0 /* FUIPasswordRecoveryViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ADD90D27E5B82A754AF56A9E5E37D7B1 /* FUIPasswordRecoveryViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		724E68C7FA8339926BE8F41A23B9805D /* tcp_uv.cc in Sources */ = {isa = PBXBuildFile; fileRef = FB3FCCF71F896EF1A8E4DE9C1DD344F5 /* tcp_uv.cc */; settings = {COMPILER_FLAGS = "-DGRPC_ARES=0 -Wno-comma -DGRPC_SHADOW_BORINGSSL_SYMBOLS -fno-objc-arc"; }; };
@@ -12652,6 +12653,7 @@
 		71C9FA87D963DF6BA676C22A8D468381 /* InterpolatableExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InterpolatableExtensions.swift; path = "lottie-swift/src/Private/Utility/Interpolatable/InterpolatableExtensions.swift"; sourceTree = "<group>"; };
 		71D4B94C161481282D17F6D35060F335 /* GDTCORPlatform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDTCORPlatform.h; path = GoogleDataTransport/GDTCORLibrary/Internal/GDTCORPlatform.h; sourceTree = "<group>"; };
 		720910638E89E3E27160205606DC559A /* create_channel_posix_impl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = create_channel_posix_impl.h; path = include/grpcpp/create_channel_posix_impl.h; sourceTree = "<group>"; };
+		72126241255F1C0500036E51 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		721B2E35B505B2A5AF3A7164312018AB /* inline_variable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = inline_variable.h; path = absl/base/internal/inline_variable.h; sourceTree = "<group>"; };
 		721F0FBB34626B70A4765E04458737B3 /* Pods-Swap2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Swap2.debug.xcconfig"; sourceTree = "<group>"; };
 		724A13E744DAF3BA07DA9CD246322F32 /* FBSDKTriStateBOOL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKTriStateBOOL.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKTriStateBOOL.h; sourceTree = "<group>"; };
@@ -15528,6 +15530,7 @@
 				0483E9745D23D3BA59742BCB8EB04395 /* FirebaseCore.framework in Frameworks */,
 				7182670FF09354A94F2DA9DCF2ECC5D6 /* Foundation.framework in Frameworks */,
 				91DCE1897B3F3D9C9F9C05D490BA76A6 /* GTMSessionFetcher.framework in Frameworks */,
+				72126242255F1C0500036E51 /* CoreServices.framework in Frameworks */,
 				A0DD4BC9B5E2950D86EBBDC9562BE521 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -18846,6 +18849,7 @@
 		4A18994F61610EB91D7E1EC08351494A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72126241255F1C0500036E51 /* CoreServices.framework */,
 				EE1E99FADD6F1C35DCD42C346B088CC7 /* absl.framework */,
 				61429266DDDBC765C9C7753BF4862575 /* AppAuth.framework */,
 				FAE32CB532961123479E2F3D9ACDA267 /* FBLPromises.framework */,
@@ -29719,6 +29723,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B37F3FD0C57A558C4C57CACD552240AD /* FirebaseFirestore.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -29942,6 +29947,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FEFA6A6DCB92C7991B7C1511482C111A /* FirebaseFirestore.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";

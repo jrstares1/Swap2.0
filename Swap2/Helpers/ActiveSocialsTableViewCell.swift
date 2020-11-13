@@ -15,7 +15,7 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100))
         return view
     }()
-    
+    var index: Int = 0
     var accountName: String = ""
     
     lazy var socialLogo: UIImageView = {
@@ -28,6 +28,7 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         let toggleView = UISwitch(frame: CGRect(x: self.frame.width - 10, y: 40, width: 50, height: 30))
         toggleView.onTintColor = UIColor.systemTeal
         toggleView.isOn = true
+        toggleView.tag = index
         toggleView.addTarget(self, action: #selector(statusChanged), for: .valueChanged)
         toggleView.isEnabled = true
         return toggleView
@@ -45,8 +46,9 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         
     }
 
-    @IBAction func statusChanged(sender: UISwitch) {
+    @IBAction func statusChanged(_ sender: UISwitch, _ tag: Int) {
         print("status changed")
+        
         print(sender.isOn)
         print("account to remove " + self.accountName)
         
