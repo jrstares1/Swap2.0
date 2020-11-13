@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class homePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class homePageViewController: UIViewController {
     
     var uid = ""
     var numCells = 0
@@ -19,18 +19,16 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var displayQR: UIImageView!
     @IBOutlet weak var socialsTableView: UITableView!
-    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         auth()
-        
-
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
@@ -51,11 +49,10 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 uid = user.uid
                 let email = user.email
                 let db = Firestore.firestore()
-                let docRef = db.collection("users").document(uid)
+                _ = db.collection("users").document(uid)
                 self.nameLabel.text = GlobalVar.Name
                 self.emailLabel.text = email
-                let callingObject = self
-                let appData = db.collection("users/\(uid)/appData").getDocuments() {
+                let _: Void = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {
                         print("Error Getting appData Documents: \(err)")
@@ -64,10 +61,8 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                             if(!self.accountArray.contains(document.documentID)){
                                 print("appending" + document.documentID)
                                 self.accountArray.append(document.documentID)
-                                callingObject.numCells+=1
                                 self.socialsTableView.reloadData()
                             }
-                            
                         }
                     }
                 }
@@ -78,7 +73,6 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
             } else {
                 let ac = UIAlertController(title: "Failed to Receive User ID", message: nil, preferredStyle: .alert)
                 let submitAction = UIAlertAction(title: "Dismiss", style: .default)
-                
                 ac.addAction(submitAction)
                 self.present(ac, animated: true)
             }
@@ -86,14 +80,16 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
 
     }
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
+   
     
     
     
+   
+}
+
+extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return accountArray.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,17 +108,11 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     @objc func switchChanged(mySwitch: UISwitch) {
         print("switching state")
-        
-        
+        //TODO: ADD BACKEND FUNCTIONALITY
      }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    
-    
-    
-    
-    
-    
 
+    
 }
