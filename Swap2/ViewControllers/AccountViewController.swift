@@ -15,13 +15,13 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     var uid = ""
     var numCells = 0
     var currentImage : UIImage?
-    //var accountArray = [String]()
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     var transparentView = UIView()
     var tableView = UITableView()
     let height: CGFloat = 400
     var accountArray = ["Github", "Instagram", "Facebook"]
+    //var userAccountArray = ["Github", "Instagram", "Facebook"]
     var userAccountArray = [String]()
     
     
@@ -203,10 +203,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let user = user {
                 
                 user.getIDTokenForcingRefresh(true) { idToken, error in
-                if let error = error {
-                    // Handle error
-                    print("Something is wrong with the token")
-                    return;
+                    if error != nil {
+                        // Handle error
+                        print("Something is wrong with the token")
+                        return;
                 }
                 GlobalVar.IdToken = idToken!
                 print("Token Below2")
@@ -266,7 +266,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
 }
 extension AccountViewController: MyCellDelegate {
     func didTapButton(account: String) {
-        print("fuck yeaaa")
+        //TODO: MAKE API CALL TO DELETE THE ACCOUNT HERE
+        // I already made a file to put this call in --> see "DeleteAccount.swift"
     }
     
 }
