@@ -20,7 +20,6 @@
 		72B2B1C32558929700D69A4D /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B2B1C12558929700D69A4D /* UserTableViewCell.xib */; };
 		72C477BA253BB598004EF8EA /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C477B9253BB598004EF8EA /* ScanViewController.swift */; };
 		72C477C5253BCA19004EF8EA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C477C4253BCA19004EF8EA /* AccountViewController.swift */; };
-		72C477D4253BCD97004EF8EA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7300A192537953D00E02B82 /* Info.plist */; };
 		72C477DE253BCFBA004EF8EA /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72C477CF253BCC9E004EF8EA /* Montserrat-Light.ttf */; };
 		72C477E2253BCFBE004EF8EA /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72C477CA253BCC03004EF8EA /* PlayfairDisplay-Regular.ttf */; };
 		B3E778DC66F0AB4CF30FAB4E /* Pods_Swap2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6A9490786A569D1DCB2056 /* Pods_Swap2Tests.framework */; };
@@ -398,7 +397,6 @@
 				F7DA97B825514B3C00C9A711 /* qr.json in Resources */,
 				F7DA97AC25513BE600C9A711 /* Onboarding.storyboard in Resources */,
 				72C477DE253BCFBA004EF8EA /* Montserrat-Light.ttf in Resources */,
-				72C477D4253BCD97004EF8EA /* Info.plist in Resources */,
 				F7300A182537953D00E02B82 /* LaunchScreen.storyboard in Resources */,
 				F7DA97B52551411700C9A711 /* welcomeAnim.json in Resources */,
 				72AB1D55253B41C40099FD50 /* Home.storyboard in Resources */,
@@ -811,7 +809,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Swap2Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -833,7 +831,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Swap2Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -63,7 +63,7 @@ class AccountViewController: UIViewController{
                 self.emailLabel.text = email
                 self.phoneLabel.text = GlobalVar.Number
                 let db = Firestore.firestore()
-                let appData = db.collection("users/\(uid)/appData").getDocuments() {
+                _ = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {
                         print("Error Getting appData Documents: \(err)")
