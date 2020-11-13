@@ -18,15 +18,25 @@ class UserTableViewCell: UITableViewCell {
     }()
   
     lazy var deleteButton: UIButton = {
-        let btn = UIButton(frame:CGRect(x: self.frame.width - 20, y: 40, width: 30, height: 30))
+        let btn = UIButton(frame:CGRect(x: self.frame.width - 20, y: 40, width: 100, height: 30))
         btn.isEnabled = true
-        //btn.setTitle("testing", for: .normal)
+        btn.setTitle("testing", for: .normal)
         let image = UIImage(named: "delete")
         btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         btn.addTarget(self, action: #selector(buttonAction1), for: .allTouchEvents)
-        btn.setImage(image, for: .normal)
+       // btn.setImage(image, for: .normal)
         btn.backgroundColor = UIColor.systemTeal
         btn.contentMode = .scaleAspectFit
+        
+        return btn
+    }()
+    
+    lazy var testButton: UIButton = {
+        let btn = UIButton(frame:CGRect(x: self.frame.width - 50, y: 40, width: 80, height: 30))
+        btn.isEnabled = true
+        btn.setTitle("testing", for: .normal)
+        btn.addTarget(self, action: #selector(testingAction), for: .touchUpInside)
+        btn.backgroundColor = UIColor.systemPink
         return btn
     }()
     
@@ -41,20 +51,21 @@ class UserTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
     }
-
-    @objc func buttonAction(_ sender:UIButton!) {
+    @objc func testingAction(_ sender: UIButton) {
+        print("Button tapped")
+    }
+    @objc func buttonAction(_ sender: Any) {
         delegate?.didTapButton(account: account)
         print("Button tapped")
     }
-    @IBAction func buttonAction1(_ sender:UIButton!) {
+    @IBAction func buttonAction1(_ sender: Any) {
         delegate?.didTapButton(account: account)
         print("Button tapped 1")
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         //super.setSelected(selected, animated: true)
-        if(super.isSelected){
-            buttonAction(self.deleteButton)
-        }
+        super.setSelected(selected, animated: animated)
+        addSubview(testButton)
         
 
     }
@@ -63,6 +74,8 @@ class UserTableViewCell: UITableViewCell {
         //addSubview(backView)
         addSubview(socialLogo)
         addSubview(deleteButton)
+        self.addSubview(testButton)
+        //addSubview(testButton)
     }
     
     required init?(coder: NSCoder) {

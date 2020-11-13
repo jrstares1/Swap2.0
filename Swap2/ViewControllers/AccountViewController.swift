@@ -42,7 +42,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
             cell.account = userAccountArray[indexPath.row]
             cell.delegate = self
-            cell.deleteButton.isEnabled = true
             return cell
         }
         

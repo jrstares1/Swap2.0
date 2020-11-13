@@ -59,7 +59,7 @@ func swapWith(string: String) {
                         
                         do {
                             let json = try JSON(data: data)
-                            
+                            json["userData"]
                             userInfo["firstName"] = json["userData"]["firstName"].string ?? "no first"
                             userInfo["lastName"] = json["userData"]["lastName"].string ?? "no last name"
                             userInfo["email"] = json["userData"]["email"].string ?? "no email"
