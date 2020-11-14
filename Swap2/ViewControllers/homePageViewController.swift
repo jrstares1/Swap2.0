@@ -79,28 +79,24 @@ class homePageViewController: UIViewController {
         }
 
     }
-    func changeState(_ type: String){
+    //change the state of account in db
+    func changeState(_ type: String, _ state: Bool){
+        print("turning " + type + " " + state.description)
         if (Auth.auth().currentUser != nil) {
-          // User is signed in.
             let user = Auth.auth().currentUser
             if let user = user {
-              // The user's ID, unique to the Firebase project.
-              // Do NOT use this value to authenticate with your backend server,
-              // if you have one. Use getTokenWithCompletion:completion: instead.
                 uid = user.uid
-                let email = user.email
                 let db = Firestore.firestore()
-                let path = db.collection("users/\(uid)/appData").getDocuments() {  (querySnapshot, err) in
+                _ = db.collection("users/\(uid)/appData").getDocuments() {  (querySnapshot, err) in
                     if let err = err {
                         print("Error Getting appData Documents: \(err)")
                     }
                     else{
                         for document in querySnapshot!.documents {
                             if(document.documentID == type){
-                                //write new data
                                 //TODO: fix harcoding here --> switch
-                                var ref = Database.database().reference()
-                                ref.child("users/\(self.uid)/appData/\(type)/username").setValue("friday")
+                                let ref = Database.database().reference()
+                                //ref.child("users/\(self.uid)/appData/\(type)/enabled").setValue(state)
                             }
                         }
                     }
@@ -124,24 +120,18 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
         cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         cell.socialToggle.isEnabled = true
         cell.accountName = accountArray[indexPath.row]
+        cell.socialToggle.tag = indexPath.row
+        print("index path row " + indexPath.row.description + " " + cell.accountName)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let type = accountArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
-        cell.socialToggle.isEnabled = true
-        cell.socialToggle.tag = indexPath.row
-        print(type)
     }
     @objc func switchChanged(mySwitch: UISwitch) {
-        print("switching state")
-        //TODO: get state of switch too
         let state = mySwitch.isOn
-        //pass thru param
-        let type = accountArray[mySwitch.tag + 1]
-        print(type)
-        //todo: pass thru state
-        changeState(type)
+        let type = accountArray[mySwitch.tag]
+        changeState(type, state)
         
      }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

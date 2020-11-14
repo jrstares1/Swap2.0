@@ -29,7 +29,6 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         toggleView.onTintColor = UIColor.systemTeal
         toggleView.isOn = true
         toggleView.tag = index
-        toggleView.addTarget(self, action: #selector(statusChanged), for: .valueChanged)
         toggleView.isEnabled = true
         return toggleView
     }()
@@ -45,15 +44,4 @@ class ActiveSocialsTableViewCell: UITableViewCell {
         socialToggle.isEnabled = true
         
     }
-
-    @IBAction func statusChanged(_ sender: UISwitch, _ tag: Int) {
-        print("status changed")
-        
-        print(sender.isOn)
-        print("account to remove " + self.accountName)
-        
-        //TODO
-        //call to backend -- Austin?
-    }
-    
 }
