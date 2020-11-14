@@ -87,7 +87,7 @@ class homePageViewController: UIViewController {
             if let user = user {
                 uid = user.uid
                 let db = Firestore.firestore()
-                _ = db.collection("users/\(uid)/appData").getDocuments() {  (querySnapshot, err) in
+                db.collection("users/\(uid)/appData").getDocuments() {  (querySnapshot, err) in
                     if let err = err {
                         print("Error Getting appData Documents: \(err)")
                     }
@@ -95,7 +95,7 @@ class homePageViewController: UIViewController {
                         for document in querySnapshot!.documents {
                             if(document.documentID == type){
                                 //TODO: fix harcoding here --> switch
-                                let ref = Database.database().reference()
+                                //let ref = Database.database().reference()
                                 //ref.child("users/\(self.uid)/appData/\(type)/enabled").setValue(state)
                             }
                         }
@@ -124,10 +124,7 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
         print("index path row " + indexPath.row.description + " " + cell.accountName)
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let type = accountArray[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
-    }
+
     @objc func switchChanged(mySwitch: UISwitch) {
         let state = mySwitch.isOn
         let type = accountArray[mySwitch.tag]
