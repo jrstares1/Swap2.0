@@ -9,8 +9,6 @@ import UIKit
 
 class ActiveSocialsTableViewCell: UITableViewCell {
     
-
-    
     lazy var backView : UIView = {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100))
         return view

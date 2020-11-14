@@ -173,14 +173,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="B4a-jB-kcA">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B4a-jB-kcA">
                                 <rect key="frame" x="0.0" y="55" width="414" height="757.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SAU-gv-4AY">
-                                        <rect key="frame" x="109.5" y="0.0" width="195" height="87"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNa-cL-JPt">
-                                                <rect key="frame" x="0.0" y="0.0" width="195" height="87"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
                                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                                 <fontDescription key="fontDescription" name="Optima-Bold" family="Optima" pointSize="73"/>
                                                 <nil key="textColor"/>
@@ -188,36 +188,48 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="268" text="MY CARD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFQ-Ar-d4B">
-                                        <rect key="frame" x="142.5" y="102" width="129.5" height="34.5"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="29"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-AO-XzV">
-                                        <rect key="frame" x="107" y="151.5" width="200" height="200"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="Z3s-sY-2wh"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-gx-m3L">
-                                        <rect key="frame" x="158.5" y="366.5" width="97.5" height="28.5"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="johndoe@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EV4-nY-zAA">
-                                        <rect key="frame" x="109" y="410" width="196.5" height="26.5"/>
-                                        <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ZVi-68-Eaa">
+                                        <rect key="frame" x="0.0" y="97" width="414" height="234.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="268" text="MY CARD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFQ-Ar-d4B">
+                                                <rect key="frame" x="142.5" y="0.0" width="129.5" height="34.5"/>
+                                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="29"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pj5-AO-XzV">
+                                                <rect key="frame" x="157" y="49.5" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="low-V6-PGh"/>
+                                                    <constraint firstAttribute="width" constant="100" id="tWE-ZE-qcJ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ1-gx-m3L">
+                                                <rect key="frame" x="158.5" y="164.5" width="97.5" height="28.5"/>
+                                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="johndoe@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EV4-nY-zAA">
+                                                <rect key="frame" x="109" y="208" width="196.5" height="26.5"/>
+                                                <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bME-wX-8LQ">
-                                        <rect key="frame" x="0.0" y="451.5" width="414" height="306"/>
+                                        <rect key="frame" x="0.0" y="341.5" width="414" height="416"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ZVi-68-Eaa" secondAttribute="trailing" id="EGb-yT-hc9"/>
+                                    <constraint firstItem="ZVi-68-Eaa" firstAttribute="leading" secondItem="B4a-jB-kcA" secondAttribute="leading" id="FpB-YH-7GU"/>
+                                    <constraint firstAttribute="bottom" secondItem="bME-wX-8LQ" secondAttribute="bottom" id="Irn-iJ-eiG"/>
+                                    <constraint firstItem="bME-wX-8LQ" firstAttribute="top" secondItem="ZVi-68-Eaa" secondAttribute="bottom" constant="10" id="bCd-8j-jLE"/>
+                                    <constraint firstItem="SAU-gv-4AY" firstAttribute="leading" secondItem="B4a-jB-kcA" secondAttribute="leading" id="do3-Dl-QGw"/>
+                                    <constraint firstAttribute="trailing" secondItem="SAU-gv-4AY" secondAttribute="trailing" id="nZu-Jn-4se"/>
                                     <constraint firstItem="bME-wX-8LQ" firstAttribute="leading" secondItem="B4a-jB-kcA" secondAttribute="leadingMargin" id="qb8-mM-0Md"/>
                                 </constraints>
                             </stackView>
@@ -229,6 +241,7 @@
                             <constraint firstItem="bGO-fH-mhS" firstAttribute="bottom" secondItem="B4a-jB-kcA" secondAttribute="bottom" constant="0.5" id="LHV-PR-RSO"/>
                             <constraint firstItem="B4a-jB-kcA" firstAttribute="leading" secondItem="bGO-fH-mhS" secondAttribute="leading" id="R8v-Hm-boL"/>
                             <constraint firstItem="B4a-jB-kcA" firstAttribute="top" secondItem="bGO-fH-mhS" secondAttribute="top" constant="11" id="cI8-f1-t0c"/>
+                            <constraint firstItem="bGO-fH-mhS" firstAttribute="bottom" secondItem="bME-wX-8LQ" secondAttribute="bottom" constant="0.5" id="uuG-Di-JRd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" landscapeImage="house.fill" selectedImage="house.fill" id="w3X-dO-2ao"/>
