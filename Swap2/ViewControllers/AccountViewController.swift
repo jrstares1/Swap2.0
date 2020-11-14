@@ -61,6 +61,7 @@ class AccountViewController: UIViewController{
                 let email = user.email
                 self.nameLabel.text = GlobalVar.Name
                 self.emailLabel.text = email
+                //TODO: format phone number properly
                 self.phoneLabel.text = GlobalVar.Number
                 let db = Firestore.firestore()
                 db.collection("users/\(uid)/appData").getDocuments() {
