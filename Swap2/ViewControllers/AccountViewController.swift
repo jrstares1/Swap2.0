@@ -113,7 +113,23 @@ class AccountViewController: UIViewController{
     }
 
     
-    @IBAction func Logout(_ sender: Any) {
+    
+  
+    
+    
+    
+    
+    
+    @IBAction func HelpTutorial(_ sender: Any) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "OnBoardingVC") as! OnBoardingViewController
+        initViewController.modalPresentationStyle = .fullScreen
+        self.present(initViewController, animated: true, completion: nil)
+        
+    }
+    
+    
+    @IBAction func SignOut(_ sender: Any) {
         print("signing out")
         self.userDefault.set(false, forKey: "usersignedin")
         self.userDefault.synchronize()
