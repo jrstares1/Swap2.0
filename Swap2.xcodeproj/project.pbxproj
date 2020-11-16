@@ -13,13 +13,13 @@
 		0E82ECDB254CA6EB002844DB /* ActiveSocialsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E82ECD9254CA6EB002844DB /* ActiveSocialsTableViewCell.swift */; };
 		0E82ECDC254CA6EB002844DB /* ActiveSocialsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E82ECDA254CA6EB002844DB /* ActiveSocialsTableViewCell.xib */; };
 		4EF000D752303BD883BB753F /* Pods_Swap2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36596AA07F85050142B3104F /* Pods_Swap2.framework */; };
+		72126212255F062A00036E51 /* DeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72126211255F062A00036E51 /* DeleteAccount.swift */; };
 		7245A8312545055800E532BE /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7245A8302545055800E532BE /* AccountTableViewCell.swift */; };
 		72AB1D55253B41C40099FD50 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AB1D54253B41C40099FD50 /* Home.storyboard */; };
 		72B2B1C22558929700D69A4D /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2B1C02558929700D69A4D /* UserTableViewCell.swift */; };
 		72B2B1C32558929700D69A4D /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B2B1C12558929700D69A4D /* UserTableViewCell.xib */; };
 		72C477BA253BB598004EF8EA /* ScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C477B9253BB598004EF8EA /* ScanViewController.swift */; };
 		72C477C5253BCA19004EF8EA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C477C4253BCA19004EF8EA /* AccountViewController.swift */; };
-		72C477D4253BCD97004EF8EA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7300A192537953D00E02B82 /* Info.plist */; };
 		72C477DE253BCFBA004EF8EA /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72C477CF253BCC9E004EF8EA /* Montserrat-Light.ttf */; };
 		72C477E2253BCFBE004EF8EA /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72C477CA253BCC03004EF8EA /* PlayfairDisplay-Regular.ttf */; };
 		B3E778DC66F0AB4CF30FAB4E /* Pods_Swap2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB6A9490786A569D1DCB2056 /* Pods_Swap2Tests.framework */; };
@@ -72,6 +72,7 @@
 		36596AA07F85050142B3104F /* Pods_Swap2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AD43FE8DC2E12BA3596C9A /* Pods-Swap2-Swap2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2-Swap2UITests.release.xcconfig"; path = "Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		64ED1755D96E9E575069C2F9 /* Pods-Swap2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2Tests.release.xcconfig"; path = "Target Support Files/Pods-Swap2Tests/Pods-Swap2Tests.release.xcconfig"; sourceTree = "<group>"; };
+		72126211255F062A00036E51 /* DeleteAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccount.swift; sourceTree = "<group>"; };
 		7245A8302545055800E532BE /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		72AB1D54253B41C40099FD50 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		72B2B1C02558929700D69A4D /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
@@ -260,6 +261,7 @@
 			children = (
 				0E27FAD1255109F40044CC1D /* AddContact.swift */,
 				0E4AAED12549138700A47DBB /* GenerateQRCode.swift */,
+				72126211255F062A00036E51 /* DeleteAccount.swift */,
 				0E4AAED32549247E00A47DBB /* GetRequest.swift */,
 				F7300A652537B0C800E02B82 /* Utilities.swift */,
 				0E82ECD9254CA6EB002844DB /* ActiveSocialsTableViewCell.swift */,
@@ -395,7 +397,6 @@
 				F7DA97B825514B3C00C9A711 /* qr.json in Resources */,
 				F7DA97AC25513BE600C9A711 /* Onboarding.storyboard in Resources */,
 				72C477DE253BCFBA004EF8EA /* Montserrat-Light.ttf in Resources */,
-				72C477D4253BCD97004EF8EA /* Info.plist in Resources */,
 				F7300A182537953D00E02B82 /* LaunchScreen.storyboard in Resources */,
 				F7DA97B52551411700C9A711 /* welcomeAnim.json in Resources */,
 				72AB1D55253B41C40099FD50 /* Home.storyboard in Resources */,
@@ -574,6 +575,7 @@
 				F7300A0C2537953B00E02B82 /* AppDelegate.swift in Sources */,
 				7245A8312545055800E532BE /* AccountTableViewCell.swift in Sources */,
 				F7300A0E2537953B00E02B82 /* SceneDelegate.swift in Sources */,
+				72126212255F062A00036E51 /* DeleteAccount.swift in Sources */,
 				F7300A5425379BA300E02B82 /* LogInViewController.swift in Sources */,
 				F7914F5D2550929800F27514 /* GlobalVariables.swift in Sources */,
 				72B2B1C22558929700D69A4D /* UserTableViewCell.swift in Sources */,
@@ -807,7 +809,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Swap2Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -829,7 +831,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Swap2Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

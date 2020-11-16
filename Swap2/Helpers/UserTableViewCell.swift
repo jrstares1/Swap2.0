@@ -23,12 +23,12 @@ class UserTableViewCell: UITableViewCell {
         //btn.setTitle("testing", for: .normal)
         let image = UIImage(named: "delete")
         btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        btn.addTarget(self, action: #selector(buttonAction1), for: .allTouchEvents)
         btn.setImage(image, for: .normal)
-        btn.backgroundColor = UIColor.systemTeal
         btn.contentMode = .scaleAspectFit
         return btn
     }()
+    
+   
     
     
     lazy var socialLogo: UIImageView = {
@@ -41,20 +41,16 @@ class UserTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
     }
-
-    @objc func buttonAction(_ sender:UIButton!) {
+   
+    @objc func buttonAction(_ sender: Any) {
         delegate?.didTapButton(account: account)
-        print("Button tapped")
+        print("Button tapped " + account)
     }
-    @IBAction func buttonAction1(_ sender:UIButton!) {
-        delegate?.didTapButton(account: account)
-        print("Button tapped 1")
-    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         //super.setSelected(selected, animated: true)
-        if(super.isSelected){
-            buttonAction(self.deleteButton)
-        }
+        super.setSelected(selected, animated: animated)
+        addSubview(deleteButton)
         
 
     }
@@ -62,7 +58,7 @@ class UserTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         //addSubview(backView)
         addSubview(socialLogo)
-        addSubview(deleteButton)
+        self.addSubview(deleteButton)
     }
     
     required init?(coder: NSCoder) {

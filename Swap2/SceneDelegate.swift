@@ -56,12 +56,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let context = URLContexts.first else { return }
 
-//        print("url: \(context.url.absoluteURL)")
-//        print("scheme: \(context.url.scheme)")
-//        print("host: \(context.url.host)")
-        
         guard let components = NSURLComponents(url: context.url.absoluteURL, resolvingAgainstBaseURL: true),
-                let albumPath = components.path,
+                // albumPath = components.path,
                 let params = components.queryItems else {
                     print("Invalid URL or album path missing")
                     return
@@ -97,7 +93,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if let response = response as? HTTPURLResponse {
                 print("Response HTTP Status code: \(response.statusCode)")
             }
-                
+            
+            // TODO: do we need to fix this?????
             //ADD Later if we get a 403 error stop.
             
             // Convert HTTP Response Data to a simple String

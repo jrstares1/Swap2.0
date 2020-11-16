@@ -142,7 +142,7 @@ class SignUpViewController: UIViewController {
                           // Do NOT use this value to authenticate with your backend server,
                           // if you have one. Use getTokenWithCompletion:completion: instead.
                             let uid = user.uid
-                            let email = user.email
+                            //let email = user.email
                             
                             print("uid " + uid)
                             GlobalVar.Name = firstName + " " + lastName
@@ -152,7 +152,7 @@ class SignUpViewController: UIViewController {
                                 
                                 if error != nil {
                                     // Show error message
-                                    print(error)
+                                    print(error ?? "no error")
                                     print("error adding user data")
                                     self.showError("Error changin user data")
                                 }
@@ -162,7 +162,11 @@ class SignUpViewController: UIViewController {
                     }else{
                         print("USER NULL")
                     }
-                }
+                    
+                    }
+                    
+                    //assign global varaibles
+                    
                 
                     // Transition to the home screen
                     self.transitionToHome()

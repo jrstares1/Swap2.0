@@ -9,17 +9,18 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class homePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class homePageViewController: UIViewController {
     
     var uid = ""
     var numCells = 0
     var currentImage : UIImage?
-    var accountArray = [String]()
+    var accountArray = ["contact"]
     //var accountArray = ["Github", "LinkedIn"]
     
     @IBOutlet weak var displayQR: UIImageView!
     @IBOutlet weak var socialsTableView: UITableView!
-    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -29,7 +30,6 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
@@ -50,11 +50,10 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 uid = user.uid
                 let email = user.email
                 let db = Firestore.firestore()
-                let docRef = db.collection("users").document(uid)
+                _ = db.collection("users").document(uid)
                 self.nameLabel.text = GlobalVar.Name
                 self.emailLabel.text = email
-                let callingObject = self
-                let appData = db.collection("users/\(uid)/appData").getDocuments() {
+                let _: Void = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {
                         print("Error Getting appData Documents: \(err)")
@@ -63,10 +62,8 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
                             if(!self.accountArray.contains(document.documentID)){
                                 print("appending" + document.documentID)
                                 self.accountArray.append(document.documentID)
-                                callingObject.numCells+=1
                                 self.socialsTableView.reloadData()
                             }
-                            
                         }
                     }
                 }
@@ -77,22 +74,45 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
             } else {
                 let ac = UIAlertController(title: "Failed to Receive User ID", message: nil, preferredStyle: .alert)
                 let submitAction = UIAlertAction(title: "Dismiss", style: .default)
-                
                 ac.addAction(submitAction)
                 self.present(ac, animated: true)
             }
         }
 
     }
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    
-    
-    
+    //change the state of account in db
+    func changeState(_ type: String, _ state: Bool){
+        print("turning " + type + " " + state.description)
+        if (Auth.auth().currentUser != nil) {
+            let user = Auth.auth().currentUser
+            if let user = user {
+                uid = user.uid
+                let db = Firestore.firestore()
+                db.collection("users/\(uid)/appData").getDocuments() {  (querySnapshot, err) in
+                    if let err = err {
+                        print("Error Getting appData Documents: \(err)")
+                    }
+                    else{
+                        for document in querySnapshot!.documents {
+                            if(document.documentID == type){
+                                //TODO: fix harcoding here --> switch
+                                //let ref = Database.database().reference()
+                                //ref.child("users/\(self.uid)/appData/\(type)/enabled").setValue(state)
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+
+   
+}
+
+extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return accountArray.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,26 +121,20 @@ class homePageViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
         cell.socialToggle.isEnabled = true
         cell.accountName = accountArray[indexPath.row]
+        cell.socialToggle.tag = indexPath.row
+        print("index path row " + indexPath.row.description + " " + cell.accountName)
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let type = accountArray[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
-        cell.socialToggle.isEnabled = true
-        print(type)
-    }
+
     @objc func switchChanged(mySwitch: UISwitch) {
-        print("switching state")
+        let state = mySwitch.isOn
+        let type = accountArray[mySwitch.tag]
+        changeState(type, state)
         
      }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    
-    
-    
-    
-    
-    
 
+    
 }
