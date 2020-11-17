@@ -74,7 +74,7 @@ func swapWith(string: String) {
                     
                     print("Errors and responses printed")
                 }
-                
+                  
                 task.resume()
             }
         }

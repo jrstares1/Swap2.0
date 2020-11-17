@@ -89,7 +89,7 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
         ac.addAction(submitAction)
         self.present(ac, animated: true)
     }
-    
+
     func saveQRData(code: String) {
         //Going to change this to whatever our landing page is; google is just a placeholder
         let userId = code.replacingOccurrences(of: "http://www.google.com/?uid=", with: "")
