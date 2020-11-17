@@ -96,9 +96,9 @@ class homePageViewController: UIViewController {
                     else{
                         for document in querySnapshot!.documents {
                             if(document.documentID == type){
-                                //TODO: fix harcoding here --> switch
-                                //let ref = Database.database().reference()
-                                //ref.child("users/\(self.uid)/appData/\(type)/enabled").setValue(state)
+                                //TODO: test this out in new account
+                                let dict = ["enabled":true]
+                                db.collection("users").document(self.uid).collection("appData").document(type).setData(dict)
                             }
                         }
                     }

@@ -48,9 +48,7 @@ class AccountViewController: UIViewController{
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
         auth()
     }
-        
 
-    
 
     func auth(){
         if (Auth.auth().currentUser != nil) {
@@ -63,6 +61,7 @@ class AccountViewController: UIViewController{
                 self.emailLabel.text = email
                 //TODO: format phone number properly
                 self.phoneLabel.text = GlobalVar.Number
+                //TODO: figure out how to pass in the current user 
                 let db = Firestore.firestore()
                 db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
@@ -84,8 +83,6 @@ class AccountViewController: UIViewController{
         
         }
     }
-
- 
 
     
     @IBAction func addAccounts(_ sender: Any) {
