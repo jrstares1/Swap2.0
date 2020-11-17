@@ -10,11 +10,12 @@ import FirebaseAuth
 import Firebase
 
 class homePageViewController: UIViewController {
-    
+
     var uid = ""
     var numCells = 0
     var currentImage : UIImage?
     var accountArray = ["contact"]
+    
     //var accountArray = ["Github", "LinkedIn"]
     
     @IBOutlet weak var displayQR: UIImageView!
