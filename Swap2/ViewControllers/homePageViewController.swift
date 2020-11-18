@@ -40,9 +40,7 @@ class homePageViewController: UIViewController {
     }
     
     func auth(){
-        // Query Firebase for user info to display
         if (Auth.auth().currentUser != nil) {
-          // User is signed in.
             let user = Auth.auth().currentUser
             if let user = user {
               // The user's ID, unique to the Firebase project.
@@ -61,7 +59,6 @@ class homePageViewController: UIViewController {
                     } else {
                         for document in querySnapshot!.documents {
                             if(!self.accountArray.contains(document.documentID)){
-                                print("appending" + document.documentID)
                                 self.accountArray.append(document.documentID)
                                 self.socialsTableView.reloadData()
                             }
@@ -96,9 +93,9 @@ class homePageViewController: UIViewController {
                     else{
                         for document in querySnapshot!.documents {
                             if(document.documentID == type){
-                                //TODO: fix harcoding here --> switch
-                                //let ref = Database.database().reference()
-                                //ref.child("users/\(self.uid)/appData/\(type)/enabled").setValue(state)
+                                //TODO: test this out in new account
+                                let dict = ["enabled":true]
+                                db.collection("users").document(self.uid).collection("appData").document(type).setData(dict)
                             }
                         }
                     }
@@ -123,7 +120,6 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
         cell.socialToggle.isEnabled = true
         cell.accountName = accountArray[indexPath.row]
         cell.socialToggle.tag = indexPath.row
-        print("index path row " + indexPath.row.description + " " + cell.accountName)
         return cell
     }
 

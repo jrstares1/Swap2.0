@@ -10,8 +10,7 @@ import FirebaseAuth
 import Firebase
 
 class AccountViewController: UIViewController{
-    
-    
+
     var uid = ""
     var numCells = 0
     var currentImage : UIImage?
@@ -32,7 +31,6 @@ class AccountViewController: UIViewController{
    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("view did appear")
         auth()
     }
  
@@ -48,9 +46,7 @@ class AccountViewController: UIViewController{
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
         auth()
     }
-        
 
-    
 
     func auth(){
         if (Auth.auth().currentUser != nil) {
@@ -63,6 +59,7 @@ class AccountViewController: UIViewController{
                 self.emailLabel.text = email
                 //TODO: format phone number properly
                 self.phoneLabel.text = GlobalVar.Number
+                //TODO: figure out how to pass in the current user 
                 let db = Firestore.firestore()
                 db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
@@ -71,7 +68,7 @@ class AccountViewController: UIViewController{
                     } else {
                         for document in querySnapshot!.documents {
                             if(!self.userAccountArray.contains(document.documentID)){
-                                print("appending " + document.documentID)
+                                //print("appending " + document.documentID)
                                 self.userAccountArray.append(document.documentID)
                                 self.socialsTableView.reloadData()
                             }
@@ -84,8 +81,6 @@ class AccountViewController: UIViewController{
         
         }
     }
-
- 
 
     
     @IBAction func addAccounts(_ sender: Any) {
@@ -112,13 +107,6 @@ class AccountViewController: UIViewController{
         } , completion: nil)
     }
 
-    
-    
-  
-    
-    
-    
-    
     
     @IBAction func HelpTutorial(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
@@ -147,73 +135,8 @@ class AccountViewController: UIViewController{
         }
         
     }
-
-    
-    func githubButton() {
-        if (Auth.auth().currentUser != nil) {
-          // User is signed in.
-            let user = Auth.auth().currentUser
-            if let user = user {
-                
-                user.getIDTokenForcingRefresh(true) { idToken, error in
-                    if error != nil {
-                        // Handle error
-                        print("Something is wrong with the token")
-                        return;
-                }
-                GlobalVar.IdToken = idToken!
-
-                // Send token to your backend via HTTPS
-                let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/user")
-                guard let requestUrl = url else { fatalError() }
-
-                // Create URL Request
-                var request = URLRequest(url: requestUrl)
-
-                // Specify HTTP Method to use
-                request.httpMethod = "GET"
-                  
-                // Request Header
-                request.setValue("Bearer " + idToken!, forHTTPHeaderField: "Authorization")
-                // Send HTTP Request
-                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                        
-                // Check if Error took place
-                if let error = error {
-                    print("Error took place \(error)")
-                        return
-                }
-                // Read HTTP Response Status code
-                if let response = response as? HTTPURLResponse {
-                    print("Response HTTP Status code: \(response.statusCode)")
-                }
-                    
-                //ADD Later if we get a 403 error stop.
-                
-                // Convert HTTP Response Data to a simple String
-                if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                    print("Response data string:\n \(dataString)")
-                }
-                        
-                }
-                task.resume()
-                
-                //Now send to the url
-                if let url = URL(string: "https://github.com/login/oauth/authorize?client_id=79be74dce9c0e8b91df0&scope=user:follow") {
-                    UIApplication.shared.open(url)
-                    }
-                }
-            }
-        }
-        else {
-            //TODO: do we need to implement this???
-            print("sign them out")
-        }
-        self.socialsTableView.reloadData()
-        self.auth()
-    
-    }
 }
+ 
 
 extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -253,7 +176,9 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
         if(tableView == self.tableView){
             let type = accountArray[indexPath.row]
             if(type == "Github"){
-                githubButton()
+                addGithub()
+                self.socialsTableView.reloadData()
+                self.auth()
             }
         }
         else{
