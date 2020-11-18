@@ -17,6 +17,7 @@
 		6C38A277D6251FC60EE3577C /* Pods_Swap2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 626D02C566A4691DDD796254 /* Pods_Swap2Tests.framework */; };
 		72126212255F062A00036E51 /* DeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72126211255F062A00036E51 /* DeleteAccount.swift */; };
 		7245A8312545055800E532BE /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7245A8302545055800E532BE /* AccountTableViewCell.swift */; };
+		725E2CBB25649CCA0057AD02 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E2CBA25649CCA0057AD02 /* Github.swift */; };
 		72AB1D55253B41C40099FD50 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AB1D54253B41C40099FD50 /* Home.storyboard */; };
 		72B2B1C22558929700D69A4D /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2B1C02558929700D69A4D /* UserTableViewCell.swift */; };
 		72B2B1C32558929700D69A4D /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B2B1C12558929700D69A4D /* UserTableViewCell.xib */; };
@@ -77,6 +78,7 @@
 		670287C877BE289A5747CD37 /* Pods_Swap2_Swap2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Swap2_Swap2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72126211255F062A00036E51 /* DeleteAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccount.swift; sourceTree = "<group>"; };
 		7245A8302545055800E532BE /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		725E2CBA25649CCA0057AD02 /* Github.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
 		72AB1D54253B41C40099FD50 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		72B2B1C02558929700D69A4D /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		72B2B1C12558929700D69A4D /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				0E27FAD1255109F40044CC1D /* AddContact.swift */,
 				0E4AAED12549138700A47DBB /* GenerateQRCode.swift */,
+				725E2CBA25649CCA0057AD02 /* Github.swift */,
 				72126211255F062A00036E51 /* DeleteAccount.swift */,
 				0E4AAED32549247E00A47DBB /* GetRequest.swift */,
 				F7300A652537B0C800E02B82 /* Utilities.swift */,
@@ -572,6 +575,7 @@
 			files = (
 				0E27FAD2255109F40044CC1D /* AddContact.swift in Sources */,
 				F77048F32537FE8C00EF3869 /* homePageViewController.swift in Sources */,
+				725E2CBB25649CCA0057AD02 /* Github.swift in Sources */,
 				F7300A662537B0C800E02B82 /* Utilities.swift in Sources */,
 				F7300A5E25379CC700E02B82 /* FirstViewController.swift in Sources */,
 				0E82ECDB254CA6EB002844DB /* ActiveSocialsTableViewCell.swift in Sources */,
