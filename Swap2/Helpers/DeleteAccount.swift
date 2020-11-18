@@ -12,9 +12,9 @@ import SwiftyJSON
 
 func deleteAccount(_ account: String){
     
-    print("deleting " + account + " account")
+  
     if(account == "Github"){
-        print("deleting " + account + " account")
+        
         deleteGithub()
     }
     else{
