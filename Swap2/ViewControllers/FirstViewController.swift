@@ -46,7 +46,9 @@ class FirstViewController: UIViewController {
                         } else {
                             for document in querySnapshot!.documents {
                                 //TODO: check if this is correct
+                              //  print(document.description)
                                 //GlobalVar.toggleState[document.documentID] = document.enabled
+                                
                             }
                         }
                     }
