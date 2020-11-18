@@ -68,12 +68,12 @@ func addGithub(){
 }
 
 func deleteGithub(){
+    
     if (Auth.auth().currentUser != nil) {
         // User is signed in.
         let user = Auth.auth().currentUser
 
         if let user = user {
-            
             user.getIDTokenForcingRefresh(true) { idToken, error in
                 if let error = error {
                     // Handle error
@@ -94,20 +94,22 @@ func deleteGithub(){
                 
                 // Send the request
                 let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                    print("here")
+                    
                     // Prints an error if an error occured
                     if let error = error {
                         print("Error took place \(error)")
                         return
                     }
-                    
-                    // Print the response status code
                     if let response = response as? HTTPURLResponse {
-                        print("Response HTTP Status Code: \(response.statusCode)")
+                        //print("Response HTTP Status Code: \(response.statusCode)")
+                        if response.statusCode != 204 {
+                            print("deletion did not work")
+                            fatalError("deletion failed ")
+                        }
                     }
-                    
-                    //TODO: check if resposnse is 204
                 }
+                task.resume()
+                
             }
         }
     }

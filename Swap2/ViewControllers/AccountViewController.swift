@@ -76,9 +76,7 @@ class AccountViewController: UIViewController{
                         }
                     }
                 }
-                }
-            
-        
+            }
         }
     }
 
@@ -177,8 +175,10 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
             let type = accountArray[indexPath.row]
             if(type == "Github"){
                 addGithub()
+                //TODO: fix this. it's a little hard cody
+                self.userAccountArray.append("Github")
+                //self.auth()
                 self.socialsTableView.reloadData()
-                self.auth()
             }
         }
         else{
@@ -192,10 +192,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension AccountViewController: MyCellDelegate {
-    func didTapButton(account: String) {
-        //TODO: MAKE API CALL TO DELETE THE ACCOUNT HERE
-        // I already made a file to put this call in --> see "DeleteAccount.swift"
-        
+    func didTapButton(account: String) {        
         //get confirmation to delete
         let alert = UIAlertController(title: "Confirm Deletion", message: "Are you sure you want to delete your " + account + " account?", preferredStyle: .alert)
 

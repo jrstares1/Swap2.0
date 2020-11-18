@@ -45,7 +45,6 @@ class LogInViewController: UIViewController {
         // Create cleaned versions of the text field
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         // Signing in the user
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
             if error != nil {
@@ -64,14 +63,6 @@ class LogInViewController: UIViewController {
                     let user = Auth.auth().currentUser
                     if let user = user {
                         let uid = user.uid
-//                        let email = user.email
-                        //self.nameLabel.text = GlobalVar.Name
-                        //self.emailLabel.text = email
-                        //self.phoneLabel.text = GlobalVar.Number
-                        
-                       // let uid = user.uid
-                        //let email = user.email
-                        //           let photoURL = user.photoURL
                         let db = Firestore.firestore()
                         let docRef = db.collection("users").document(uid)
 

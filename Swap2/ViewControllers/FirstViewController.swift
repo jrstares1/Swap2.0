@@ -16,8 +16,7 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        if userDefault.bool(forKey: "usersignedin") {
-            
+        if launchedBefore {
             if (Auth.auth().currentUser != nil) {
                 // User is signed in.
                 print("user has signed in before")
@@ -29,16 +28,29 @@ class FirstViewController: UIViewController {
                     docRef.getDocument { (document, error) in
                         if let document = document, document.exists {
                             let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                            print("Document data: \(dataDescription)")
                             let firstName = document.get("firstName") as! String
                             let lastName = document.get("lastName") as! String
                             let phoneNumber = document.get("phoneNumber") as! String
                             GlobalVar.Name = (firstName + " " + lastName)
                             GlobalVar.Number = phoneNumber
+                            //TODO: get toggle infomation here
                         } else {
                             print("Document does not exist")
                         }
                     }
+                    let accounts = db.collection("users").document(uid).collection("appData")//
+                    let _: Void = db.collection("users/\(uid)/appData").getDocuments() {
+                        (querySnapshot, err) in
+                        if let err = err {
+                            print("Error Getting appData Documents: \(err)")
+                        } else {
+                            for document in querySnapshot!.documents {
+                                //TODO: check if this is correct
+                                //GlobalVar.toggleState[document.documentID] = document.enabled
+                            }
+                        }
+                    }
+                    
                 }
             }
             
@@ -67,14 +79,5 @@ class FirstViewController: UIViewController {
     @IBAction func signUpTapped(_ sender: Any) {
     }
     
-   
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
