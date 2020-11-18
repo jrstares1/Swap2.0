@@ -26,7 +26,7 @@ class homePageViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         auth()
-        
+        socialsTableView.reloadData()
     }
 
     override func viewDidLoad() {
@@ -37,9 +37,12 @@ class homePageViewController: UIViewController {
         let nib = UINib(nibName: "ActiveSocialsTableViewCell", bundle: nil)
         socialsTableView.register(nib, forCellReuseIdentifier: "ActiveSocialsTableViewCell")
         auth();
+        socialsTableView.reloadData()
     }
     
     func auth(){
+        accountArray.removeAll()
+        accountArray.append("contact")
         if (Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser
             if let user = user {
