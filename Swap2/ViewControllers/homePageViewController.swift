@@ -16,7 +16,6 @@ class homePageViewController: UIViewController {
     var currentImage : UIImage?
     var accountArray = ["contact"]
     
-    //var accountArray = ["Github", "LinkedIn"]
     
     @IBOutlet weak var displayQR: UIImageView!
     @IBOutlet weak var socialsTableView: UITableView!
