@@ -95,7 +95,9 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
         let userId = code.replacingOccurrences(of: "http://www.google.com/?uid=", with: "")
         print("User ID is: " + userId)
         
-        swapWith(string: userId)
+        let userData = swapWith(string: userId)
+        
+        print("Received user data is: \(userData)")
         
     }
     

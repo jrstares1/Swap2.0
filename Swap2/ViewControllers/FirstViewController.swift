@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import FirebaseFirestore
 
 class FirstViewController: UIViewController {
     let userDefault = UserDefaults.standard
@@ -30,9 +31,9 @@ class FirstViewController: UIViewController {
                             let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                             let firstName = document.get("firstName") as! String
                             let lastName = document.get("lastName") as! String
-                            let phoneNumber = document.get("phoneNumber") as! String
+//                            let phoneNumber = document.get("phoneNumber") as! String
                             GlobalVar.Name = (firstName + " " + lastName)
-                            GlobalVar.Number = phoneNumber
+//                            GlobalVar.Number = phoneNumber
                             //TODO: get toggle infomation here
                         } else {
                             print("Document does not exist")
@@ -46,7 +47,9 @@ class FirstViewController: UIViewController {
                         } else {
                             for document in querySnapshot!.documents {
                                 //TODO: check if this is correct
+                              //  print(document.description)
                                 //GlobalVar.toggleState[document.documentID] = document.enabled
+                                
                             }
                         }
                     }
