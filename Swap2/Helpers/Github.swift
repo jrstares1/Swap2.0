@@ -12,6 +12,7 @@ import SwiftyJSON
 
 func addGithub() -> Bool {
     if (Auth.auth().currentUser != nil) {
+        var success = false;
         let user = Auth.auth().currentUser
         if let user = user {
             user.getIDTokenForcingRefresh(true) { idToken, error in
@@ -42,6 +43,9 @@ func addGithub() -> Bool {
             // Read HTTP Response Status code
             if let response = response as? HTTPURLResponse {
                 print("Response HTTP Status code: \(response.statusCode)")
+                if(response.statusCode == 201){
+                    success = true
+                }
             }
                 
             //ADD Later if we get a 403 error stop.
@@ -58,7 +62,7 @@ func addGithub() -> Bool {
                 }
             }
         }
-        return true;
+        return success;
     }
     else {
         //TODO: do we need to implement this???

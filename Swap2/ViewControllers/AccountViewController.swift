@@ -103,6 +103,7 @@ class AccountViewController: UIViewController{
             self.transparentView.alpha = 0
             self.tableView.frame = CGRect(x: 0, y: screensize.height, width: screensize.width, height: self.height)
         } , completion: nil)
+        self.viewDidLoad()
     }
 
     
@@ -179,6 +180,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
                 if (success){
                     self.userAccountArray.append("Github")
                     self.socialsTableView.reloadData()
+                    self.viewDidLoad()
                 }
                 
             }
@@ -188,22 +190,12 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
                 if (success) {
                     self.userAccountArray.append("Spotify")
                     self.socialsTableView.reloadData()
+                    self.viewDidLoad()
                 }
                
             }
             
-            
-// Gillian Implement this jaunt
-//            if(type == "Spotify"){
-//                addSpotify()
-//                //TODO: fix this. it's a little hard cody
-//                self.userAccountArray.append("Spotify")
-//                //self.auth()
-//                self.socialsTableView.reloadData()
-//            }
-            
-            
-            
+   
         }
         else{
             let type = userAccountArray[indexPath.row]
