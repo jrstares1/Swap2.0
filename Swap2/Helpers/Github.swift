@@ -10,7 +10,7 @@ import Firebase
 import FirebaseAuth
 import SwiftyJSON
 
-func addGithub(){
+func addGithub() -> Bool {
     if (Auth.auth().currentUser != nil) {
         let user = Auth.auth().currentUser
         if let user = user {
@@ -58,10 +58,12 @@ func addGithub(){
                 }
             }
         }
+        return true;
     }
     else {
         //TODO: do we need to implement this???
         print("sign them out")
+        return false;
     }
     
 

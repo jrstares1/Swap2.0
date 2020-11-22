@@ -11,7 +11,7 @@ import FirebaseAuth
 import SwiftyJSON
 
 
-func addSpotify(){
+func addSpotify() -> Bool{
     print("spotify here")
     if (Auth.auth().currentUser != nil) {
         let user = Auth.auth().currentUser
@@ -58,12 +58,15 @@ func addSpotify(){
             if let url = URL(string: "https://accounts.spotify.com/authorize?client_id=89cdb29bf6f44790a723ad12a28b4904&response_type=code&redirect_uri=swap2%3A%2F%2Fspotify%2F&scope=user-read-private%20user-follow-modify") {
                 UIApplication.shared.open(url)
                 }
+        
             }
         }
+        return true;
     }
     else {
         //TODO: do we need to implement this???
         print("sign them out")
+        return false;
     }
     
 

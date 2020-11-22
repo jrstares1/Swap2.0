@@ -19,7 +19,7 @@ class AccountViewController: UIViewController{
     var transparentView = UIView()
     var tableView = UITableView()
     let height: CGFloat = 400
-    var accountArray = ["Github", "Instagram", "Facebook"]
+    var accountArray = ["Github", "Spotify"]
     //var userAccountArray = ["Github", "Instagram", "Facebook"]
     var userAccountArray = [String]()
     
@@ -174,18 +174,22 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
         if(tableView == self.tableView){
             let type = accountArray[indexPath.row]
             if(type == "Github"){
-                addGithub()
+                let success = addGithub()
                 //TODO: fix this. it's a little hard cody
-                self.userAccountArray.append("Github")
-                //self.auth()
-                self.socialsTableView.reloadData()
+                if (success){
+                    self.userAccountArray.append("Github")
+                    self.socialsTableView.reloadData()
+                }
+                
             }
-            if(type == "Instagram"){
-                addSpotify()
+            if(type == "Spotify"){
+                let success = addSpotify()
                 //TODO: fix this. it's a little hard cody
-                self.userAccountArray.append("Instagram")
-                //self.auth()
-                self.socialsTableView.reloadData()
+                if (success) {
+                    self.userAccountArray.append("Spotify")
+                    self.socialsTableView.reloadData()
+                }
+               
             }
             
             
