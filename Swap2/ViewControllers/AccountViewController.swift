@@ -180,6 +180,26 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
                 //self.auth()
                 self.socialsTableView.reloadData()
             }
+            if(type == "Instagram"){
+                addSpotify()
+                //TODO: fix this. it's a little hard cody
+                self.userAccountArray.append("Instagram")
+                //self.auth()
+                self.socialsTableView.reloadData()
+            }
+            
+            
+// Gillian Implement this jaunt
+//            if(type == "Spotify"){
+//                addSpotify()
+//                //TODO: fix this. it's a little hard cody
+//                self.userAccountArray.append("Spotify")
+//                //self.auth()
+//                self.socialsTableView.reloadData()
+//            }
+            
+            
+            
         }
         else{
             let type = userAccountArray[indexPath.row]
