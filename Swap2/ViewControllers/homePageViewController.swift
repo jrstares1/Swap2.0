@@ -17,7 +17,7 @@ class homePageViewController: UIViewController {
     var currentImage : UIImage?
     var accountArray = ["contact"]
     
-    
+   
     @IBOutlet weak var displayQR: UIImageView!
     @IBOutlet weak var socialsTableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -31,6 +31,9 @@ class homePageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.register(defaults: ["contact" : true]);
+        UserDefaults.standard.register(defaults: ["Github" : true])
+        UserDefaults.standard.register(defaults: ["Spotify" : true])
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
