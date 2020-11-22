@@ -11,23 +11,26 @@ import FirebaseAuth
 import SwiftyJSON
 
 
-func swapWith(string: String) {
+func swapWith(string: String) -> [String:String] {
     
-    var userInfo = [String:String]()
+    var userInfo = [String:String]()    
     
     if (Auth.auth().currentUser != nil) {
+        
         // User is signed in.
         let user = Auth.auth().currentUser
-
+        
         if let user = user {
-            
+                        
             user.getIDTokenForcingRefresh(true) { idToken, error in
+                print("in here")
                 if let error = error {
+                    
                     // Handle error
                     print("Something is wrong with the token\n Error: \(error)")
                     return;
                 }
-
+                
                 // Create the url and subsequently the request
                 let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/swap/" + string)
                 //print("User ID for get request is: " + string)
@@ -40,6 +43,7 @@ func swapWith(string: String) {
                 request.setValue("Bearer " + idToken!, forHTTPHeaderField: "Authorization")
                 
                 // Send the request
+                print("sending request")
                 let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
                     
                     // Prints an error if an error occured
@@ -64,20 +68,18 @@ func swapWith(string: String) {
                             userInfo["email"] = json["userData"]["email"].string ?? "no email"
                             userInfo["phoneNumber"] = (json["userData"]["phoneNumber "].string ?? "no phone number").replacingOccurrences(of: "-", with: "")
                             
-                           addContact(info: userInfo)
+                            addContact(info: userInfo)
                             
                         } catch{
                             print(error)
                         }
                     }
-                
-                    
                     print("Errors and responses printed")
                 }
-                  
                 task.resume()
             }
         }
     }
+    return userInfo
 }
 
