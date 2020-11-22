@@ -49,7 +49,10 @@ class FirstViewController: UIViewController {
                                 //TODO: check if this is correct
                               //  print(document.description)
                                 //GlobalVar.toggleState[document.documentID] = document.enabled
-                                
+                                //let dict = ["enabled":true]
+                                let state = db.collection("users").document(uid).collection("appData").document("enabled")
+                                print("state ")
+                                print(state.description)
                             }
                         }
                     }

@@ -10,7 +10,8 @@ import FirebaseAuth
 import Firebase
 
 class homePageViewController: UIViewController {
-
+    
+    let userDefault = UserDefaults.standard
     var uid = ""
     var numCells = 0
     var currentImage : UIImage?
@@ -96,7 +97,7 @@ class homePageViewController: UIViewController {
                         for document in querySnapshot!.documents {
                             if(document.documentID == type){
                                 //TODO: test this out in new account
-                                let dict = ["enabled":true]
+                                let dict = ["enabled":state]
                                 db.collection("users").document(self.uid).collection("appData").document(type).setData(dict)
                             }
                         }
@@ -119,7 +120,11 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
         cell.socialLogo.image = UIImage(named: accountArray[indexPath.row]) ?? nil
         cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+        //todo pull toggle state from user defaults
+        let type = accountArray[indexPath.row]
+        let toggleState = UserDefaults.standard.bool(forKey: type)
         cell.socialToggle.isEnabled = true
+        cell.socialToggle.isOn = toggleState
         cell.accountName = accountArray[indexPath.row]
         cell.socialToggle.tag = indexPath.row
         return cell
@@ -128,6 +133,8 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
     @objc func switchChanged(mySwitch: UISwitch) {
         let state = mySwitch.isOn
         let type = accountArray[mySwitch.tag]
+        self.userDefault.set(state, forKey: type)
+        self.userDefault.synchronize()
         changeState(type, state)
         
      }
