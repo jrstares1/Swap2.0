@@ -102,7 +102,6 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
         serialQueue.async {
             print("Received user data is: \(userData)")
         }
-       
         
     }
     
