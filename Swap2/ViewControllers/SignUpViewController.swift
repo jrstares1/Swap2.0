@@ -166,6 +166,7 @@ class SignUpViewController: UIViewController {
                             }
             
                         }
+                        self.transitionToHome()
                     }else{
                         print("USER NULL")
                     }
