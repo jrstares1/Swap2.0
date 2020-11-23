@@ -13,14 +13,16 @@ import SwiftyJSON
 
 func swapWith(string: String) -> [String:String] {
     
-    var userInfo = [String:String]()    
+    var userInfo = [String:String]()
+    
+    var finished = false
     
     if (Auth.auth().currentUser != nil) {
         // User is signed in.
         let user = Auth.auth().currentUser
         
         if let user = user {
-                        
+            DispatchQueue.global(qos: .userInitiated).async {
             user.getIDTokenForcingRefresh(true) { idToken, error in
                 print("in here")
                 if let error = error {
@@ -76,9 +78,18 @@ func swapWith(string: String) -> [String:String] {
                     print("Errors and responses printed")
                 }
                 task.resume()
+                finished = true
+            }
             }
         }
     }
-    return userInfo
+    
+//    DispatchQueue.global(qos: .userInitiated).async {
+        while (true) {
+            if (finished) {
+                return userInfo
+            }
+        }
+//    }
 }
 
