@@ -11,11 +11,12 @@ import FirebaseAuth
 import SwiftyJSON
 
 func deleteAccount(_ account: String){
-    
-  
+
     if(account == "Github"){
-        
         deleteGithub()
+    }
+    if(account == "Spotify"){
+        deleteSpotify()
     }
     else{
         print("have not implemented API to delete this type of account")
