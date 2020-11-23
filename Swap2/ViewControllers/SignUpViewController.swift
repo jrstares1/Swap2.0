@@ -80,10 +80,10 @@ class SignUpViewController: UIViewController {
         
         let cleanedEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        let phoneNumberKit = PhoneNumberKit()
-        print("here 4")
-        print(phoneNumberKit)
-        print(phoneTextField)
+//        let phoneNumberKit = PhoneNumberKit()
+//        print("here 4")
+//        print(phoneNumberKit)
+//        print(phoneTextField)
 
 //        let cleanedPhone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 
@@ -136,6 +136,7 @@ class SignUpViewController: UIViewController {
                 // Check for errors. If it comes in as nil there was an error
                 if err != nil {
                     self.showError("Error creating user")
+                    
                 }
                 else {
                     // User creation successful!, now store first name and last name
@@ -166,17 +167,16 @@ class SignUpViewController: UIViewController {
                             }
             
                         }
+                        self.transitionToHome()
+
                     }else{
+                        
                         print("USER NULL")
                     }
                     
                     }
                     
-                    //assign global varaibles
-                    
-                
-                    // Transition to the home screen
-                    self.transitionToHome()
+
                 }
                 
             }
