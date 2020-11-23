@@ -83,11 +83,12 @@ class LogInViewController: UIViewController {
                             }
                         }
                     }
+                    let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
+                    let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
+                    self.present(initViewController, animated: true, completion: nil)
                 }
 
-                let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-                let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
-                self.present(initViewController, animated: true, completion: nil)
+                
                 
             }
         }
