@@ -67,9 +67,14 @@ func swapWith(string: String) -> [String:String] {
                             userInfo["firstName"] = json["userData"]["firstName"].string ?? "no first"
                             userInfo["lastName"] = json["userData"]["lastName"].string ?? "no last name"
                             userInfo["email"] = json["userData"]["email"].string ?? "no email"
-                            userInfo["phoneNumber"] = (json["userData"]["phoneNumber "].string ?? "no phone number").replacingOccurrences(of: "-", with: "")
+                            var phoneNumber = (json["userData"]["phoneNumber "].string ?? "no phone number").replacingOccurrences(of: "-", with: "")
+                            phoneNumber = phoneNumber.replacingOccurrences(of: "(", with: "")
+                            phoneNumber = phoneNumber.replacingOccurrences(of: ")", with: "")
+                            phoneNumber = phoneNumber.replacingOccurrences(of: " ", with: "")
+                            userInfo["phoneNumber"] = phoneNumber
                             
-                            addContact(info: userInfo)
+//                            addContact(info: userInfo)
+                            finished = true
                             
                         } catch{
                             print(error)
@@ -78,7 +83,6 @@ func swapWith(string: String) -> [String:String] {
                     print("Errors and responses printed")
                 }
                 task.resume()
-                finished = true
             }
             }
         }
