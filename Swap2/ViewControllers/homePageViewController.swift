@@ -44,6 +44,9 @@ class homePageViewController: UIViewController {
         socialsTableView.reloadData()
     }
     
+    
+    
+    
     func auth(){
         accountArray.removeAll()
         accountArray.append("contact")
