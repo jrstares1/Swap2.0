@@ -11,8 +11,7 @@ import FirebaseAuth
 import SwiftyJSON
 
 func deleteAccount(_ account: String){
-    
-  
+
     if(account == "Github"){
         deleteGithub()
     }

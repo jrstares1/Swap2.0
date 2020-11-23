@@ -31,9 +31,10 @@ class homePageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.register(defaults: ["contact" : true]);
+        UserDefaults.standard.register(defaults: ["contact" : true])
         UserDefaults.standard.register(defaults: ["Github" : true])
         UserDefaults.standard.register(defaults: ["Spotify" : true])
+        UserDefaults.standard.register(defaults: ["Twitter" : true])
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true

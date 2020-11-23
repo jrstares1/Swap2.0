@@ -19,7 +19,7 @@ class AccountViewController: UIViewController{
     var transparentView = UIView()
     var tableView = UITableView()
     let height: CGFloat = 400
-    var accountArray = ["Github", "Spotify"]
+    var accountArray = ["Github", "Spotify", "Twitter"]
     //var userAccountArray = ["Github", "Instagram", "Facebook"]
     var userAccountArray = [String]()
     
