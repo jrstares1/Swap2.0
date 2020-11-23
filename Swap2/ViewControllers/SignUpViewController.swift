@@ -37,6 +37,11 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(passwordTextField)
         
         Utilities.styleFilledButton(signUpButton)
+        
+        self.phoneTextField.withExamplePlaceholder = true
+        self.phoneTextField.withFlag = true
+
+        
 
     }
     
@@ -49,13 +54,17 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     
-    @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var phoneTextField: PhoneNumberTextField!
+    
+    
         
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var errorLabel: UILabel!
+    
+    
     
     
 
@@ -77,13 +86,20 @@ class SignUpViewController: UIViewController {
         
         // Check if password is secure
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
         let cleanedEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let cleanedPhone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+
         
+
+        
+
         let phoneNumberKit = PhoneNumberKit()
-        print("here 4")
-        print(phoneNumberKit)
-        print(phoneTextField)
+        phoneNumberKit.isValidPhoneNumber(cleanedPhone)
+        
+//        phoneNumberKit.with
+//        print("here 4")
+//        print(phoneNumberKit)
+//        print(phoneTextField)
 
 //        let cleanedPhone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
                 
@@ -97,10 +113,10 @@ class SignUpViewController: UIViewController {
             return "Not a valid email"
         }
         
-//        if (Utilities.isValidPhone(cleanedPhone) == false){
-//            return "Not a valid phone number"
-//
-//        }
+        if (phoneNumberKit.isValidPhoneNumber(cleanedPhone) == false){
+            return "Not a valid phone number"
+
+        }
         
         
         //add correct email address method later here
@@ -136,6 +152,7 @@ class SignUpViewController: UIViewController {
                 // Check for errors. If it comes in as nil there was an error
                 if err != nil {
                     self.showError("Error creating user")
+                    
                 }
                 else {
                     // User creation successful!, now store first name and last name
@@ -166,17 +183,16 @@ class SignUpViewController: UIViewController {
                             }
             
                         }
+                        self.transitionToHome()
+
                     }else{
+                        
                         print("USER NULL")
                     }
                     
                     }
                     
-                    //assign global varaibles
-                    
-                
-                    // Transition to the home screen
-                    self.transitionToHome()
+
                 }
                 
             }
