@@ -93,11 +93,16 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
     func saveQRData(code: String) {
         //Going to change this to whatever our landing page is; google is just a placeholder
         let userId = code.replacingOccurrences(of: "http://www.google.com/?uid=", with: "")
+        let serialQueue = DispatchQueue(label: "tesingqueue")
         print("User ID is: " + userId)
-        
-        let userData = swapWith(string: userId)
-        
-        print("Received user data is: \(userData)")
+        var userData = [String:String]()
+        serialQueue.async {
+            userData = swapWith(string: userId)
+        }
+        serialQueue.async {
+            print("Received user data is: \(userData)")
+        }
+       
         
     }
     

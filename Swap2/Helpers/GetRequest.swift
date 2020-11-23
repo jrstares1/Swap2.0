@@ -16,7 +16,6 @@ func swapWith(string: String) -> [String:String] {
     var userInfo = [String:String]()    
     
     if (Auth.auth().currentUser != nil) {
-        
         // User is signed in.
         let user = Auth.auth().currentUser
         
