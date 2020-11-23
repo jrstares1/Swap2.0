@@ -56,6 +56,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let context = URLContexts.first else { return }
 
+        print("here3")
+        print(context.url)
         
         guard let components = NSURLComponents(url: context.url.absoluteURL, resolvingAgainstBaseURL: true),
                 let albumPath = components.path,
@@ -64,14 +66,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     print("Invalid URL or album path missing")
                     return
             }
-            print("here3")
-            print(host)
+        
             
 
             if let code = params.first(where: { $0.name == "code" })?.value {
                 print("Code: \(code)")
             
             // Send token to your backend via HTTPS
+            print("host")
+            print(host)
             let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/" + host + "/" + code)
             guard let requestUrl = url else { fatalError() }
 

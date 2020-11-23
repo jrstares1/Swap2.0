@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,6 +40,7 @@
 		F77048F32537FE8C00EF3869 /* homePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77048F22537FE8C00EF3869 /* homePageViewController.swift */; };
 		F77230812562447600140B93 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77230802562447600140B93 /* ProfileViewController.swift */; };
 		F7889065256A2D0300E5C349 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7889064256A2D0300E5C349 /* Spotify.swift */; };
+		F788909C256B0EB300E5C349 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = F788909B256B0EB300E5C349 /* PhoneNumberKit */; };
 		F7914F5D2550929800F27514 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7914F5C2550929800F27514 /* GlobalVariables.swift */; };
 		F7DA97AC25513BE600C9A711 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7DA97AB25513BE600C9A711 /* Onboarding.storyboard */; };
 		F7DA97B025513C2F00C9A711 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DA97AF25513C2F00C9A711 /* OnBoardingViewController.swift */; };
@@ -125,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8232A460B128F8F1A8DBA767 /* Pods_Swap2.framework in Frameworks */,
+				F788909C256B0EB300E5C349 /* PhoneNumberKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +313,9 @@
 			dependencies = (
 			);
 			name = Swap2;
+			packageProductDependencies = (
+				F788909B256B0EB300E5C349 /* PhoneNumberKit */,
+			);
 			productName = Swap2;
 			productReference = F7300A082537953B00E02B82 /* Swap2.app */;
 			productType = "com.apple.product-type.application";
@@ -386,6 +391,9 @@
 				Base,
 			);
 			mainGroup = F73009FF2537953B00E02B82;
+			packageReferences = (
+				F788909A256B0EB300E5C349 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
+			);
 			productRefGroup = F7300A092537953B00E02B82 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -775,7 +783,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B64Y5G4VBV;
+				DEVELOPMENT_TEAM = ZK8LN29JT4;
 				INFOPLIST_FILE = Swap2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -798,7 +806,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B64Y5G4VBV;
+				DEVELOPMENT_TEAM = ZK8LN29JT4;
 				INFOPLIST_FILE = Swap2/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -937,6 +945,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F788909A256B0EB300E5C349 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F788909B256B0EB300E5C349 /* PhoneNumberKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F788909A256B0EB300E5C349 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
+			productName = PhoneNumberKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F7300A002537953B00E02B82 /* Project object */;
 }

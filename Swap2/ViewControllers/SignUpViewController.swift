@@ -8,6 +8,8 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import PhoneNumberKit
+
 
 class SignUpViewController: UIViewController {
 
@@ -67,6 +69,7 @@ class SignUpViewController: UIViewController {
         if firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            phoneTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             
             return "Please fill in all fields."
@@ -77,9 +80,13 @@ class SignUpViewController: UIViewController {
         
         let cleanedEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        let cleanedPhone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        
+        let phoneNumberKit = PhoneNumberKit()
+        print("here 4")
+        print(phoneNumberKit)
+        print(phoneTextField)
+
+//        let cleanedPhone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+                
         //the method below is from utilities
         if Utilities.isPasswordValid(cleanedPassword) == false {
             // this means password isnt secure
@@ -90,10 +97,10 @@ class SignUpViewController: UIViewController {
             return "Not a valid email"
         }
         
-        if (Utilities.isValidPhone(cleanedPhone) == false){
-            return "Not a valid phone number"
-
-        }
+//        if (Utilities.isValidPhone(cleanedPhone) == false){
+//            return "Not a valid phone number"
+//
+//        }
         
         
         //add correct email address method later here
