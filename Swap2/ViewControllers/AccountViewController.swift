@@ -195,6 +195,16 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                
             }
+            if(type == "Twitter"){
+                let success = addTwitter()
+                //TODO: fix this. it's a little hard cody
+                if (success) {
+                    self.userAccountArray.append("Twitter")
+                    self.socialsTableView.reloadData()
+                    self.viewDidLoad()
+                }
+               
+            }
             
    
         }
