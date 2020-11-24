@@ -62,7 +62,7 @@ class homePageViewController: UIViewController {
                 _ = db.collection("users").document(uid)
                 self.nameLabel.text = GlobalVar.Name
                 self.emailLabel.text = email
-                let _: Void = db.collection("users/\(uid)/appData").whereField("userId", isEqualTo: uid).getDocuments() {
+                let _: Void = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {
                         print("Error Getting appData Documents: \(err)")
