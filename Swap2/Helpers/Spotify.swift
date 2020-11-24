@@ -12,7 +12,6 @@ import SwiftyJSON
 
 
 func addSpotify() -> Bool{
-    print("spotify here")
     if (Auth.auth().currentUser != nil) {
         var success = false
         let user = Auth.auth().currentUser
@@ -92,7 +91,6 @@ func deleteSpotify(){
 
                 // Create the url and subsequently the request
                 let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/spotify")
-                //print("User ID for get request is: " + string)
                 guard let requestUrl = url else {fatalError()}
                 
                 var request = URLRequest(url: requestUrl)

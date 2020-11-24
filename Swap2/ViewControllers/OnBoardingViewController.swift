@@ -33,7 +33,6 @@ class OnBoardingViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.configure(with: slide)
         cell.actionButtonDidTap = { [weak self] in
             self?.handleActionButtonTapped(at: indexPath)
-            print(indexPath)
         }
         return cell
         

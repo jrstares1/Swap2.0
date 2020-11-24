@@ -68,7 +68,6 @@ class AccountViewController: UIViewController{
                     } else {
                         for document in querySnapshot!.documents {
                             if(!self.userAccountArray.contains(document.documentID)){
-                                //print("appending " + document.documentID)
                                 self.userAccountArray.append(document.documentID)
                                 self.socialsTableView.reloadData()
                             }
@@ -117,7 +116,6 @@ class AccountViewController: UIViewController{
     
     
     @IBAction func SignOut(_ sender: Any) {
-        print("signing out")
         self.userDefault.set(false, forKey: "usersignedin")
         self.userDefault.synchronize()
         
@@ -178,6 +176,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
                 let success = addGithub()
                 //TODO: fix this. it's a little hard cody
                 if (success){
+                    print("succes adding github account. appending tablieview")
                     self.userAccountArray.append("Github")
                     self.socialsTableView.reloadData()
                     self.viewDidLoad()
@@ -199,8 +198,6 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
         }
         else{
             let type = userAccountArray[indexPath.row]
-            
-            print(type)
         }
         
     }

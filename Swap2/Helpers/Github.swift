@@ -89,7 +89,6 @@ func deleteGithub(){
 
                 // Create the url and subsequently the request
                 let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/github")
-                //print("User ID for get request is: " + string)
                 guard let requestUrl = url else {fatalError()}
                 
                 var request = URLRequest(url: requestUrl)

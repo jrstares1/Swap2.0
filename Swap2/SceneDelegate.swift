@@ -55,9 +55,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Determine who sent the URL.
 
         guard let context = URLContexts.first else { return }
-
-        print("here3")
-        print(context.url)
         
         guard let components = NSURLComponents(url: context.url.absoluteURL, resolvingAgainstBaseURL: true),
                 let albumPath = components.path,
@@ -73,7 +70,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 print("Code: \(code)")
             
             // Send token to your backend via HTTPS
-            print("host")
             print(host)
             let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/" + host + "/" + code)
             guard let requestUrl = url else { fatalError() }
@@ -84,7 +80,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // Specify HTTP Method to use
             request.httpMethod = "POST"
             // Request Header
-            print("Token Below1")
             print(GlobalVar.IdToken)
             request.setValue("Bearer " + GlobalVar.IdToken, forHTTPHeaderField: "Authorization")
 

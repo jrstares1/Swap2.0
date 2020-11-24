@@ -15,7 +15,7 @@ func deleteAccount(_ account: String){
     if(account == "Github"){
         deleteGithub()
     }
-    if(account == "Spotify"){
+    else if(account == "Spotify"){
         deleteSpotify()
     }
     else{

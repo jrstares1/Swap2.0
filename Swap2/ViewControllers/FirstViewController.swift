@@ -39,23 +39,7 @@ class FirstViewController: UIViewController {
                             print("Document does not exist")
                         }
                     }
-                    let accounts = db.collection("users").document(uid).collection("appData")//
-                    let _: Void = db.collection("users/\(uid)/appData").getDocuments() {
-                        (querySnapshot, err) in
-                        if let err = err {
-                            print("Error Getting appData Documents: \(err)")
-                        } else {
-                            for document in querySnapshot!.documents {
-                                //TODO: check if this is correct
-                              //  print(document.description)
-                                //GlobalVar.toggleState[document.documentID] = document.enabled
-                                //let dict = ["enabled":true]
-                                let state = db.collection("users").document(uid).collection("appData").document("enabled")
-                                print("state ")
-                                print(state.description)
-                            }
-                        }
-                    }
+//             
                     
                 }
             }
