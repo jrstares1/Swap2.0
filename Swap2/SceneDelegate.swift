@@ -53,6 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>){
         // Determine who sent the URL.
+        
 
         guard let context = URLContexts.first else { return }
         
@@ -63,14 +64,67 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     print("Invalid URL or album path missing")
                     return
             }
+
+        
+        
+        //code for Twitter
+        if let oauth_verifier = params.first(where: { $0.name == "oauth_verifier" })?.value {
+            print("Oauth Verifier: \(oauth_verifier)")
+//            print("Oauth Token: \(Otoken)")
+//
+            print(GlobalVar.oauthRequestToken)
+            print(GlobalVar.oauthRequestTokenSecret)
+
+            
+            let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/twitter/\(GlobalVar.oauthRequestToken)/\(GlobalVar.oauthRequestTokenSecret)/\(oauth_verifier)")
+            print("url below")
+            print(url)
+            guard let requestUrl = url else { fatalError() }
+
+            // Create URL Request
+            var request = URLRequest(url: requestUrl)
+
+            // Specify HTTP Method to use
+            request.httpMethod = "POST"
+            // Request Header
+//            print(GlobalVar.IdToken)
+            request.setValue("Bearer " + GlobalVar.IdToken, forHTTPHeaderField: "Authorization")
+
+            // Send HTTP Request
+            let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+
+            // Check if Error took place
+            if let error = error {
+                print("Twitter Error took place \(error)")
+                    return
+            }
+
+            // Read HTTP Response Status code
+            if let response = response as? HTTPURLResponse {
+                print("Twitter Response HTTP Status code: \(response.statusCode)")
+            }
+
+            // TODO: do we need to fix this?????
+            //ADD Later if we get a 403 error stop.
+
+            // Convert HTTP Response Data to a simple String
+            if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                print("Twitter Response data string:\n \(dataString)")
+            }
+
+            }
+            task.resume()
+        
         
             
+        }
 
-            if let code = params.first(where: { $0.name == "code" })?.value {
-                print("Code: \(code)")
-            
+        //code for Github/Spotify
+        if let code = params.first(where: { $0.name == "code" })?.value {
+//            print("Code: \(code)")
+        
             // Send token to your backend via HTTPS
-            print(host)
+//            print(host)
             let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/" + host + "/" + code)
             guard let requestUrl = url else { fatalError() }
 
@@ -108,8 +162,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
             task.resume()
 
-            
+                
         }
+        
         
         
 //        UserDefaults.standard.set(code, forKey: "Code")  //String
@@ -121,8 +176,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let rootNC = UINavigationController(rootViewController: rootVC)
 //        self.window?.rootViewController = rootNC
 //        self.window?.makeKeyAndVisible()
-        
-        
 
 //        this way of transistion does not reload the view controller
 //        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)

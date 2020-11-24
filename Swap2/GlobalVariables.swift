@@ -9,6 +9,11 @@ import Foundation
 
 struct GlobalVar {
     static var IdToken: String = " "
+    static var redirectUrl: String = " "
+    static var oauthRequestToken: String = " "
+    static var oauthRequestTokenSecret: String = " "
+
+
     static var Name: String = " "
     static var Number: String = " "
     static var toggleState: [String: Bool] = ["contact": true]
