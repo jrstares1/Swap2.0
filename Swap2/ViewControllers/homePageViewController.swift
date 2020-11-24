@@ -105,7 +105,7 @@ class homePageViewController: UIViewController {
                             if(document.documentID == type){
                                 //TODO: test this out in new account
                                 let dict = ["enabled":state]
-                                db.collection("users").document(self.uid).collection("appData").document(type).setData(dict)
+                                db.collection("users").document(self.uid).collection("appData").document(type).setData(dict, merge: true)
                             }
                         }
                     }
