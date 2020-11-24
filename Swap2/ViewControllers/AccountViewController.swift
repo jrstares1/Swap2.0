@@ -61,9 +61,8 @@ class AccountViewController: UIViewController{
                 self.phoneLabel.text = GlobalVar.Number
                 //TODO: figure out how to pass in the current user
                 //todo: let firestore know who the current user is.
-                
                 let db = Firestore.firestore()
-                db.collection("users/\(uid)/appData").whereField("phoneNumber", isEqualTo: GlobalVar.Number).getDocuments() {
+                db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {
                         print("Error Getting appData Documents: \(err)")
@@ -164,6 +163,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
             return accountArray.count
         }
         else{
+            print("count " + userAccountArray.count.description)
             return userAccountArray.count
         }
        
@@ -176,7 +176,6 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
             let type = accountArray[indexPath.row]
             if(type == "Github"){
                 let success = addGithub()
-                //TODO: fix this. it's a little hard cody
                 if (success){
                     print("succes adding github account. appending tablieview")
                     self.userAccountArray.append("Github")
@@ -187,7 +186,6 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
             }
             if(type == "Spotify"){
                 let success = addSpotify()
-                //TODO: fix this. it's a little hard cody
                 if (success) {
                     self.userAccountArray.append("Spotify")
                     self.socialsTableView.reloadData()
@@ -197,7 +195,6 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
             }
             if(type == "Twitter"){
                 let success = addTwitter()
-                //TODO: fix this. it's a little hard cody
                 if (success) {
                     self.userAccountArray.append("Twitter")
                     self.socialsTableView.reloadData()

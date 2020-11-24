@@ -44,7 +44,9 @@ class SignUpViewController: UIViewController {
         
 
     }
-
+    
+    
+    
 
     @IBOutlet weak var firstNameTextField: UITextField!
     
@@ -53,7 +55,9 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var phoneTextField: PhoneNumberTextField!
-
+    
+    
+        
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var signUpButton: UIButton!
