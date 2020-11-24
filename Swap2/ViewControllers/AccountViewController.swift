@@ -59,9 +59,11 @@ class AccountViewController: UIViewController{
                 self.emailLabel.text = email
                 //TODO: format phone number properly
                 self.phoneLabel.text = GlobalVar.Number
-                //TODO: figure out how to pass in the current user 
+                //TODO: figure out how to pass in the current user
+                //todo: let firestore know who the current user is.
+                
                 let db = Firestore.firestore()
-                db.collection("users/\(uid)/appData").getDocuments() {
+                db.collection("users/\(uid)/appData").whereField("phoneNumber", isEqualTo: GlobalVar.Number).getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {
                         print("Error Getting appData Documents: \(err)")
