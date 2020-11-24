@@ -9,13 +9,13 @@ import UIKit
 import AVFoundation
 
 class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & UINavigationControllerDelegate, AVCaptureMetadataOutputObjectsDelegate {
-
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.backgroundColor = UIColor.black
         captureSession = AVCaptureSession()
@@ -77,21 +77,9 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
     
     //If we found some data in the qr code
     func found (code: String) {
-        
-//        let ac = UIAlertController(title: "Swap Successful!", message: nil, preferredStyle: .alert)
-//
-//        let submitAction = UIAlertAction(title: "Dismiss", style: .default) { [unowned ac] _ in
-//            _ = ac
-//            self.saveQRData(code: code)
-//            self.captureSession.startRunning()
-//        }
-//
-//        ac.addAction(submitAction)
-//        self.present(ac, animated: true)
-        
         saveQRData(code: code)
     }
-
+    
     func saveQRData(code: String) {
         //Going to change this to whatever our landing page is; google is just a placeholder
         let userId = code.replacingOccurrences(of: "http://www.google.com/?uid=", with: "")
@@ -102,27 +90,29 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
         serialQueue.async {
             userData = swapWith(string: userId)
         }
+        
         serialQueue.async {
-            print("Received user data is: \(userData)")
             if (userData != empty) {
-//                let ac = UIAlertController(title: "Swap Successful!", message: "You swapped with \(userData["firstName"]) \(userData["lastName"])", preferredStyle: .alert)
-//                let submitAction = UIAlertAction(title: "Dismiss", style: .default)
-//                ac.addAction(submitAction)
-//                self.present(ac, animated: true)
-                print("made it here")
+                DispatchQueue.main.async {
+                    
+                    let ac = UIAlertController(title: "Swap Successful!", message: "You swapped with \(userData["firstName"]!) \(userData["lastName"]!)! Would you like to add this user to your contacts?", preferredStyle: .alert)
+                    let submitAction = UIAlertAction(title: "Yes", style: .default) { [unowned ac] _ in
+                        _ = ac
+                        addContact(info: userData)
+                        self.captureSession.startRunning()
+                    }
+                    let deny = UIAlertAction(title: "No", style: .default) { [unowned ac] _ in
+                        _ = ac
+                        self.captureSession.startRunning()
+                    }
+                    
+                    ac.addAction(submitAction)
+                    ac.addAction(deny)
+                    self.present(ac, animated: true)
+                }
             }
-            
-//            addContact(info: userData)
         }
-//        self.confirmSwap(code: userData)
     }
-    
-//    func confirmSwap(code: [String:String]) {
-//        let ac = UIAlertController(title: "Swap Successful!", message: "You swapped with \(code["firstName"]) \(code["lastName"])", preferredStyle: .alert)
-//        let submitAction = UIAlertAction(title: "Dismiss", style: .default)
-//        ac.addAction(submitAction)
-//        self.present(ac, animated: true)
-//    }
     
     //folliwng function start or stop the capture session if the view
     //is about to appear or disappear
