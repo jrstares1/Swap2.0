@@ -44,9 +44,7 @@ class SignUpViewController: UIViewController {
         
 
     }
-    
-    
-    
+
 
     @IBOutlet weak var firstNameTextField: UITextField!
     
@@ -55,18 +53,12 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var phoneTextField: PhoneNumberTextField!
-    
-    
-        
+
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var signUpButton: UIButton!
     
     @IBOutlet weak var errorLabel: UILabel!
-    
-    
-    
-    
 
     
     //if everything correct return nil
@@ -95,13 +87,7 @@ class SignUpViewController: UIViewController {
 
         let phoneNumberKit = PhoneNumberKit()
         phoneNumberKit.isValidPhoneNumber(cleanedPhone)
-        
-//        phoneNumberKit.with
-//        print("here 4")
-//        print(phoneNumberKit)
-//        print(phoneTextField)
-
-//        let cleanedPhone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+  
                 
         //the method below is from utilities
         if Utilities.isPasswordValid(cleanedPassword) == false {

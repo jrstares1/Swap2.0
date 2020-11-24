@@ -174,7 +174,7 @@ func deleteTwitter(){
                 }
 
                 // Create the url and subsequently the request
-                let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/spotify")
+                let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/twitter")
                 guard let requestUrl = url else {fatalError()}
                 
                 var request = URLRequest(url: requestUrl)
