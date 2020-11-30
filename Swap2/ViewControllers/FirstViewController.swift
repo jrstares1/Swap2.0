@@ -33,8 +33,7 @@ class FirstViewController: UIViewController {
                             let lastName = document.get("lastName") as! String
 //                            let phoneNumber = document.get("phoneNumber") as! String
                             GlobalVar.Name = (firstName + " " + lastName)
-//                            GlobalVar.Number = phoneNumber
-                            //TODO: get toggle infomation here
+
                         } else {
                             print("Document does not exist")
                         }

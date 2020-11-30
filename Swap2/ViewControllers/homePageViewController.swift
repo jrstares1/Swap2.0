@@ -50,13 +50,16 @@ class homePageViewController: UIViewController {
     func auth(){
         accountArray.removeAll()
         accountArray.append("contact")
+  
         if (Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser
+            //print("description " + auth1.
             if let user = user {
               // The user's ID, unique to the Firebase project.
               // Do NOT use this value to authenticate with your backend server,
               // if you have one. Use getTokenWithCompletion:completion: instead.
                 uid = user.uid
+                print("user " + user.uid.description)
                 let email = user.email
                 let db = Firestore.firestore()
                 _ = db.collection("users").document(uid)
@@ -65,7 +68,7 @@ class homePageViewController: UIViewController {
                 let _: Void = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {
-                        print("Error Getting appData Documents: \(err)")
+                        print("here Error Getting appData Documents: \(err)")
                     } else {
                         for document in querySnapshot!.documents {
                             if(!self.accountArray.contains(document.documentID)){
