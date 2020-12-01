@@ -102,10 +102,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // Read HTTP Response Status code
             if let response = response as? HTTPURLResponse {
                 print("Twitter Response HTTP Status code: \(response.statusCode)")
+                
+                if(response.statusCode == 201){
+                    print("Success")
+                }
+                if(response.statusCode == 403 || response.statusCode == 500){
+                    print("Failure")
+                    //TODO dont add account to table
+                    
+                }
             }
 
-            // TODO: do we need to fix this?????
-            //ADD Later if we get a 403 error stop.
 
             // Convert HTTP Response Data to a simple String
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
@@ -142,54 +149,44 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     
             // Check if Error took place
             if let error = error {
-                print("Error took place \(error)")
+                print("\(host) Error took place \(error)")
                     return
             }
                     
             // Read HTTP Response Status code
             if let response = response as? HTTPURLResponse {
-                print("Response HTTP Status code: \(response.statusCode)")
-            }
+                print("\(host) Response HTTP Status code: \(response.statusCode)")
             
-            // TODO: do we need to fix this?????
-            //ADD Later if we get a 403 error stop.
+                
+                if(response.statusCode == 201){
+                    print("Success")
+                }
+                if(response.statusCode == 403 || response.statusCode == 500){
+                    print("Failure")
+                    //TODO dont add account to table
+                    
+                }
+                
+                
+            }
             
             // Convert HTTP Response Data to a simple String
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
-                print("Response data string:\n \(dataString)")
+                print("\(host) Response data string:\n \(dataString)")
             }
                     
             }
             task.resume()
+            
 
                 
         }
         
-        
-        
-//        UserDefaults.standard.set(code, forKey: "Code")  //String
-
-        //this way of transition reloads the view controller. I send it to accountVC
-//        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-//        let rootVC: UIViewController = storyboard.instantiateViewController(withIdentifier: "AccountVC") as UIViewController
-//        
-//        let rootNC = UINavigationController(rootViewController: rootVC)
-//        self.window?.rootViewController = rootNC
-//        self.window?.makeKeyAndVisible()
-
-//        this way of transistion does not reload the view controller
-//        let storyboard: UIStoryboard = UIStoryboard(name: "Home", bundle: nil)
-//        let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "HomeVC") as UIViewController
-//        let rootViewController = self.window!.rootViewController as! UINavigationController;
-//        rootViewController.pushViewController(initViewController, animated: true);
-//
     }
    
 
         
-            
-
-
+        
 
 }
 
