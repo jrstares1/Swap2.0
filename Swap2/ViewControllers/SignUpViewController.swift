@@ -141,26 +141,30 @@ class SignUpViewController: UIViewController {
             
                 // Check for errors. If it comes in as nil there was an error
                 if err != nil {
-                    self.showError("Error creating user")
+                    self.showError("Error Creating User")
+                    let alert = UIAlertController(title: "Error", message: "It appears this user already exists!", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                     
                 }
                 else {
                     // User creation successful!, now store first name and last name
-                    
                     if (Auth.auth().currentUser != nil) {
                       // User is signed in.
-                      
                         let user = Auth.auth().currentUser
                         if let user = user {
                           // The user's ID, unique to the Firebase project.
                           // Do NOT use this value to authenticate with your backend server,
                           // if you have one. Use getTokenWithCompletion:completion: instead.
                             let uid = user.uid
-                            //let email = user.email
-                            
                             print("uid " + uid)
                             GlobalVar.Name = firstName + " " + lastName
                             GlobalVar.Number = phoneNumber
+                            user.sendEmailVerification(completion: {error in
+                                if error != nil{
+                                    print("email welcome message was not send")
+                                }
+                            })
                             let db = Firestore.firestore()
                             db.collection("users").document(uid).setData(["firstName":firstName, "lastName":lastName, "phoneNumber":phoneNumber], merge: true){ (error) in
                                 
@@ -168,16 +172,17 @@ class SignUpViewController: UIViewController {
                                     // Show error message
                                     print(error ?? "no error")
                                     print("error adding user data")
-                                    self.showError("Error changin user data")
+                                    self.showError("Error adding user data. Database is most likely down ")
                                 }
+                                
+                                
                             }
             
                         }
                         self.transitionToHome()
 
                     }else{
-                        
-                        print("USER NULL")
+                        print("USER NULL. Should never get here however")
                     }
                     
                     }
@@ -206,15 +211,5 @@ class SignUpViewController: UIViewController {
 
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
