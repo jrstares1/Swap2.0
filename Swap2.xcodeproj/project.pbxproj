@@ -17,6 +17,7 @@
 		72126212255F062A00036E51 /* DeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72126211255F062A00036E51 /* DeleteAccount.swift */; };
 		7245A8312545055800E532BE /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7245A8302545055800E532BE /* AccountTableViewCell.swift */; };
 		725E2CBB25649CCA0057AD02 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E2CBA25649CCA0057AD02 /* Github.swift */; };
+		72A12FD12576A49900DFCA0E /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A12FD02576A49900DFCA0E /* PopUpViewController.swift */; };
 		72AB1D55253B41C40099FD50 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72AB1D54253B41C40099FD50 /* Home.storyboard */; };
 		72B2B1C22558929700D69A4D /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2B1C02558929700D69A4D /* UserTableViewCell.swift */; };
 		72B2B1C32558929700D69A4D /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72B2B1C12558929700D69A4D /* UserTableViewCell.xib */; };
@@ -80,6 +81,7 @@
 		72126211255F062A00036E51 /* DeleteAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccount.swift; sourceTree = "<group>"; };
 		7245A8302545055800E532BE /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		725E2CBA25649CCA0057AD02 /* Github.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
+		72A12FD02576A49900DFCA0E /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		72AB1D54253B41C40099FD50 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		72B2B1C02558929700D69A4D /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		72B2B1C12558929700D69A4D /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				F77048F22537FE8C00EF3869 /* homePageViewController.swift */,
 				72C477B9253BB598004EF8EA /* ScanViewController.swift */,
 				72C477C4253BCA19004EF8EA /* AccountViewController.swift */,
+				72A12FD02576A49900DFCA0E /* PopUpViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -606,6 +609,7 @@
 				0E4AAED42549247E00A47DBB /* GetRequest.swift in Sources */,
 				0E4AAED22549138700A47DBB /* GenerateQRCode.swift in Sources */,
 				72C477C5253BCA19004EF8EA /* AccountViewController.swift in Sources */,
+				72A12FD12576A49900DFCA0E /* PopUpViewController.swift in Sources */,
 				F7300A4F2537970100E02B82 /* SignUpViewController.swift in Sources */,
 				72C477BA253BB598004EF8EA /* ScanViewController.swift in Sources */,
 				F7DA97B025513C2F00C9A711 /* OnBoardingViewController.swift in Sources */,

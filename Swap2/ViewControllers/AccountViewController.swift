@@ -68,6 +68,16 @@ class AccountViewController: UIViewController{
         }
     }
 
+    @IBAction func showPopup(_ sender: Any) {
+        
+        let popOverVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "sbPopUpID") as! PopUpViewController
+        self.addChild(popOverVC)
+        popOverVC.view.frame = self.view.frame
+        self.view.addSubview(popOverVC.view )
+        popOverVC.didMove(toParent: self)
+        
+    }
+    
     @IBAction func HelpTutorial(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "OnBoardingVC") as! OnBoardingViewController
