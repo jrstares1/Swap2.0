@@ -51,15 +51,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func registerBackgroundTasks(){
-        let backgroundAppRefreshTaskSchedulerIdentifier = "BackgroundAppRefreshID"
-        let backgroundProcessingTaskSchedulerIdentifier = "BGProcessingTaskRequest"
+        let backgroundAppRefreshTaskSchedulerIdentifier = "com.example.fooBackgroundAppRefreshIdentifier"
+        let backgroundProcessingTaskSchedulerIdentifier = "com.example.fooBackgroundProcessingIdentifier"
 
-        // Use the identifier which represents your needs
-        //GBTTaskS
-        //BGTaskS
-//        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.example.apple-samplecode.ColorFeed.refresh", using: nil) { task in
+//        BGTaskScheduler.shared.register(forTaskWithIdentifier: backgroundAppRefreshTaskSchedulerIdentifier, using: nil) { task in
 //             self.handleAppRefresh(task: task as! BGAppRefreshTask)
 //        }
+            
 //        BGTaskScheduler.shared.register(forTaskWithIdentifier: backgroundAppRefreshTaskSchedulerIdentifier, using: nil) { (task) in
 //           print("BackgroundAppRefreshTaskScheduler is executed NOW!")
 //           print("Background time remaining: \(UIApplication.shared.backgroundTimeRemaining)s")
@@ -71,8 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //           let isFetchingSuccess = true
 //           task.setTaskCompleted(success: isFetchingSuccess)
 //         }
-//    }
     }
+    
 
 
 }
