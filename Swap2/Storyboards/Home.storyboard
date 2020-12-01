@@ -84,6 +84,7 @@
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Sj-PW-klA">
                                                         <rect key="frame" x="0.0" y="154.5" width="75" height="22"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button" image="gearshape" catalog="system"/>
                                                         <connections>
                                                             <action selector="showPopup:" destination="EHh-Jk-Mfv" eventType="touchUpInside" id="WeO-wV-DcV"/>
@@ -383,22 +384,60 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XD-yp-yNP">
                                 <rect key="frame" x="84.5" y="312" width="245" height="272"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xd5-pP-QOY">
-                                        <rect key="frame" x="89.5" y="114" width="65" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                        <state key="normal" title="Close">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="closePopUp:" destination="Qn4-9U-oyr" eventType="touchUpInside" id="7T4-y3-2p2"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="an1-e7-oaI">
+                                        <rect key="frame" x="0.0" y="0.5" width="245" height="271"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0tz-qo-aHw">
+                                                <rect key="frame" x="33.5" y="0.0" width="178" height="43"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="24"/>
+                                                <state key="normal" title="delete account">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="deleteAccount:" destination="Qn4-9U-oyr" eventType="touchUpInside" id="O4W-dy-YGk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUV-S7-MZf">
+                                                <rect key="frame" x="74" y="76" width="97" height="43"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="24"/>
+                                                <state key="normal" title="sign out">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signOut:" destination="Qn4-9U-oyr" eventType="touchUpInside" id="KUk-Z2-C8r"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yS9-8Y-ta4">
+                                                <rect key="frame" x="94.5" y="152" width="56" height="43"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="25"/>
+                                                <state key="normal" title="help">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="help:" destination="Qn4-9U-oyr" eventType="touchUpInside" id="fMm-6l-qYs"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xd5-pP-QOY">
+                                                <rect key="frame" x="93" y="228" width="59" height="43"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="22"/>
+                                                <state key="normal" title="Close">
+                                                    <color key="titleColor" systemColor="labelColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="closePopUp:" destination="Qn4-9U-oyr" eventType="touchUpInside" id="7T4-y3-2p2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
+                                    <constraint firstItem="an1-e7-oaI" firstAttribute="centerY" secondItem="3XD-yp-yNP" secondAttribute="centerY" id="1jx-fU-WXj"/>
+                                    <constraint firstItem="an1-e7-oaI" firstAttribute="leading" secondItem="3XD-yp-yNP" secondAttribute="leading" id="4D8-F4-ucy"/>
+                                    <constraint firstItem="an1-e7-oaI" firstAttribute="centerX" secondItem="3XD-yp-yNP" secondAttribute="centerX" id="8Gd-2L-Gch"/>
                                     <constraint firstAttribute="height" constant="272" id="SIZ-c6-Pk2"/>
                                     <constraint firstAttribute="width" constant="245" id="Xz3-VE-BG3"/>
+                                    <constraint firstAttribute="trailing" secondItem="an1-e7-oaI" secondAttribute="trailing" id="xSL-YY-um1"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -426,6 +465,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
