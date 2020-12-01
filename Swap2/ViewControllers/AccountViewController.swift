@@ -57,7 +57,6 @@ class AccountViewController: UIViewController{
                 let email = user.email
                 self.nameLabel.text = GlobalVar.Name
                 self.emailLabel.text = email
-                //TODO: format phone number properly
                 self.phoneLabel.text = GlobalVar.Number
                 //TODO: figure out how to pass in the current user
                 //todo: let firestore know who the current user is.
