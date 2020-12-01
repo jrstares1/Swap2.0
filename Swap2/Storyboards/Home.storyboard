@@ -40,10 +40,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="IZg-hh-XpG">
-                                        <rect key="frame" x="22.5" y="121" width="369" height="176.5"/>
+                                        <rect key="frame" x="22.5" y="121" width="369" height="133"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U50-g9-lYi">
-                                                <rect key="frame" x="0.0" y="-2" width="100" height="180.5"/>
+                                                <rect key="frame" x="0.0" y="-2" width="100" height="137"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="0ra-u8-QiN"/>
@@ -51,39 +51,28 @@
                                                 <imageReference key="image" image="person.circle" catalog="system" symbolScale="large"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="4tK-qF-ufM">
-                                                <rect key="frame" x="150" y="0.0" width="219" height="176.5"/>
+                                                <rect key="frame" x="150" y="0.0" width="219" height="133"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfu-qc-8AN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="24.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="26"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="johndoe@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWe-eS-GRa">
-                                                        <rect key="frame" x="0.0" y="35.5" width="219" height="26"/>
+                                                        <rect key="frame" x="0.0" y="37" width="219" height="26"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(123) 467 - 7890" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c42-Rz-Bnh">
-                                                        <rect key="frame" x="0.0" y="72.5" width="159" height="26"/>
+                                                        <rect key="frame" x="0.0" y="74" width="159" height="26"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="21"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRS-Ap-R8n">
-                                                        <rect key="frame" x="0.0" y="109.5" width="79" height="34"/>
-                                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
-                                                        <state key="normal" title="Sign Out">
-                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="Logout:" destination="lIG-SX-zxc" eventType="touchUpInside" id="cYb-Ex-m9S"/>
-                                                            <action selector="SignOut:" destination="EHh-Jk-Mfv" eventType="touchUpInside" id="x3w-fE-ed2"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Sj-PW-klA">
-                                                        <rect key="frame" x="0.0" y="154.5" width="75" height="22"/>
+                                                        <rect key="frame" x="0.0" y="111" width="75" height="22"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button" image="gearshape" catalog="system"/>
                                                         <connections>
@@ -95,7 +84,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Cq7-Ej-KVX">
-                                        <rect key="frame" x="110" y="329.5" width="194.5" height="28.5"/>
+                                        <rect key="frame" x="110" y="286" width="194.5" height="28.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Linked Accounts:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdg-AW-dcV">
                                                 <rect key="frame" x="0.0" y="0.0" width="194.5" height="28.5"/>
@@ -106,7 +95,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Hp-3v-f3V">
-                                        <rect key="frame" x="0.0" y="390" width="414" height="313"/>
+                                        <rect key="frame" x="0.0" y="346.5" width="414" height="422.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <tableView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vm6-Ja-5Sv">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
@@ -114,34 +103,6 @@
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </tableView>
                                     </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="JT5-O1-ZU6">
-                                        <rect key="frame" x="79" y="735" width="256" height="34"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PaP-PK-HV1">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="34"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
-                                                <state key="normal" title="Delete Account">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="deleteProfile:" destination="EHh-Jk-Mfv" eventType="touchUpInside" id="DoI-DK-wSJ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vMe-aw-ubN">
-                                                <rect key="frame" x="156" y="0.0" width="100" height="34"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="MI1-lV-MSh"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
-                                                <state key="normal" title="Help">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="HelpTutorial:" destination="EHh-Jk-Mfv" eventType="touchUpInside" id="GAh-O7-EqA"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="uYX-nk-T0N" firstAttribute="leading" secondItem="ZG3-tC-xbo" secondAttribute="leadingMargin" id="YkY-bd-qLm"/>
@@ -168,7 +129,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xye-my-amL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="lIG-SX-zxc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2124.6376811594205" y="589.95535714285711"/>
         </scene>
