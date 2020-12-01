@@ -25,9 +25,11 @@ class homePageViewController: UIViewController {
     @IBOutlet weak var displayQR: UIImageView!
     @IBOutlet weak var socialsTableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet var addButton: UIButton!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        buttonSetup()
         auth()
         socialsTableView.reloadData()
         swapListener()
@@ -129,6 +131,13 @@ class homePageViewController: UIViewController {
             self.present(ac, animated: true)
         }
     }
+    func buttonSetup(){
+        addButton.backgroundColor = .clear
+        addButton.layer.cornerRadius = 5
+        addButton.layer.borderWidth = 1
+        addButton.layer.borderColor = UIColor.black.withAlphaComponent(0.2).cgColor
+    }
+    
     //change the state of account in db
     func changeState(_ type: String, _ state: Bool){
         print("turning " + type + " " + state.description)

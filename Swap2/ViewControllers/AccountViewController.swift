@@ -23,6 +23,7 @@ class AccountViewController: UIViewController{
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var socialsTableView: UITableView!
+    @IBOutlet var editButton: UIButton!
     
    
     override func viewDidAppear(_ animated: Bool) {
@@ -32,6 +33,7 @@ class AccountViewController: UIViewController{
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        buttonSetup()
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
@@ -76,6 +78,13 @@ class AccountViewController: UIViewController{
         self.view.addSubview(popOverVC.view )
         popOverVC.didMove(toParent: self)
         
+    }
+    
+    func buttonSetup(){
+        editButton.backgroundColor = .clear
+        editButton.layer.cornerRadius = 5
+        editButton.layer.borderWidth = 1
+        editButton.layer.borderColor = UIColor.black.withAlphaComponent(0.2).cgColor
     }
   
 }
