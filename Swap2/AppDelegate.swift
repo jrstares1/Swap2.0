@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import BackgroundTasks
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        submitBackgroundTasks()
+      }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -46,21 +50,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func registerBackgroundTasks(){
-        let backgroundAppRefreshTaskSchedulerIdentifier = "com.example.fooBackgroundAppRefreshIdentifier"
-        let backgroundProcessingTaskSchedulerIdentifier = "com.example.fooBackgroundProcessingIdentifier"
-    
-//        BGTaskScheduler.shared.register(forTaskWithIdentifier: backgroundAppRefreshTaskSchedulerIdentifier, using: nil) { (task) in
-//           print("BackgroundAppRefreshTaskScheduler is executed NOW!")
-//           print("Background time remaining: \(UIApplication.shared.backgroundTimeRemaining)s")
-//           task.expirationHandler = {
-//             task.setTaskCompleted(success: false)
-//           }
+        let id = "com.example.fooBackgroundAppRefreshIdentifier"
+        //let backgroundProcessingTaskSchedulerIdentifier = "com.example.fooBackgroundProcessingIdentifier"
 
-           // Do some data fetching and call setTaskCompleted(success:) asap!
-//           let isFetchingSuccess = true
-//           task.setTaskCompleted(success: isFetchingSuccess)
-//         }
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: id, using: nil) { (task) in
+           print("BackgroundAppRefreshTaskScheduler is executed NOW!")
+           print("Background time remaining: \(UIApplication.shared.backgroundTimeRemaining)s")
+           task.expirationHandler = {
+             task.setTaskCompleted(success: false)
+           }
+          // Do some data fetching and call setTaskCompleted(success:) asap!
+           print("santa is real")
+          // homePageViewController.swapListener()
+           let isFetchingSuccess = true
+           task.setTaskCompleted(success: isFetchingSuccess)
+         }
     }
+    
+    func submitBackgroundTasks() {
+        // Declared at the "Permitted background task scheduler identifiers" in info.plist
+        let id = "com.example.fooBackgroundAppRefreshIdentifier"
+        let timeDelay = 60.0
+        do {
+          let request = BGAppRefreshTaskRequest(identifier: id)
+          request.earliestBeginDate = Date(timeIntervalSinceNow: timeDelay)
+          try BGTaskScheduler.shared.submit(request)
+          print("Submitted task request")
+        } catch {
+          print("Failed to submit BGTask")
+        }
+      }
+    
     
 
 
