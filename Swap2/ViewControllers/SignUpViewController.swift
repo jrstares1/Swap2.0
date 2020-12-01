@@ -208,7 +208,7 @@ class SignUpViewController: UIViewController {
         let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "OnBoardingVC") as! OnBoardingViewController
         initViewController.modalPresentationStyle = .fullScreen
         self.present(initViewController, animated: true, completion: nil)
-
+    
     }
     
 

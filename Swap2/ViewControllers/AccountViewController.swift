@@ -58,8 +58,6 @@ class AccountViewController: UIViewController{
                 self.nameLabel.text = GlobalVar.Name
                 self.emailLabel.text = email
                 self.phoneLabel.text = GlobalVar.Number
-                //TODO: figure out how to pass in the current user
-                //todo: let firestore know who the current user is.
                 let db = Firestore.firestore()
                 db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
@@ -120,18 +118,14 @@ class AccountViewController: UIViewController{
         let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete your account?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.destructive, handler: { action in
-        
-        
             let user = Auth.auth().currentUser
             user?.delete(completion: {error in
                 if error != nil{
                     print("account deletion error")
-                }else{
-                
-                    print("account deleted")
+                }
+                else{
                     self.userDefault.set(false, forKey: "usersignedin")
                     self.userDefault.synchronize()
-                    
                     let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as UIViewController
                     self.present(initViewController, animated: true, completion: nil)
@@ -233,8 +227,6 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                
             }
-            
-   
         }
         else{
             let type = userAccountArray[indexPath.row]

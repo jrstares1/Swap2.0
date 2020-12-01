@@ -15,7 +15,11 @@ class homePageViewController: UIViewController {
     var uid = ""
     var numCells = 0
     var currentImage : UIImage?
-    var accountArray = ["contact"]
+    var userAccountArray = ["contact"]
+    var transparentView = UIView()
+    var tableView = UITableView()
+    let height: CGFloat = 400
+    var accountArray = ["Github", "Spotify", "Twitter"]
     
    
     @IBOutlet weak var displayQR: UIImageView!
@@ -42,16 +46,17 @@ class homePageViewController: UIViewController {
         socialsTableView.isScrollEnabled = true
         let nib = UINib(nibName: "ActiveSocialsTableViewCell", bundle: nil)
         socialsTableView.register(nib, forCellReuseIdentifier: "ActiveSocialsTableViewCell")
+        tableView.isScrollEnabled = true
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
         auth();
         socialsTableView.reloadData()
     }
-    
-    
-    
-    
+
     func auth(){
-        accountArray.removeAll()
-        accountArray.append("contact")
+        userAccountArray.removeAll()
+        userAccountArray.append("contact")
   
         if (Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser
@@ -73,8 +78,8 @@ class homePageViewController: UIViewController {
                         print("here Error Getting appData Documents: \(err)")
                     } else {
                         for document in querySnapshot!.documents {
-                            if(!self.accountArray.contains(document.documentID)){
-                                self.accountArray.append(document.documentID)
+                            if(!self.userAccountArray.contains(document.documentID)){
+                                self.userAccountArray.append(document.documentID)
                                 self.socialsTableView.reloadData()
                             }
                         }
@@ -97,11 +102,7 @@ class homePageViewController: UIViewController {
         print("big brother is listening")
         var swapped = false
         let user = Auth.auth().currentUser
-        //print("description " + auth1.
         if let user = user {
-          // The user's ID, unique to the Firebase project.
-          // Do NOT use this value to authenticate with your backend server,
-          // if you have one. Use getTokenWithCompletion:completion: instead.
             let uid = user.uid
             let db = Firestore.firestore()
             
@@ -157,32 +158,72 @@ class homePageViewController: UIViewController {
             
         }
     }
+    //add account button func
+    @IBAction func addAccounts(_ sender: Any) {
+        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        transparentView.frame = self.view.frame
+        self.view.addSubview(transparentView)
+        self.view.addSubview(tableView)
+        let screensize = UIScreen.main.bounds.size
+        tableView.frame = CGRect(x: 0, y: screensize.height, width: screensize.width, height: height)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
+        transparentView.addGestureRecognizer(tapGesture)
+        transparentView.alpha = 0
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+            self.transparentView.alpha = 0.5
+            self.tableView.frame = CGRect(x: 0, y: screensize.height - self.height, width: screensize.width, height: self.height)
+        } , completion: nil)
+    }
+    
+    @objc func onClickTransparentView(){
+        let screensize = UIScreen.main.bounds.size
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+            self.transparentView.alpha = 0
+            self.tableView.frame = CGRect(x: 0, y: screensize.height, width: screensize.width, height: self.height)
+        } , completion: nil)
+        self.viewDidLoad()
+    }
 
    
 }
 
 extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return accountArray.count
+        if(tableView == self.tableView){
+            return accountArray.count
+        }
+        else{
+            return userAccountArray.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
-        cell.socialLogo.image = UIImage(named: accountArray[indexPath.row]) ?? nil
-        cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
-        //todo pull toggle state from user defaults
-        let type = accountArray[indexPath.row]
-        let toggleState = UserDefaults.standard.bool(forKey: type)
-        cell.socialToggle.isEnabled = true
-        cell.socialToggle.isOn = toggleState
-        cell.accountName = accountArray[indexPath.row]
-        cell.socialToggle.tag = indexPath.row
-        return cell
+        if(tableView == self.socialsTableView){
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
+            cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
+            cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
+            //todo pull toggle state from user defaults
+            let type = userAccountArray[indexPath.row]
+            let toggleState = UserDefaults.standard.bool(forKey: type)
+            cell.socialToggle.isEnabled = true
+            cell.socialToggle.isOn = toggleState
+            cell.accountName = userAccountArray[indexPath.row]
+            cell.socialToggle.tag = indexPath.row
+            return cell
+        }
+        else{
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AccountTableViewCell else{
+                fatalError("Unable to deque cell")
+            }
+            cell.settingImage.image = UIImage(named: accountArray[indexPath.row])!
+            return cell
+        }
+        
     }
 
     @objc func switchChanged(mySwitch: UISwitch) {
         let state = mySwitch.isOn
-        let type = accountArray[mySwitch.tag]
+        let type = userAccountArray[mySwitch.tag]
         self.userDefault.set(state, forKey: type)
         self.userDefault.synchronize()
         changeState(type, state)
@@ -190,6 +231,43 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
      }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(tableView == self.tableView){
+            let type = accountArray[indexPath.row]
+            if(type == "Github"){
+                let success = addGithub()
+                if (success){
+                    print("succes adding github account. appending tablieview")
+                    self.userAccountArray.append("Github")
+                    self.socialsTableView.reloadData()
+                    self.viewDidLoad()
+                }
+                
+            }
+            if(type == "Spotify"){
+                let success = addSpotify()
+                if (success) {
+                    self.userAccountArray.append("Spotify")
+                    self.socialsTableView.reloadData()
+                    self.viewDidLoad()
+                }
+               
+            }
+            if(type == "Twitter"){
+                let success = addTwitter()
+                if (success) {
+                    self.userAccountArray.append("Twitter")
+                    self.socialsTableView.reloadData()
+                    self.viewDidLoad()
+                }
+               
+            }
+        }
+        else{
+            let type = userAccountArray[indexPath.row]
+        }
+        
     }
 
     
