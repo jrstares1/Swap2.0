@@ -25,7 +25,6 @@ class homePageViewController: UIViewController {
     @IBOutlet weak var displayQR: UIImageView!
     @IBOutlet weak var socialsTableView: UITableView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -67,11 +66,9 @@ class homePageViewController: UIViewController {
               // if you have one. Use getTokenWithCompletion:completion: instead.
                 uid = user.uid
                 print("user " + user.uid.description)
-                let email = user.email
                 let db = Firestore.firestore()
                 _ = db.collection("users").document(uid)
                 self.nameLabel.text = GlobalVar.Name
-                self.emailLabel.text = email
                 let _: Void = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {

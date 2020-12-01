@@ -16,11 +16,7 @@ class AccountViewController: UIViewController{
     var currentImage : UIImage?
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
-    var transparentView = UIView()
-    var tableView = UITableView()
-    let height: CGFloat = 400
     var accountArray = ["Github", "Spotify", "Twitter"]
-    //var userAccountArray = ["Github", "Instagram", "Facebook"]
     var userAccountArray = [String]()
     
     @IBOutlet weak var emailLabel: UILabel!
@@ -40,13 +36,8 @@ class AccountViewController: UIViewController{
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
         socialsTableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserAccountTableViewCell")
-        tableView.isScrollEnabled = true
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
         auth()
     }
-
 
     func auth(){
         if (Auth.auth().currentUser != nil) {
@@ -77,39 +68,11 @@ class AccountViewController: UIViewController{
         }
     }
 
-    
-    @IBAction func addAccounts(_ sender: Any) {
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        transparentView.frame = self.view.frame
-        self.view.addSubview(transparentView)
-        self.view.addSubview(tableView)
-        let screensize = UIScreen.main.bounds.size
-        tableView.frame = CGRect(x: 0, y: screensize.height, width: screensize.width, height: height)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onClickTransparentView))
-        transparentView.addGestureRecognizer(tapGesture)
-        transparentView.alpha = 0
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0.5
-            self.tableView.frame = CGRect(x: 0, y: screensize.height - self.height, width: screensize.width, height: self.height)
-        } , completion: nil)
-    }
-    
-    @objc func onClickTransparentView(){
-        let screensize = UIScreen.main.bounds.size
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0
-            self.tableView.frame = CGRect(x: 0, y: screensize.height, width: screensize.width, height: self.height)
-        } , completion: nil)
-        self.viewDidLoad()
-    }
-
-    
     @IBAction func HelpTutorial(_ sender: Any) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "OnBoardingVC") as! OnBoardingViewController
         initViewController.modalPresentationStyle = .fullScreen
         self.present(initViewController, animated: true, completion: nil)
-        
     }
     
     
@@ -131,17 +94,11 @@ class AccountViewController: UIViewController{
                     self.present(initViewController, animated: true, completion: nil)
                 }
             })
-                
         }))
-        // show the alert
         self.present(alert, animated: true, completion: nil)
-       
     }
     
-    
-    
     @IBAction func SignOut(_ sender: Any) {
-
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()
@@ -151,96 +108,39 @@ class AccountViewController: UIViewController{
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as UIViewController
             self.present(initViewController, animated: true, completion: nil)
-            
-            
-        } catch let signOutError as NSError {
+        }
+        catch let signOutError as NSError {
           print ("Error signing out: %@", signOutError)
         }
         
     }
 }
  
-
 extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if(tableView == self.tableView){
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AccountTableViewCell else{
-                fatalError("Unable to deque cell")
-            }
-            cell.settingImage.image = UIImage(named: accountArray[indexPath.row])!
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as? UserTableViewCell else{
+            fatalError("Unable to deque cell")
         }
-        else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserAccountTableViewCell", for: indexPath) as? UserTableViewCell else{
-                fatalError("Unable to deque cell")
-            }
-            cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
-            cell.account = userAccountArray[indexPath.row]
-            cell.delegate = self
-            return cell
-        }
-        
-       
+        cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
+        cell.account = userAccountArray[indexPath.row]
+        cell.delegate = self
+        return cell
+
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(tableView == self.tableView){
-            return accountArray.count
-        }
-        else{
-            print("count " + userAccountArray.count.description)
-            return userAccountArray.count
-        }
-       
+        print("count " + userAccountArray.count.description)
+        return userAccountArray.count
     }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(tableView == self.tableView){
-            let type = accountArray[indexPath.row]
-            if(type == "Github"){
-                let success = addGithub()
-                if (success){
-                    print("succes adding github account. appending tablieview")
-                    self.userAccountArray.append("Github")
-                    self.socialsTableView.reloadData()
-                    self.viewDidLoad()
-                }
-                
-            }
-            if(type == "Spotify"){
-                let success = addSpotify()
-                if (success) {
-                    self.userAccountArray.append("Spotify")
-                    self.socialsTableView.reloadData()
-                    self.viewDidLoad()
-                }
-               
-            }
-            if(type == "Twitter"){
-                let success = addTwitter()
-                if (success) {
-                    self.userAccountArray.append("Twitter")
-                    self.socialsTableView.reloadData()
-                    self.viewDidLoad()
-                }
-               
-            }
-        }
-        else{
-            let type = userAccountArray[indexPath.row]
-        }
-        
-    }
 }
-
 
 extension AccountViewController: MyCellDelegate {
     func didTapButton(account: String) {        
         //get confirmation to delete
         let alert = UIAlertController(title: "Confirm Deletion", message: "Are you sure you want to delete your " + account + " account?", preferredStyle: .alert)
-
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
             //call API to delete
             deleteAccount(account)
