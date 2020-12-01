@@ -65,7 +65,7 @@ func addGithub() -> Bool {
         return success;
     }
     else {
-        //TODO: do we need to implement this???
+        //TODO do we need to implement this???
         print("sign them out")
         return false;
     }
