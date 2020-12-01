@@ -21,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-        
+        registerBackgroundTasks()
+        UIApplication.shared.setMinimumBackgroundFetchInterval(
+          UIApplication.backgroundFetchIntervalMinimum)
         return true
     }
     
@@ -46,35 +48,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-//    func application(_ application: UIApplication,
-//                     open url: URL,
-//                     options: [UIApplication.OpenURLOptionsKey : Any] = [:] ) -> Bool {
-//
-//        print ("here1")
-//        // Determine who sent the URL.
-//        let sendingAppID = options[.sourceApplication]
-//        print("source application = \(sendingAppID ?? "Unknown")")
-//
-//        // Process the URL.
-//        guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
-//            let albumPath = components.path,
-//            let params = components.queryItems else {
-//                print("Invalid URL or album path missing")
-//                return false
-//        }
-//
-//        if let photoIndex = params.first(where: { $0.name == "index" })?.value {
-//            print("albumPath = \(albumPath)")
-//            print("photoIndex = \(photoIndex)")
-//            return true
-//        } else {
-//            print("Photo index missing")
-//            return false
-//        }
-//    }
-    
-    
 
+    
+    func registerBackgroundTasks(){
+        let backgroundAppRefreshTaskSchedulerIdentifier = "BackgroundAppRefreshID"
+        let backgroundProcessingTaskSchedulerIdentifier = "BGProcessingTaskRequest"
+
+        // Use the identifier which represents your needs
+        //GBTTaskS
+        //BGTaskS
+//        BGTaskScheduler.shared.register(forTaskWithIdentifier: "com.example.apple-samplecode.ColorFeed.refresh", using: nil) { task in
+//             self.handleAppRefresh(task: task as! BGAppRefreshTask)
+//        }
+//        BGTaskScheduler.shared.register(forTaskWithIdentifier: backgroundAppRefreshTaskSchedulerIdentifier, using: nil) { (task) in
+//           print("BackgroundAppRefreshTaskScheduler is executed NOW!")
+//           print("Background time remaining: \(UIApplication.shared.backgroundTimeRemaining)s")
+//           task.expirationHandler = {
+//             task.setTaskCompleted(success: false)
+//           }
+//
+//           // Do some data fetching and call setTaskCompleted(success:) asap!
+//           let isFetchingSuccess = true
+//           task.setTaskCompleted(success: isFetchingSuccess)
+//         }
+//    }
+    }
 
 
 }

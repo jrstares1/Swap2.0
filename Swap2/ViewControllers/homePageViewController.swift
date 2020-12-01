@@ -27,10 +27,12 @@ class homePageViewController: UIViewController {
         super.viewDidAppear(animated)
         auth()
         socialsTableView.reloadData()
+        swapListener()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        swapListener()
         UserDefaults.standard.register(defaults: ["contact" : true])
         UserDefaults.standard.register(defaults: ["Github" : true])
         UserDefaults.standard.register(defaults: ["Spotify" : true])
@@ -90,6 +92,44 @@ class homePageViewController: UIViewController {
             }
         }
 
+    }
+    func swapListener(){
+        print("big brother is listening")
+        var swapped = false
+        let user = Auth.auth().currentUser
+        //print("description " + auth1.
+        if let user = user {
+          // The user's ID, unique to the Firebase project.
+          // Do NOT use this value to authenticate with your backend server,
+          // if you have one. Use getTokenWithCompletion:completion: instead.
+            let uid = user.uid
+            let db = Firestore.firestore()
+            
+            db.collection("users/\(uid)/swapData")
+                .addSnapshotListener { querySnapshot, error in
+                    guard let snapshot = querySnapshot else {
+                        print("Error fetching snapshots: \(error!)")
+                        return
+                    }
+                    snapshot.documentChanges.forEach { diff in
+                        if (diff.type == .added) {
+                            swapped = true
+                        }
+                        if (diff.type == .modified) {
+                            swapped = true
+                        }
+                        if (diff.type == .removed) {
+                            swapped = true
+                        }
+                    }
+                }
+        }
+        if(swapped){
+            let ac = UIAlertController(title: "swap successful", message: nil, preferredStyle: .alert)
+            let submitAction = UIAlertAction(title: "Dismiss", style: .default)
+            ac.addAction(submitAction)
+            self.present(ac, animated: true)
+        }
     }
     //change the state of account in db
     func changeState(_ type: String, _ state: Bool){
