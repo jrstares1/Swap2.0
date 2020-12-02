@@ -139,7 +139,11 @@ class homePageViewController: UIViewController {
     }
     
     //change the state of account in db
-    func changeState(_ type: String, _ state: Bool){
+    func changeState(_ type: String, _ state: Bool) {
+        if (type == "contact") {
+            print("was contact")
+            GlobalVar.contactState = state
+        }
         print("turning " + type + " " + state.description)
         if (Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser

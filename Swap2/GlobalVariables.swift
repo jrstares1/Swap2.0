@@ -17,6 +17,7 @@ struct GlobalVar {
     static var Name: String = " "
     static var Number: String = " "
     static var toggleState: [String: Bool] = ["contact": true]
+    static var contactState = true
     //var userInfo = [String:String]()
 
     
