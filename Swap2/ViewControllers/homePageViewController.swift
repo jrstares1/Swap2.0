@@ -19,7 +19,7 @@ class homePageViewController: UIViewController {
     var transparentView = UIView()
     var tableView = UITableView()
     let height: CGFloat = 400
-    var accountArray = ["Github", "Spotify", "Twitter"]
+    var accountArray = ["Github", "Spotify", "Twitter", "Reddit"]
     
    
     @IBOutlet weak var displayQR: UIImageView!
@@ -42,6 +42,7 @@ class homePageViewController: UIViewController {
         UserDefaults.standard.register(defaults: ["Github" : true])
         UserDefaults.standard.register(defaults: ["Spotify" : true])
         UserDefaults.standard.register(defaults: ["Twitter" : true])
+        UserDefaults.standard.register(defaults: ["Reddit" : true])
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
@@ -63,9 +64,6 @@ class homePageViewController: UIViewController {
             let user = Auth.auth().currentUser
             //print("description " + auth1.
             if let user = user {
-              // The user's ID, unique to the Firebase project.
-              // Do NOT use this value to authenticate with your backend server,
-              // if you have one. Use getTokenWithCompletion:completion: instead.
                 uid = user.uid
                 print("user " + user.uid.description)
                 let db = Firestore.firestore()
@@ -240,7 +238,9 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
         
      }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+            return 80
+        
+        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(tableView == self.tableView){
@@ -248,7 +248,6 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
             if(type == "Github"){
                 let success = addGithub()
                 if (success){
-                    print("succes adding github account. appending tablieview")
                     self.userAccountArray.append("Github")
                     self.socialsTableView.reloadData()
                     self.viewDidLoad()
@@ -271,7 +270,9 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
                     self.socialsTableView.reloadData()
                     self.viewDidLoad()
                 }
-               
+            }
+            if(type == "Reddit"){
+                print("TODO: implement adding Reddit")
             }
         }
         else{

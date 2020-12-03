@@ -71,7 +71,6 @@ class AccountViewController: UIViewController{
     }
 
     @IBAction func showPopup(_ sender: Any) {
-        
         let popOverVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "sbPopUpID") as! PopUpViewController
         self.addChild(popOverVC)
         popOverVC.view.frame = self.view.frame
@@ -80,6 +79,14 @@ class AccountViewController: UIViewController{
         
     }
     
+    @IBAction func editProf(_ sender: Any) {
+        let editProfVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "editProf") as! ProfileViewController
+        self.addChild(editProfVC)
+        editProfVC.view.frame = self.view.frame
+        self.view.addSubview(editProfVC.view )
+        editProfVC.didMove(toParent: self)
+        
+    }
     func buttonSetup(){
         editButton.backgroundColor = .clear
         editButton.layer.cornerRadius = 5

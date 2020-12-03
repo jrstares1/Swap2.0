@@ -10,14 +10,14 @@ import UIKit
 class ActiveSocialsTableViewCell: UITableViewCell {
     
     lazy var backView : UIView = {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 100))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 80))
         return view
     }()
     var index: Int = 0
     var accountName: String = ""
     
     lazy var socialLogo: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: self.frame.width/2 - 50, y: 10, width: 180, height: 80))
+        let imageView = UIImageView(frame: CGRect(x: self.frame.width/2 - 50, y: 0, width: 180, height: 70))
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
