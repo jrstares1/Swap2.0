@@ -341,11 +341,16 @@
                                         <rect key="frame" x="0.0" y="312.5" width="414" height="371.5"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Tb-eq9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-Tb-eq9">
                                         <rect key="frame" x="139.5" y="694" width="135" height="65"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                         <state key="normal" title="  Add Account  ">
                                             <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleShadowColor" name="AccentColor"/>
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="bold"/>
                                         </state>
                                         <connections>
                                             <action selector="addAccounts:" destination="GF7-vi-Vvu" eventType="touchUpInside" id="wYW-3s-2b9"/>
@@ -515,6 +520,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
