@@ -8,12 +8,13 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import PhoneNumberKit
 
 class ProfileViewController: UIViewController {
     
     @IBOutlet var nameField: UITextField!
-    @IBOutlet var numberField: UITextField!
     @IBOutlet var emailField: UITextField!
+    @IBOutlet var numberField: PhoneNumberTextField!
     @IBOutlet var saveButton: UIButton!
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
@@ -21,13 +22,23 @@ class ProfileViewController: UIViewController {
     var newName: String = ""
     var newEmail: String = ""
     var newNumber: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        auth()
         setup()
-        
     }
-
+    
+    func setup(){
+        saveButton.backgroundColor = .clear
+        saveButton.layer.cornerRadius = 5
+        saveButton.layer.borderWidth = 1
+        saveButton.layer.borderColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        nameField.placeholder = GlobalVar.Name
+        emailField.placeholder = GlobalVar.Email
+        numberField.placeholder = GlobalVar.Number
+        numberField.withFlag = true
+    }
+    
     @IBAction func save(_ sender: Any) {
         updateFields()
         self.view.removeFromSuperview()
@@ -37,22 +48,9 @@ class ProfileViewController: UIViewController {
         self.view.removeFromSuperview()
     }
     
-    func auth(){
-        
-    }
-    @IBAction func editName(_ sender: Any) {
-        self.newName = nameField.text ?? ""
-    }
-    
-    @IBAction func editEmail(_ sender: Any) {
-        self.newEmail = emailField.text ?? ""
-    }
-    
-    @IBAction func editNumber(_ sender: Any) {
-        self.newNumber = numberField.text ?? ""
-    }
-    
     func updateFields(){
+       
+        
         self.newName = nameField.text ?? ""
         self.newEmail = emailField.text ?? ""
         self.newNumber = numberField.text ?? ""
@@ -68,10 +66,19 @@ class ProfileViewController: UIViewController {
             print("number changed")
             GlobalVar.Number = newNumber
         }
+        let phoneNumberKit = PhoneNumberKit()
+        phoneNumberKit.isValidPhoneNumber(GlobalVar.Number)
         
-        //TODO: import the phone number kit like we do on sign up
-        //TODO: write values to db
-        //TODO: sanitize inputs like we do in login
+        if (!Utilities.isValidEmail(GlobalVar.Email)){
+            print( "Not a valid email")
+        }
+        
+        if (!phoneNumberKit.isValidPhoneNumber(GlobalVar.Number)){
+            print("Not a valid phone number")
+
+        }
+        //TODO: sanitize inputs
+        //TODO: display error messaages if invalid email
         
         if (Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser
@@ -105,15 +112,7 @@ class ProfileViewController: UIViewController {
         }
         
     }
-    func setup(){
-        saveButton.backgroundColor = .clear
-        saveButton.layer.cornerRadius = 5
-        saveButton.layer.borderWidth = 1
-        saveButton.layer.borderColor = UIColor.black.withAlphaComponent(0.2).cgColor
-        nameField.placeholder = GlobalVar.Name
-        emailField.placeholder = GlobalVar.Email
-        numberField.placeholder = GlobalVar.Number
-    }
+    
    
 
 }

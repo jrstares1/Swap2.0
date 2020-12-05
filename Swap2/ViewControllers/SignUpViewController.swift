@@ -15,34 +15,21 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpElements();
 
-        // Do any additional setup after loading the view.
     }
     
     func setUpElements(){
         errorLabel.alpha = 0; //make it transparent to begin
-        
-        //Styling elements
+
         Utilities.styleTextField(firstNameTextField)
-        
         Utilities.styleTextField(lastNameTextField)
-
         Utilities.styleTextField(emailTextField)
-        
         Utilities.styleTextField(phoneTextField)
-
-
         Utilities.styleTextField(passwordTextField)
-        
         Utilities.styleFilledButton(signUpButton)
-        
         self.phoneTextField.withExamplePlaceholder = true
         self.phoneTextField.withFlag = true
-
-        
-
     }
     
     
@@ -109,7 +96,7 @@ class SignUpViewController: UIViewController {
         }
         
         
-        //add correct email address method later here
+        //TODO: add correct email address method later here
         
         return nil
     }
