@@ -95,7 +95,7 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
             if (userData != empty) {
                 DispatchQueue.main.async {
                     
-                    let ac = UIAlertController(title: "Swap Successful!", message: "You swapped with \(userData["firstName"]!) \(userData["lastName"]!)! Would you like to add this user to your contacts?", preferredStyle: .alert)
+                    let ac = UIAlertController(title: "Swap Successful!", message: "You swapped with \(userData["firstName"]!)! Would you like to add this user to your contacts?", preferredStyle: .alert)
                     let submitAction = UIAlertAction(title: "Yes", style: .default) { [unowned ac] _ in
                         _ = ac
                         addContact(info: userData)

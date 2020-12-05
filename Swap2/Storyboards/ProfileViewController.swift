@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
     var newName: String = ""
     var newEmail: String = ""
     var newNumber: String = ""
+    @IBOutlet var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,7 @@ class ProfileViewController: UIViewController {
     }
     
     func setup(){
+        errorLabel.alpha = 0
         saveButton.backgroundColor = .clear
         saveButton.layer.cornerRadius = 5
         saveButton.layer.borderWidth = 1
@@ -39,18 +41,23 @@ class ProfileViewController: UIViewController {
         numberField.withFlag = true
     }
     
+    func showError(_ message:String) {
+        errorLabel.text = message
+        errorLabel.alpha = 1
+    }
     @IBAction func save(_ sender: Any) {
-        updateFields()
-        self.view.removeFromSuperview()
+        let success = updateFields()
+        if(success){
+            self.view.removeFromSuperview()
+        }
     }
     
     @IBAction func cancel(_ sender: Any) {
         self.view.removeFromSuperview()
     }
     
-    func updateFields(){
-       
-        
+    func updateFields() -> Bool {
+        var success = true
         self.newName = nameField.text ?? ""
         self.newEmail = emailField.text ?? ""
         self.newNumber = numberField.text ?? ""
@@ -67,15 +74,14 @@ class ProfileViewController: UIViewController {
             GlobalVar.Number = newNumber
         }
         let phoneNumberKit = PhoneNumberKit()
-        phoneNumberKit.isValidPhoneNumber(GlobalVar.Number)
         
         if (!Utilities.isValidEmail(GlobalVar.Email)){
-            print( "Not a valid email")
+            showError( "Not a valid email")
+            return false
         }
-        
         if (!phoneNumberKit.isValidPhoneNumber(GlobalVar.Number)){
-            print("Not a valid phone number")
-
+            showError( "Not a valid phone number")
+            return false
         }
         //TODO: sanitize inputs
         //TODO: display error messaages if invalid email
@@ -86,8 +92,10 @@ class ProfileViewController: UIViewController {
                 let uid = user.uid
                 user.updateEmail(to: GlobalVar.Email, completion: {error in
                     if error != nil{
-                        print(error ?? "no error")
+                        let err = error.debugDescription
+                        self.showError(err)
                         print("error changing email")
+                        success = false
                     }
                 })
                 user.sendEmailVerification(completion: {error in
@@ -101,7 +109,8 @@ class ProfileViewController: UIViewController {
                     if error != nil {
                         // Show error message
                         print(error ?? "no error")
-                        print("error adding user data")
+                        self.showError("error adding user data")
+                        success = false
                     }
                     
                     
@@ -110,7 +119,7 @@ class ProfileViewController: UIViewController {
             }
 
         }
-        
+        return success
     }
     
    
