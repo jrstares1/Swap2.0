@@ -148,14 +148,9 @@ class SignUpViewController: UIViewController {
                     
                 }
                 else {
-                    // User creation successful!, now store first name and last name
                     if (Auth.auth().currentUser != nil) {
-                      // User is signed in.
                         let user = Auth.auth().currentUser
                         if let user = user {
-                          // The user's ID, unique to the Firebase project.
-                          // Do NOT use this value to authenticate with your backend server,
-                          // if you have one. Use getTokenWithCompletion:completion: instead.
                             let uid = user.uid
                             print("uid " + uid)
                             GlobalVar.Name = firstName + " " + lastName
@@ -167,7 +162,7 @@ class SignUpViewController: UIViewController {
                                 }
                             })
                             let db = Firestore.firestore()
-                            db.collection("users").document(uid).setData(["firstName":firstName, "lastName":lastName, "phoneNumber":phoneNumber], merge: true){ (error) in
+                            db.collection("users").document(uid).setData(["firstName":GlobalVar.Name, "phoneNumber":phoneNumber], merge: true){ (error) in
                                 
                                 if error != nil {
                                     // Show error message

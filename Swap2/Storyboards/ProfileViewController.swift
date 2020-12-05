@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
     }
     
     func auth(){
-          
+        
     }
     @IBAction func editName(_ sender: Any) {
         self.newName = nameField.text ?? ""
@@ -53,6 +53,9 @@ class ProfileViewController: UIViewController {
     }
     
     func updateFields(){
+        self.newName = nameField.text ?? ""
+        self.newEmail = emailField.text ?? ""
+        self.newNumber = numberField.text ?? ""
         if(newName != ""){
             print("name changed " + newName)
             GlobalVar.Name = newName
@@ -65,10 +68,41 @@ class ProfileViewController: UIViewController {
             print("number changed")
             GlobalVar.Number = newNumber
         }
+        
         //TODO: import the phone number kit like we do on sign up
         //TODO: write values to db
         //TODO: sanitize inputs like we do in login
         
+        if (Auth.auth().currentUser != nil) {
+            let user = Auth.auth().currentUser
+            if let user = user {
+                let uid = user.uid
+                user.updateEmail(to: GlobalVar.Email, completion: {error in
+                    if error != nil{
+                        print(error ?? "no error")
+                        print("error changing email")
+                    }
+                })
+                user.sendEmailVerification(completion: {error in
+                    if error != nil{
+                        print("email welcome message was not send")
+                    }
+                })
+                let db = Firestore.firestore()
+                
+                db.collection("users").document(uid).setData(["firstName":GlobalVar.Name, "phoneNumber":GlobalVar.Number], merge: true){ (error) in
+                    if error != nil {
+                        // Show error message
+                        print(error ?? "no error")
+                        print("error adding user data")
+                    }
+                    
+                    
+                }
+
+            }
+
+        }
         
     }
     func setup(){

@@ -32,10 +32,9 @@ class FirstViewController: UIViewController {
                         if let document = document, document.exists {
                             let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                             let firstName = document.get("firstName") as! String
-                            let lastName = document.get("lastName") as! String
+                            //let lastName = document.get("lastName") as! String
                             let phoneNumber = document.get("phoneNumber") as! String
-                            //let email = document.get("email") as! String
-                            GlobalVar.Name = (firstName + " " + lastName)
+                            GlobalVar.Name = (firstName)
                             GlobalVar.Number = phoneNumber.description
 
                         } else {
