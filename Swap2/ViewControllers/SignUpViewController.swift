@@ -159,6 +159,7 @@ class SignUpViewController: UIViewController {
                             let uid = user.uid
                             print("uid " + uid)
                             GlobalVar.Name = firstName + " " + lastName
+                            GlobalVar.Email = email
                             GlobalVar.Number = phoneNumber
                             user.sendEmailVerification(completion: {error in
                                 if error != nil{

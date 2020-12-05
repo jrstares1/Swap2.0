@@ -24,6 +24,8 @@ class FirstViewController: UIViewController {
                 let user = Auth.auth().currentUser
                 if let user = user {
                     let uid = user.uid
+                    let email = user.email
+                    GlobalVar.Email = email ?? ""
                     let db = Firestore.firestore()
                     let docRef = db.collection("users").document(uid)
                     docRef.getDocument { (document, error) in
@@ -31,8 +33,10 @@ class FirstViewController: UIViewController {
                             let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                             let firstName = document.get("firstName") as! String
                             let lastName = document.get("lastName") as! String
-//                            let phoneNumber = document.get("phoneNumber") as! String
+                            let phoneNumber = document.get("phoneNumber") as! String
+                            //let email = document.get("email") as! String
                             GlobalVar.Name = (firstName + " " + lastName)
+                            GlobalVar.Number = phoneNumber.description
 
                         } else {
                             print("Document does not exist")

@@ -6,38 +6,80 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        buttonSetup()
-        // Do any additional setup after loading the view.
-    }
     
     @IBOutlet var nameField: UITextField!
     @IBOutlet var numberField: UITextField!
     @IBOutlet var emailField: UITextField!
     @IBOutlet var saveButton: UIButton!
-    
-    
+    let userDefault = UserDefaults.standard
+    let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
+    var email: String = ""
+    var newName: String = ""
+    var newEmail: String = ""
+    var newNumber: String = ""
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        auth()
+        setup()
+        
+    }
+
     @IBAction func save(_ sender: Any) {
+        updateFields()
         self.view.removeFromSuperview()
     }
-    func buttonSetup(){
+    
+    @IBAction func cancel(_ sender: Any) {
+        self.view.removeFromSuperview()
+    }
+    
+    func auth(){
+          
+    }
+    @IBAction func editName(_ sender: Any) {
+        self.newName = nameField.text ?? ""
+    }
+    
+    @IBAction func editEmail(_ sender: Any) {
+        self.newEmail = emailField.text ?? ""
+    }
+    
+    @IBAction func editNumber(_ sender: Any) {
+        self.newNumber = numberField.text ?? ""
+    }
+    
+    func updateFields(){
+        if(newName != ""){
+            print("name changed " + newName)
+            GlobalVar.Name = newName
+        }
+        if(newEmail != ""){
+            print("email changed")
+            GlobalVar.Email = newEmail
+        }
+        if(newNumber != ""){
+            print("number changed")
+            GlobalVar.Number = newNumber
+        }
+        //TODO: import the phone number kit like we do on sign up
+        //TODO: write values to db
+        //TODO: sanitize inputs like we do in login
+        
+        
+    }
+    func setup(){
         saveButton.backgroundColor = .clear
         saveButton.layer.cornerRadius = 5
         saveButton.layer.borderWidth = 1
         saveButton.layer.borderColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        nameField.placeholder = GlobalVar.Name
+        emailField.placeholder = GlobalVar.Email
+        numberField.placeholder = GlobalVar.Number
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }

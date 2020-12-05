@@ -171,62 +171,71 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="83" translatesAutoresizingMaskIntoConstraints="NO" id="KTg-Ve-3K3">
-                                <rect key="frame" x="0.0" y="74" width="414" height="453.5"/>
+                                <rect key="frame" x="0.0" y="74" width="414" height="564"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQI-R4-Bzv">
-                                        <rect key="frame" x="43" y="0.0" width="328.5" height="73.5"/>
+                                        <rect key="frame" x="62" y="0.0" width="290" height="70"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="60"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Xa8-BE-Sja">
-                                        <rect key="frame" x="57.5" y="156.5" width="299.5" height="176"/>
+                                        <rect key="frame" x="63.5" y="153" width="287" height="176"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="87" translatesAutoresizingMaskIntoConstraints="NO" id="jJN-B3-dHz">
-                                                <rect key="frame" x="0.0" y="0.0" width="299.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUq-DS-tHb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="61.5" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="53" height="34"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="John Doe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jZL-8O-MjP">
-                                                        <rect key="frame" x="148.5" y="0.0" width="151" height="34"/>
+                                                        <rect key="frame" x="140" y="0.0" width="147" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="editName:" destination="Huq-Ik-rHS" eventType="editingDidEnd" id="Rhk-oe-Kgv"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="92" translatesAutoresizingMaskIntoConstraints="NO" id="2N6-5I-IWZ">
-                                                <rect key="frame" x="0.0" y="71" width="299.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="71" width="287" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mw-pl-Bvb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="57" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="49" height="34"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="john@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RD0-AK-15G">
-                                                        <rect key="frame" x="149" y="0.0" width="150.5" height="34"/>
+                                                        <rect key="frame" x="141" y="0.0" width="146" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="editEmail:" destination="Huq-Ik-rHS" eventType="editingDidEnd" id="wGW-6p-Dvz"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="ko3-fT-A2f">
-                                                <rect key="frame" x="0.0" y="142" width="299.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="142" width="287" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoi-U0-wY8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="84.5" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="34"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(555) 555 - 5555" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dwt-M2-PVx">
-                                                        <rect key="frame" x="149.5" y="0.0" width="150" height="34"/>
+                                                        <rect key="frame" x="137" y="0.0" width="150" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="editNumber:" destination="Huq-Ik-rHS" eventType="editingDidEnd" id="gKg-Ix-vl2"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -241,13 +250,23 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ei-GR-aiB">
-                                        <rect key="frame" x="172" y="415.5" width="70" height="38"/>
+                                        <rect key="frame" x="171.5" y="412" width="71" height="37"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="21"/>
                                         <state key="normal" title="  Save  ">
                                             <color key="titleColor" systemColor="labelColor"/>
                                         </state>
                                         <connections>
                                             <action selector="save:" destination="Huq-Ik-rHS" eventType="touchUpInside" id="MbZ-uV-enA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3v-7f-F8Q">
+                                        <rect key="frame" x="180.5" y="532" width="53" height="32"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" name="AccentColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancel:" destination="Huq-Ik-rHS" eventType="touchUpInside" id="ldq-gM-evg"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -62,6 +62,9 @@ class LogInViewController: UIViewController {
                     let user = Auth.auth().currentUser
                     if let user = user {
                         let uid = user.uid
+                        let email = user.email ?? ""
+                        GlobalVar.Email = email
+                        
                         let db = Firestore.firestore()
                         let docRef = db.collection("users").document(uid)
 
@@ -73,8 +76,8 @@ class LogInViewController: UIViewController {
                                 let phoneNumber = document.get("phoneNumber") as! String
                                     
                                 GlobalVar.Name = (firstName + " " + lastName)
-                                GlobalVar.Number = phoneNumber
-                                
+                                GlobalVar.Number = phoneNumber.description
+                                                                
                             } else {
                                 print("Document does not exist")
                             }

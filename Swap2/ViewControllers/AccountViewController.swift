@@ -26,6 +26,7 @@ class AccountViewController: UIViewController{
     @IBOutlet var editButton: UIButton!
     
    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         auth()
@@ -47,9 +48,10 @@ class AccountViewController: UIViewController{
             let user = Auth.auth().currentUser
             if let user = user {
                 let uid = user.uid
-                let email = user.email
+                //let email = user.email
+               // let number = user.phoneNumber
                 self.nameLabel.text = GlobalVar.Name
-                self.emailLabel.text = email
+                self.emailLabel.text = GlobalVar.Email
                 self.phoneLabel.text = GlobalVar.Number
                 let db = Firestore.firestore()
                 db.collection("users/\(uid)/appData").getDocuments() {
