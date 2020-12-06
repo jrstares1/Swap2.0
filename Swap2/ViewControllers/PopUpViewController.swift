@@ -20,7 +20,6 @@ class PopUpViewController: UIViewController {
         showAnimate()
         // Do any additional setup after loading the view.
     }
-    
 
     @IBAction func closePopUp(_ sender: Any) {
         self.removeAnimate()

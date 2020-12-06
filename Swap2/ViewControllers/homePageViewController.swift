@@ -38,6 +38,7 @@ class homePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         swapListener()
+        buttonSetup()
         UserDefaults.standard.register(defaults: ["contact" : true])
         UserDefaults.standard.register(defaults: ["Github" : true])
         UserDefaults.standard.register(defaults: ["Spotify" : true])
@@ -62,13 +63,11 @@ class homePageViewController: UIViewController {
   
         if (Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser
-            //print("description " + auth1.
             if let user = user {
                 uid = user.uid
-                print("user " + user.uid.description)
                 let db = Firestore.firestore()
                 _ = db.collection("users").document(uid)
-                self.nameLabel.text = GlobalVar.Name
+                //self.nameLabel.text = GlobalVar.Name
                 let _: Void = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {
@@ -130,6 +129,7 @@ class homePageViewController: UIViewController {
         }
     }
     func buttonSetup(){
+        nameLabel.text = GlobalVar.Name
         addButton.backgroundColor = .clear
         addButton.layer.cornerRadius = 5
         addButton.layer.borderWidth = 1

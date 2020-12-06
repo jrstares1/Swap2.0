@@ -54,6 +54,7 @@ class ProfileViewController: UIViewController {
     
     @IBAction func cancel(_ sender: Any) {
         self.view.removeFromSuperview()
+        self.view.reloadInputViews()
     }
     
     func updateFields() -> Bool {

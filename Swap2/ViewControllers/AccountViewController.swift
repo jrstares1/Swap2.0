@@ -26,33 +26,38 @@ class AccountViewController: UIViewController{
     @IBOutlet var editButton: UIButton!
     
    
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        print("appeared")
+        setup()
         auth()
     }
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        buttonSetup()
+        setup()
         socialsTableView.delegate = self
         socialsTableView.dataSource = self
         socialsTableView.isScrollEnabled = true
         socialsTableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserAccountTableViewCell")
         auth()
     }
-
+    func setup(){
+        print("setting up")
+        editButton.backgroundColor = .clear
+        editButton.layer.cornerRadius = 5
+        editButton.layer.borderWidth = 1
+        editButton.layer.borderColor = UIColor.black.withAlphaComponent(0.2).cgColor
+        self.nameLabel.text = GlobalVar.Name
+        self.emailLabel.text = GlobalVar.Email
+        self.phoneLabel.text = GlobalVar.Number
+    }
     func auth(){
         if (Auth.auth().currentUser != nil) {
           // User is signed in.
             let user = Auth.auth().currentUser
             if let user = user {
                 let uid = user.uid
-                //let email = user.email
-               // let number = user.phoneNumber
-                self.nameLabel.text = GlobalVar.Name
-                self.emailLabel.text = GlobalVar.Email
-                self.phoneLabel.text = GlobalVar.Number
                 let db = Firestore.firestore()
                 db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
@@ -78,22 +83,21 @@ class AccountViewController: UIViewController{
         popOverVC.view.frame = self.view.frame
         self.view.addSubview(popOverVC.view )
         popOverVC.didMove(toParent: self)
-        
     }
+    
+    
     
     @IBAction func editProf(_ sender: Any) {
         let editProfVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "editProf") as! ProfileViewController
         self.addChild(editProfVC)
         editProfVC.view.frame = self.view.frame
-        self.view.addSubview(editProfVC.view )
+        self.view.addSubview(editProfVC.view)
         editProfVC.didMove(toParent: self)
-        
     }
-    func buttonSetup(){
-        editButton.backgroundColor = .clear
-        editButton.layer.cornerRadius = 5
-        editButton.layer.borderWidth = 1
-        editButton.layer.borderColor = UIColor.black.withAlphaComponent(0.2).cgColor
+    
+    override func reloadInputViews() {
+        print("reloading data")
+        setup()
     }
   
 }
