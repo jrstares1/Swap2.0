@@ -126,7 +126,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
         }
 
-        //code for Github/Spotify
+        //code for Github/Spotify/Reddit
         if let code = params.first(where: { $0.name == "code" })?.value {
 //            print("Code: \(code)")
         

@@ -38,6 +38,7 @@
 		F7300A5E25379CC700E02B82 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7300A5D25379CC700E02B82 /* FirstViewController.swift */; };
 		F7300A662537B0C800E02B82 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7300A652537B0C800E02B82 /* Utilities.swift */; };
 		F7300A6F2537DD1600E02B82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7300A6E2537DD1600E02B82 /* GoogleService-Info.plist */; };
+		F7422534257C5DC800E2E7F6 /* Reddit.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7422533257C5DC800E2E7F6 /* Reddit.swift */; };
 		F77048F32537FE8C00EF3869 /* homePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77048F22537FE8C00EF3869 /* homePageViewController.swift */; };
 		F77230812562447600140B93 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77230802562447600140B93 /* ProfileViewController.swift */; };
 		F7889065256A2D0300E5C349 /* Spotify.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7889064256A2D0300E5C349 /* Spotify.swift */; };
@@ -112,6 +113,7 @@
 		F7300A5D25379CC700E02B82 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F7300A652537B0C800E02B82 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		F7300A6E2537DD1600E02B82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F7422533257C5DC800E2E7F6 /* Reddit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reddit.swift; sourceTree = "<group>"; };
 		F77048F22537FE8C00EF3869 /* homePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = homePageViewController.swift; path = Swap2/ViewControllers/homePageViewController.swift; sourceTree = SOURCE_ROOT; };
 		F77230802562447600140B93 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = Swap2/Storyboards/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		F7889064256A2D0300E5C349 /* Spotify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spotify.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 				0E27FAD1255109F40044CC1D /* AddContact.swift */,
 				0E4AAED12549138700A47DBB /* GenerateQRCode.swift */,
 				725E2CBA25649CCA0057AD02 /* Github.swift */,
+				F7422533257C5DC800E2E7F6 /* Reddit.swift */,
 				F7D88F22256D84590051D7B2 /* Twitter.swift */,
 				F7889064256A2D0300E5C349 /* Spotify.swift */,
 				72126211255F062A00036E51 /* DeleteAccount.swift */,
@@ -609,6 +612,7 @@
 				0E4AAED42549247E00A47DBB /* GetRequest.swift in Sources */,
 				0E4AAED22549138700A47DBB /* GenerateQRCode.swift in Sources */,
 				72C477C5253BCA19004EF8EA /* AccountViewController.swift in Sources */,
+				F7422534257C5DC800E2E7F6 /* Reddit.swift in Sources */,
 				72A12FD12576A49900DFCA0E /* PopUpViewController.swift in Sources */,
 				F7300A4F2537970100E02B82 /* SignUpViewController.swift in Sources */,
 				72C477BA253BB598004EF8EA /* ScanViewController.swift in Sources */,

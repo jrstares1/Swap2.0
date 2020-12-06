@@ -272,7 +272,12 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
                 }
             }
             if(type == "Reddit"){
-                print("TODO: implement adding Reddit")
+                let success = addReddit()
+                if (success) {
+                    self.userAccountArray.append("Reddit")
+                    self.socialsTableView.reloadData()
+                    self.viewDidLoad()
+                }
             }
         }
         else{

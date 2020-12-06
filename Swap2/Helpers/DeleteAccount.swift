@@ -21,6 +21,9 @@ func deleteAccount(_ account: String){
     else if (account == "Twitter"){
         deleteTwitter()
     }
+    else if (account == "Reddit"){
+        deleteReddit()
+    }
     else{
         print("have not implemented API to delete this type of account")
     }
