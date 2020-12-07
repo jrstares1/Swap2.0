@@ -76,7 +76,7 @@ class AccountViewController: UIViewController{
             }
         }
     }
-
+    
     @IBAction func showPopup(_ sender: Any) {
         let popOverVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "sbPopUpID") as! PopUpViewController
         self.addChild(popOverVC)
@@ -84,8 +84,6 @@ class AccountViewController: UIViewController{
         self.view.addSubview(popOverVC.view )
         popOverVC.didMove(toParent: self)
     }
-    
-    
     
     @IBAction func editProf(_ sender: Any) {
         let editProfVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "editProf") as! ProfileViewController
@@ -111,7 +109,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
         cell.account = userAccountArray[indexPath.row]
         cell.delegate = self
         return cell
-
+    
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("count " + userAccountArray.count.description)
@@ -143,7 +141,3 @@ extension AccountViewController: MyCellDelegate {
     }
     
 }
-
-
-
-

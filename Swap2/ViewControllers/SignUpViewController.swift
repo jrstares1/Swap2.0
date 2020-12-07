@@ -145,6 +145,7 @@ class SignUpViewController: UIViewController {
                             user.sendEmailVerification(completion: {error in
                                 if error != nil{
                                     print("email welcome message was not send")
+                                    
                                 }
                             })
                             let db = Firestore.firestore()

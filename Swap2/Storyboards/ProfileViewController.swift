@@ -116,13 +116,10 @@ class ProfileViewController: UIViewController {
                     
                     
                 }
-
+    
             }
-
+    
         }
         return success
     }
-    
-   
-
 }

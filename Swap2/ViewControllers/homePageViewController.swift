@@ -56,11 +56,12 @@ class homePageViewController: UIViewController {
         auth();
         socialsTableView.reloadData()
     }
-
+    
     func auth(){
         userAccountArray.removeAll()
         userAccountArray.append("contact")
-  
+        let callingObject = self
+    
         if (Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser
             if let user = user {
@@ -72,6 +73,8 @@ class homePageViewController: UIViewController {
                     (querySnapshot, err) in
                     if let err = err {
                         print("here Error Getting appData Documents: \(err)")
+                        let alert = displayError(title: "Error", message: "\(err)")
+                        callingObject.present(alert, animated: true)
                     } else {
                         for document in querySnapshot!.documents {
                             if(!self.userAccountArray.contains(document.documentID)){
@@ -92,8 +95,8 @@ class homePageViewController: UIViewController {
                 self.present(ac, animated: true)
             }
         }
-
     }
+    
     func swapListener(){
         print("big brother is listening")
         var swapped = false
@@ -106,6 +109,8 @@ class homePageViewController: UIViewController {
                 .addSnapshotListener { querySnapshot, error in
                     guard let snapshot = querySnapshot else {
                         print("Error fetching snapshots: \(error!)")
+                        let alert = displayError(title: "Error", message: "\(error!)")
+                        self.present(alert, animated: true)
                         return
                     }
                     snapshot.documentChanges.forEach { diff in
@@ -151,6 +156,8 @@ class homePageViewController: UIViewController {
                 db.collection("users/\(uid)/appData").getDocuments() {  (querySnapshot, err) in
                     if let err = err {
                         print("Error Getting appData Documents: \(err)")
+                        let alert = displayError(title: "Error", message: "\(err)")
+                        self.present(alert, animated: true)
                     }
                     else{
                         for document in querySnapshot!.documents {
@@ -163,9 +170,9 @@ class homePageViewController: UIViewController {
                     }
                 }
             }
-            
         }
     }
+    
     //add account button func
     @IBAction func addAccounts(_ sender: Any) {
         transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.5)

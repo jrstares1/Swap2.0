@@ -12,6 +12,7 @@
 		0E4AAED42549247E00A47DBB /* GetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4AAED32549247E00A47DBB /* GetRequest.swift */; };
 		0E82ECDB254CA6EB002844DB /* ActiveSocialsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E82ECD9254CA6EB002844DB /* ActiveSocialsTableViewCell.swift */; };
 		0E82ECDC254CA6EB002844DB /* ActiveSocialsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0E82ECDA254CA6EB002844DB /* ActiveSocialsTableViewCell.xib */; };
+		0EF54792257DA26500EF8E77 /* DisplayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF54791257DA26500EF8E77 /* DisplayError.swift */; };
 		399BD30F88491A0B7335D48B /* Pods_Swap2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62BD8E1BB5E34EE48FC52D0 /* Pods_Swap2.framework */; };
 		677292E9FBC3F9FBB625B913 /* Pods_Swap2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77D23E29F145BEDE6990E92 /* Pods_Swap2Tests.framework */; };
 		72126212255F062A00036E51 /* DeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72126211255F062A00036E51 /* DeleteAccount.swift */; };
@@ -75,6 +76,7 @@
 		0E4AAED32549247E00A47DBB /* GetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetRequest.swift; sourceTree = "<group>"; };
 		0E82ECD9254CA6EB002844DB /* ActiveSocialsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveSocialsTableViewCell.swift; sourceTree = "<group>"; };
 		0E82ECDA254CA6EB002844DB /* ActiveSocialsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActiveSocialsTableViewCell.xib; sourceTree = "<group>"; };
+		0EF54791257DA26500EF8E77 /* DisplayError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayError.swift; sourceTree = "<group>"; };
 		1318A5DCFCBF0C8214210507 /* Pods-Swap2-Swap2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2-Swap2UITests.release.xcconfig"; path = "Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		13CD04BC2DE3EA49C8BC5DC9 /* Pods-Swap2-Swap2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2-Swap2UITests.debug.xcconfig"; path = "Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		170B6A238104FB171BFD1FC7 /* Pods-Swap2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2Tests.release.xcconfig"; path = "Target Support Files/Pods-Swap2Tests/Pods-Swap2Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				7245A8302545055800E532BE /* AccountTableViewCell.swift */,
 				72B2B1C02558929700D69A4D /* UserTableViewCell.swift */,
 				72B2B1C12558929700D69A4D /* UserTableViewCell.xib */,
+				0EF54791257DA26500EF8E77 /* DisplayError.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				F7300A0C2537953B00E02B82 /* AppDelegate.swift in Sources */,
 				7245A8312545055800E532BE /* AccountTableViewCell.swift in Sources */,
 				F7300A0E2537953B00E02B82 /* SceneDelegate.swift in Sources */,
+				0EF54792257DA26500EF8E77 /* DisplayError.swift in Sources */,
 				F7D88F23256D84590051D7B2 /* Twitter.swift in Sources */,
 				F7889065256A2D0300E5C349 /* Spotify.swift in Sources */,
 				72126212255F062A00036E51 /* DeleteAccount.swift in Sources */,

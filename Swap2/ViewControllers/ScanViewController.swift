@@ -61,6 +61,8 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
     
     func failed(message: String) {
         print("Error with the " + message)
+        let alert = displayError(title: "Error", message: message)
+        self.present(alert, animated: true)
         captureSession = nil
     }
     
