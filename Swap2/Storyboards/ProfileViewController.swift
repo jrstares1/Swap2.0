@@ -48,13 +48,15 @@ class ProfileViewController: UIViewController {
     @IBAction func save(_ sender: Any) {
         let success = updateFields()
         if(success){
-            self.view.removeFromSuperview()
+            let accountVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "AccountVC") as! AccountViewController
+             self.dismiss(animated: true, completion:{
+            } )
         }
     }
     
     @IBAction func cancel(_ sender: Any) {
         self.view.removeFromSuperview()
-        self.view.reloadInputViews()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func updateFields() -> Bool {
