@@ -48,9 +48,9 @@ class ProfileViewController: UIViewController {
     @IBAction func save(_ sender: Any) {
         let success = updateFields()
         if(success){
-            let accountVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "AccountVC") as! AccountViewController
-             self.dismiss(animated: true, completion:{
-            } )
+            let alert = UIAlertController(title: "Changes Saved", message: "Your profile has been saved", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
     }
     

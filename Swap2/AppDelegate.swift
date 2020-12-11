@@ -61,7 +61,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            }
           // Do some data fetching and call setTaskCompleted(success:) asap!
            print("santa is real")
-          // homePageViewController.swapListener()
            let isFetchingSuccess = true
            task.setTaskCompleted(success: isFetchingSuccess)
          }
@@ -70,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func submitBackgroundTasks() {
         // Declared at the "Permitted background task scheduler identifiers" in info.plist
         let id = "com.example.fooBackgroundAppRefreshIdentifier"
-        let timeDelay = 60.0
+        let timeDelay = 10.0
         do {
           let request = BGAppRefreshTaskRequest(identifier: id)
           request.earliestBeginDate = Date(timeIntervalSinceNow: timeDelay)

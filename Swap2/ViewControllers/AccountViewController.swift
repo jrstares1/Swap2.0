@@ -28,7 +28,6 @@ class AccountViewController: UIViewController{
    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("appeared")
         setup()
         auth()
     }
@@ -43,11 +42,9 @@ class AccountViewController: UIViewController{
         auth()
     }
     override func viewWillAppear(_ animated: Bool) {
-        
         setup()
     }
     func setup(){
-        print("setting up")
         editButton.backgroundColor = .clear
         editButton.layer.cornerRadius = 5
         editButton.layer.borderWidth = 1
@@ -89,21 +86,8 @@ class AccountViewController: UIViewController{
         popOverVC.didMove(toParent: self)
     }
     
-    @IBAction func editProf(_ sender: Any) {
-        let editProfVC = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "editProf") as! ProfileViewController
-        self.present(editProfVC, animated: true, completion: nil)
-        
-//        self.addChild(editProfVC)
-//        editProfVC.view.frame = self.view.frame
-//        self.view.addSubview(editProfVC.view)
-//        editProfVC.didMove(toParent: self)
-        
-       
-        
-    }
     
     override func reloadInputViews() {
-        print("reloading data")
         setup()
     }
   

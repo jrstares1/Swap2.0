@@ -25,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ZG3-tC-xbo">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="uYX-nk-T0N">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="85.5"/>
@@ -97,6 +97,7 @@
                                                                 </state>
                                                                 <connections>
                                                                     <action selector="editProf:" destination="EHh-Jk-Mfv" eventType="touchUpInside" id="NgF-SW-758"/>
+                                                                    <segue destination="Huq-Ik-rHS" kind="show" id="89r-6w-Kgm"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Sj-PW-klA">
@@ -128,7 +129,7 @@
                                         </subviews>
                                     </stackView>
                                     <tableView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1Hp-3v-f3V">
-                                        <rect key="frame" x="0.0" y="340.5" width="414" height="428.5"/>
+                                        <rect key="frame" x="0.0" y="340.5" width="414" height="384.5"/>
                                     </tableView>
                                 </subviews>
                                 <constraints>
@@ -171,60 +172,60 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="83" translatesAutoresizingMaskIntoConstraints="NO" id="KTg-Ve-3K3">
-                                <rect key="frame" x="0.0" y="74" width="414" height="594"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="557.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQI-R4-Bzv">
-                                        <rect key="frame" x="62" y="0.0" width="290" height="70"/>
+                                        <rect key="frame" x="43" y="0.0" width="328.5" height="73.5"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="60"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Xa8-BE-Sja">
-                                        <rect key="frame" x="63.5" y="153" width="287" height="176"/>
+                                        <rect key="frame" x="57.5" y="156.5" width="299.5" height="176"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="87" translatesAutoresizingMaskIntoConstraints="NO" id="jJN-B3-dHz">
-                                                <rect key="frame" x="0.0" y="0.0" width="287" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="299.5" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUq-DS-tHb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="53" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="61.5" height="34"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="John Doe" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jZL-8O-MjP">
-                                                        <rect key="frame" x="140" y="0.0" width="147" height="34"/>
+                                                        <rect key="frame" x="148.5" y="0.0" width="151" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="92" translatesAutoresizingMaskIntoConstraints="NO" id="2N6-5I-IWZ">
-                                                <rect key="frame" x="0.0" y="71" width="287" height="34"/>
+                                                <rect key="frame" x="0.0" y="71" width="299.5" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Mw-pl-Bvb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="49" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="57" height="34"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="john@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RD0-AK-15G">
-                                                        <rect key="frame" x="141" y="0.0" width="146" height="34"/>
+                                                        <rect key="frame" x="149" y="0.0" width="150.5" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="65" translatesAutoresizingMaskIntoConstraints="NO" id="ko3-fT-A2f">
-                                                <rect key="frame" x="0.0" y="142" width="287" height="34"/>
+                                                <rect key="frame" x="0.0" y="142" width="299.5" height="34"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoi-U0-wY8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="72" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="84.5" height="34"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="34" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(555) 555 - 5555" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dwt-M2-PVx" customClass="PhoneNumberTextField" customModule="PhoneNumberKit">
-                                                        <rect key="frame" x="137" y="0.0" width="150" height="34"/>
+                                                        <rect key="frame" x="149.5" y="0.0" width="150" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
@@ -241,10 +242,10 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kVA-UG-xVr">
-                                        <rect key="frame" x="171.5" y="412" width="71" height="79"/>
+                                        <rect key="frame" x="172" y="415.5" width="70" height="38"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ei-GR-aiB">
-                                                <rect key="frame" x="0.0" y="0.0" width="71" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="38"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="21"/>
                                                 <state key="normal" title="  Save  ">
                                                     <color key="titleColor" systemColor="labelColor"/>
@@ -253,20 +254,10 @@
                                                     <action selector="save:" destination="Huq-Ik-rHS" eventType="touchUpInside" id="MbZ-uV-enA"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3v-7f-F8Q">
-                                                <rect key="frame" x="0.0" y="47" width="71" height="32"/>
-                                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                                                <state key="normal" title="Cancel">
-                                                    <color key="titleColor" name="AccentColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="cancel:" destination="Huq-Ik-rHS" eventType="touchUpInside" id="ldq-gM-evg"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5St-7V-WRc">
-                                        <rect key="frame" x="188.5" y="574" width="37" height="20"/>
+                                        <rect key="frame" x="186" y="536.5" width="42" height="21"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                         <color key="textColor" systemColor="systemPinkColor"/>
                                         <nil key="highlightedColor"/>
@@ -279,11 +270,10 @@
                         <constraints>
                             <constraint firstItem="o8C-UV-Cz1" firstAttribute="trailing" secondItem="KTg-Ve-3K3" secondAttribute="trailing" id="5bF-gI-lMw"/>
                             <constraint firstItem="KTg-Ve-3K3" firstAttribute="leading" secondItem="o8C-UV-Cz1" secondAttribute="leading" id="5gx-Mq-ivv"/>
-                            <constraint firstItem="KTg-Ve-3K3" firstAttribute="top" secondItem="o8C-UV-Cz1" secondAttribute="top" constant="30" id="Oml-a3-4Q1">
-                                <variation key="heightClass=compact" constant="-10"/>
-                            </constraint>
+                            <constraint firstItem="KTg-Ve-3K3" firstAttribute="top" secondItem="o8C-UV-Cz1" secondAttribute="top" constant="44" id="K4i-Pp-Xzr"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ead-HS-kgB"/>
                     <connections>
                         <outlet property="emailField" destination="RD0-AK-15G" id="NvA-Eh-7CV"/>
                         <outlet property="errorLabel" destination="5St-7V-WRc" id="oNn-2r-654"/>
@@ -293,8 +283,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NgM-fE-Jdq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationItem title="Back" id="liC-jB-AIB">
+                    <barButtonItem key="backBarButtonItem" title="Back" id="YwB-1g-kTX"/>
+                </navigationItem>
             </objects>
-            <point key="canvasLocation" x="3050.7246376811595" y="1334.5982142857142"/>
+            <point key="canvasLocation" x="3094" y="1357"/>
         </scene>
         <!--Scan-->
         <scene sceneID="97P-9W-yV8">
@@ -432,10 +425,11 @@
         <!--Account-->
         <scene sceneID="aTz-dD-O0J">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="8on-d7-2o1" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8on-d7-2o1" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Account" image="person.circle" catalog="system" landscapeImage="person.circle" selectedImage="person.circle" id="Qjb-w3-eQq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Yhg-7V-EXw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
