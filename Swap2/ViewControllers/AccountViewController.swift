@@ -67,8 +67,10 @@ class AccountViewController: UIViewController{
                     } else {
                         for document in querySnapshot!.documents {
                             if(!self.userAccountArray.contains(document.documentID)){
-                                self.userAccountArray.append(document.documentID)
-                                self.socialsTableView.reloadData()
+                                if(document.documentID != "Contact"){
+                                    self.userAccountArray.append(document.documentID)
+                                    self.socialsTableView.reloadData()
+                                }
                             }
                             
                         }
