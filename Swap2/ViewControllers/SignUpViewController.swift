@@ -161,8 +161,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
                                     print("error adding user data")
                                     self.showError("Error adding user data. Database is most likely down ")
                                 }
-                                
-                                
+                            }
+                            db.collection("users/\(uid)/appData").document("Contact").setData(["enabled":false], merge: true) { (error) in
+                                if error != nil {
+                                    print(error ?? "no error")
+                                }
                             }
             
                         }

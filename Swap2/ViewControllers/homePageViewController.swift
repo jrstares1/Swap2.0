@@ -15,7 +15,7 @@ class homePageViewController: UIViewController {
     var uid = ""
     var numCells = 0
     var currentImage : UIImage?
-    var userAccountArray = ["contact"]
+    var userAccountArray = [String]()
     var transparentView = UIView()
     var tableView = UITableView()
     let height: CGFloat = 400
@@ -73,7 +73,7 @@ class homePageViewController: UIViewController {
                     (querySnapshot, err) in
                     if let err = err {
                         print("here Error Getting appData Documents: \(err)")
-                        let alert = displayError(title: "Error", message: "\(err)")
+                        let alert = displayError(title: "Error Getting AppData Documents", message: "\(err)")
                         callingObject.present(alert, animated: true)
                     } else {
                         for document in querySnapshot!.documents {
@@ -143,10 +143,6 @@ class homePageViewController: UIViewController {
     
     //change the state of account in db
     func changeState(_ type: String, _ state: Bool) {
-        if (type == "contact") {
-            print("was contact")
-            GlobalVar.contactState = state
-        }
         print("turning " + type + " " + state.description)
         if (Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser
