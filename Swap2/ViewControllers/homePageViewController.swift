@@ -287,7 +287,7 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
         else{
-            let type = userAccountArray[indexPath.row]
+           // let type = userAccountArray[indexPath.row]
         }
         
     }

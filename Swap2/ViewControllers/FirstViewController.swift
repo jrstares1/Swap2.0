@@ -30,7 +30,7 @@ class FirstViewController: UIViewController {
                     let docRef = db.collection("users").document(uid)
                     docRef.getDocument { (document, error) in
                         if let document = document, document.exists {
-                            let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                            //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                             let firstName = document.get("firstName") as! String
                             //let lastName = document.get("lastName") as! String
                             let phoneNumber = document.get("phoneNumber") as! String

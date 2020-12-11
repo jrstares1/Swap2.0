@@ -56,7 +56,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let context = URLContexts.first else { return }
         
         guard let components = NSURLComponents(url: context.url.absoluteURL, resolvingAgainstBaseURL: true),
-                let albumPath = components.path,
+                //let albumPath = components.path,
                 let host = components.host,
                 let params = components.queryItems else {
                     print("Invalid URL or album path missing")
@@ -76,7 +76,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/twitter/\(GlobalVar.oauthRequestToken)/\(GlobalVar.oauthRequestTokenSecret)/\(oauth_verifier)")
             print("url below")
-            print(url)
+            print(url ?? "")
             guard let requestUrl = url else { fatalError() }
 
             // Create URL Request
