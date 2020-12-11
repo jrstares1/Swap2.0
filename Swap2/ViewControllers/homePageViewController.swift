@@ -217,7 +217,6 @@ extension homePageViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ActiveSocialsTableViewCell", for: indexPath) as! ActiveSocialsTableViewCell
             cell.socialLogo.image = UIImage(named: userAccountArray[indexPath.row]) ?? nil
             cell.socialToggle.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
-            //todo pull toggle state from user defaults
             let type = userAccountArray[indexPath.row]
             let toggleState = UserDefaults.standard.bool(forKey: type)
             cell.socialToggle.isEnabled = true

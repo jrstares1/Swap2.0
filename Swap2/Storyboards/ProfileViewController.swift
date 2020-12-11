@@ -85,10 +85,7 @@ class ProfileViewController: UIViewController {
         if (!phoneNumberKit.isValidPhoneNumber(GlobalVar.Number)){
             showError( "Not a valid phone number")
             return false
-        }
-        //TODO: sanitize inputs
-        //TODO: display error messaages if invalid email
-        
+        }        
         if (Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser
             if let user = user {
@@ -101,13 +98,7 @@ class ProfileViewController: UIViewController {
                         success = false
                     }
                 })
-                user.sendEmailVerification(completion: {error in
-                    if error != nil{
-                        print("email welcome message was not send")
-                    }
-                })
                 let db = Firestore.firestore()
-                
                 db.collection("users").document(uid).setData(["firstName":GlobalVar.Name, "phoneNumber":GlobalVar.Number], merge: true){ (error) in
                     if error != nil {
                         // Show error message
