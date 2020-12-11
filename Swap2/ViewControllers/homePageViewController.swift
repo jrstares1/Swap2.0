@@ -45,7 +45,7 @@ class homePageViewController: UIViewController {
         UserDefaults.standard.register(defaults: ["Twitter" : true])
         UserDefaults.standard.register(defaults: ["Reddit" : true])
         socialsTableView.delegate = self
-        socialsTableView.dataSource = self
+        socialsTableView.dataSource = self 
         socialsTableView.isScrollEnabled = true
         let nib = UINib(nibName: "ActiveSocialsTableViewCell", bundle: nil)
         socialsTableView.register(nib, forCellReuseIdentifier: "ActiveSocialsTableViewCell")

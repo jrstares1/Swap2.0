@@ -24,7 +24,7 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
             return
         }
         let videoInput: AVCaptureDeviceInput
-        
+         
         do {
             videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
         } catch {
