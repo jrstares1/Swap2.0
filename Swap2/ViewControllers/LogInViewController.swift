@@ -40,6 +40,9 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var errorLabel: UILabel!
     
     
+    @IBAction func enterClicked(_ sender: Any) {
+        loginTapped((Any).self)
+    }
     @IBAction func loginTapped(_ sender: Any) {
         // TODO: Validate Text Fields
         // Create cleaned versions of the text field

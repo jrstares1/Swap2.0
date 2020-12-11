@@ -54,7 +54,7 @@ class PopUpViewController: UIViewController {
             let user = Auth.auth().currentUser
             user?.delete(completion: {error in
                 if error != nil{
-                    print("account deletion error")
+                    print("account deletion error " + error.debugDescription)
                 }
                 else{
                     self.userDefault.set(false, forKey: "usersignedin")

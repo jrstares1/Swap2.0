@@ -11,11 +11,12 @@ import Firebase
 import PhoneNumberKit
 
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements();
+        self.passwordTextField.delegate = self
 
     }
     
@@ -32,7 +33,18 @@ class SignUpViewController: UIViewController {
         self.phoneTextField.withFlag = true
     }
     
-    
+    @IBAction func enterClicked(_ sender: Any) {
+        signUpTapped((Any).self)
+    }
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//
+//        //textField code
+//
+//        //textField.resignFirstResponder()  //if desired
+//
+//        return true
+//    }
+
     
 
     @IBOutlet weak var firstNameTextField: UITextField!

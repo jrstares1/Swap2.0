@@ -150,6 +150,9 @@
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="enterClicked:" destination="j35-ft-mT4" eventType="primaryActionTriggered" id="MW5-3F-H54"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvC-x4-E4t">
                                         <rect key="frame" x="0.0" y="140" width="334" height="50"/>
@@ -251,6 +254,10 @@
                                         <rect key="frame" x="0.0" y="280" width="334" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="enterClicked:" destination="5gB-OG-XC4" eventType="primaryActionTriggered" id="us1-Xt-qIc"/>
+                                            <action selector="signUpTapped:" destination="5gB-OG-XC4" eventType="editingDidEnd" id="hFh-Lp-gfm"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0W-gV-enG">
                                         <rect key="frame" x="0.0" y="350" width="334" height="50"/>

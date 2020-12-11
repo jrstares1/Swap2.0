@@ -96,7 +96,6 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" weight="thin"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="editProf:" destination="EHh-Jk-Mfv" eventType="touchUpInside" id="NgF-SW-758"/>
                                                                     <segue destination="Huq-Ik-rHS" kind="show" id="89r-6w-Kgm"/>
                                                                 </connections>
                                                             </button>
