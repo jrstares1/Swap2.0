@@ -83,15 +83,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanedEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleanedPhone = phoneTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        
-
-        
-
         let phoneNumberKit = PhoneNumberKit()
-        phoneNumberKit.isValidPhoneNumber(cleanedPhone)
-  
-                
+     
         //the method below is from utilities
         if Utilities.isPasswordValid(cleanedPassword) == false {
             // this means password isnt secure
@@ -107,8 +100,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
 
         }
         
-        
-        //TODO: add correct email address method later here
+        //TODO: add correct email address method later here --justin?
         
         return nil
     }
