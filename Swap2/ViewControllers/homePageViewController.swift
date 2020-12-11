@@ -39,7 +39,7 @@ class homePageViewController: UIViewController {
         super.viewDidLoad()
         swapListener()
         buttonSetup()
-        UserDefaults.standard.register(defaults: ["contact" : true])
+        UserDefaults.standard.register(defaults: ["Contact" : true])
         UserDefaults.standard.register(defaults: ["Github" : true])
         UserDefaults.standard.register(defaults: ["Spotify" : true])
         UserDefaults.standard.register(defaults: ["Twitter" : true])
@@ -59,7 +59,6 @@ class homePageViewController: UIViewController {
     
     func auth(){
         userAccountArray.removeAll()
-        userAccountArray.append("contact")
         let callingObject = self
     
         if (Auth.auth().currentUser != nil) {
