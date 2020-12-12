@@ -15,6 +15,7 @@
 		0EF54792257DA26500EF8E77 /* DisplayError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF54791257DA26500EF8E77 /* DisplayError.swift */; };
 		399BD30F88491A0B7335D48B /* Pods_Swap2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E62BD8E1BB5E34EE48FC52D0 /* Pods_Swap2.framework */; };
 		677292E9FBC3F9FBB625B913 /* Pods_Swap2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77D23E29F145BEDE6990E92 /* Pods_Swap2Tests.framework */; };
+		72041EDC25852B9C00464A9D /* deleteProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72041EDB25852B9C00464A9D /* deleteProfile.swift */; };
 		72126212255F062A00036E51 /* DeleteAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72126211255F062A00036E51 /* DeleteAccount.swift */; };
 		7245A8312545055800E532BE /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7245A8302545055800E532BE /* AccountTableViewCell.swift */; };
 		725E2CBB25649CCA0057AD02 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E2CBA25649CCA0057AD02 /* Github.swift */; };
@@ -81,6 +82,7 @@
 		13CD04BC2DE3EA49C8BC5DC9 /* Pods-Swap2-Swap2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2-Swap2UITests.debug.xcconfig"; path = "Target Support Files/Pods-Swap2-Swap2UITests/Pods-Swap2-Swap2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		170B6A238104FB171BFD1FC7 /* Pods-Swap2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2Tests.release.xcconfig"; path = "Target Support Files/Pods-Swap2Tests/Pods-Swap2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		4205567CF7EF51987CA531B8 /* Pods-Swap2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Swap2Tests.debug.xcconfig"; path = "Target Support Files/Pods-Swap2Tests/Pods-Swap2Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		72041EDB25852B9C00464A9D /* deleteProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteProfile.swift; sourceTree = "<group>"; };
 		72126211255F062A00036E51 /* DeleteAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccount.swift; sourceTree = "<group>"; };
 		7245A8302545055800E532BE /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		725E2CBA25649CCA0057AD02 /* Github.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
@@ -283,6 +285,7 @@
 				F7422533257C5DC800E2E7F6 /* Reddit.swift */,
 				F7D88F22256D84590051D7B2 /* Twitter.swift */,
 				F7889064256A2D0300E5C349 /* Spotify.swift */,
+				72041EDB25852B9C00464A9D /* deleteProfile.swift */,
 				72126211255F062A00036E51 /* DeleteAccount.swift */,
 				0E4AAED32549247E00A47DBB /* GetRequest.swift */,
 				F7300A652537B0C800E02B82 /* Utilities.swift */,
@@ -620,6 +623,7 @@
 				72A12FD12576A49900DFCA0E /* PopUpViewController.swift in Sources */,
 				F7300A4F2537970100E02B82 /* SignUpViewController.swift in Sources */,
 				72C477BA253BB598004EF8EA /* ScanViewController.swift in Sources */,
+				72041EDC25852B9C00464A9D /* deleteProfile.swift in Sources */,
 				F7DA97B025513C2F00C9A711 /* OnBoardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

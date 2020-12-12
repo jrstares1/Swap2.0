@@ -24,6 +24,9 @@ func deleteAccount(_ account: String){
     else if (account == "Reddit"){
         deleteReddit()
     }
+    else if(account == "Self"){
+        deleteProfile()
+    }
     else{
         print("have not implemented API to delete this type of account")
     }
