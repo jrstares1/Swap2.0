@@ -107,7 +107,6 @@ class homePageViewController: UIViewController {
         if let user = user {
             let uid = user.uid
             let db = Firestore.firestore()
-            
             db.collection("users/\(uid)/swapData")
                 .addSnapshotListener { querySnapshot, error in
                     guard let snapshot = querySnapshot else {

@@ -51,21 +51,13 @@ class PopUpViewController: UIViewController {
         let alert = UIAlertController(title: "Alert", message: "Are you sure you want to delete your account?", preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Continue", style: UIAlertAction.Style.destructive, handler: { action in
-            deleteAccount("Self")
-            
-//            let user = Auth.auth().currentUser
-//            user?.delete(completion: {error in
-//                if error != nil{
-//                    print("account deletion error " + error.debugDescription)
-//                }
-//                else{
+        deleteAccount("Self")
         self.userDefault.set(false, forKey: "usersignedin")
         self.userDefault.synchronize()
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let initViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as UIViewController
         self.present(initViewController, animated: true, completion: nil)
-//                }
-//            })
+
         }))
         self.present(alert, animated: true, completion: nil)
     }
