@@ -107,7 +107,6 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
     
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("count " + userAccountArray.count.description)
         return userAccountArray.count
     }
     

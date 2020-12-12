@@ -34,7 +34,7 @@ class FirstViewController: UIViewController {
                             let firstName = document.get("firstName") as! String
                             //let lastName = document.get("lastName") as! String
                             let phoneNumber = document.get("phoneNumber") as! String
-                            GlobalVar.Name = (firstName)
+                            GlobalVar.Name = firstName
                             GlobalVar.Number = phoneNumber.description
 
                         } else {

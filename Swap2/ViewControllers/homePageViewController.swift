@@ -33,12 +33,14 @@ class homePageViewController: UIViewController {
         auth()
         socialsTableView.reloadData()
         swapListener()
+        self.nameLabel.text = GlobalVar.Name
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         swapListener()
         buttonSetup()
+        auth();
         UserDefaults.standard.register(defaults: ["Contact" : true])
         UserDefaults.standard.register(defaults: ["Github" : true])
         UserDefaults.standard.register(defaults: ["Spotify" : true])
@@ -53,21 +55,20 @@ class homePageViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "Cell")
-        auth();
         socialsTableView.reloadData()
     }
     
     func auth(){
-        userAccountArray.removeAll()
+       
         let callingObject = self
-    
+        var arr = [String]()
         if (Auth.auth().currentUser != nil) {
             let user = Auth.auth().currentUser
             if let user = user {
                 uid = user.uid
                 let db = Firestore.firestore()
                 _ = db.collection("users").document(uid)
-                //self.nameLabel.text = GlobalVar.Name
+                self.nameLabel.text = GlobalVar.Name
                 let _: Void = db.collection("users/\(uid)/appData").getDocuments() {
                     (querySnapshot, err) in
                     if let err = err {
@@ -75,7 +76,9 @@ class homePageViewController: UIViewController {
                         let alert = displayError(title: "Error Getting AppData Documents", message: "\(err)")
                         callingObject.present(alert, animated: true)
                     } else {
+                        self.userAccountArray.removeAll()
                         for document in querySnapshot!.documents {
+                            arr.append(document.documentID)
                             if(!self.userAccountArray.contains(document.documentID)){
                                 self.userAccountArray.append(document.documentID)
                                 self.socialsTableView.reloadData()
@@ -94,6 +97,7 @@ class homePageViewController: UIViewController {
                 self.present(ac, animated: true)
             }
         }
+        
     }
     
     func swapListener(){
