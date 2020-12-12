@@ -101,7 +101,7 @@ class homePageViewController: UIViewController {
     }
     
     func swapListener(){
-        print("big brother is listening")
+        //print("big brother is listening")
         var swapped = false
         let user = Auth.auth().currentUser
         if let user = user {
