@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 
-class AccountViewController: UIViewController{
+class AccountViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var uid = ""
     var numCells = 0
@@ -19,6 +19,7 @@ class AccountViewController: UIViewController{
     var accountArray = ["Github", "Spotify", "Twitter"]
     var userAccountArray = [String]()
     
+    @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -40,10 +41,35 @@ class AccountViewController: UIViewController{
         socialsTableView.isScrollEnabled = true
         socialsTableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserAccountTableViewCell")
         auth()
+        
+        profPic.layer.borderWidth=1.0
+        profPic.layer.masksToBounds = false
+        profPic.layer.borderColor = UIColor.white.cgColor
+        profPic.layer.cornerRadius = profPic.frame.size.height/2
+        profPic.clipsToBounds = true
+        
+        let imageData = userDefault.object(forKey: "profPic") as? Data ?? UIImage(systemName: "person.circle")!.pngData()
+        profPic.image = UIImage(data: imageData!)
     }
     override func viewWillAppear(_ animated: Bool) {
         setup()
     }
+    
+    @IBAction func changePhoto(_ sender: Any) {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        dismiss(animated: true)
+        profPic.image = image
+        userDefault.setValue(image.pngData(), forKey: "profPic")
+        
+    }
+    
     func setup(){
         editButton.backgroundColor = .clear
         editButton.layer.cornerRadius = 5

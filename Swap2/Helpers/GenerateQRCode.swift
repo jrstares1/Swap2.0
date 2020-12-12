@@ -11,7 +11,7 @@ import UIKit
 var dataString = "";
 
 func generateCode(uid: String) -> UIImage? {
-    dataString = "http://www.google.com/?uid=" + uid
+    dataString = "https://swap-2b365.web.app/landing/swap.html?uid=" + uid
     
     let data = dataString.data(using: String.Encoding.ascii)
     

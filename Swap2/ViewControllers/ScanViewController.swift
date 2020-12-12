@@ -84,7 +84,7 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
     
     func saveQRData(code: String) {
         //Going to change this to whatever our landing page is; google is just a placeholder
-        let userId = code.replacingOccurrences(of: "http://www.google.com/?uid=", with: "")
+        let userId = code.replacingOccurrences(of: "https://swap-2b365.web.app/landing/swap.html?uid=", with: "")
         let serialQueue = DispatchQueue(label: "tesingqueue")
         let empty = [String:String]()
         print("User ID is: " + userId)
@@ -103,7 +103,7 @@ class ScanViewController: UIViewController,  UIImagePickerControllerDelegate & U
                         addContact(info: userData)
                         self.captureSession.startRunning()
                     }
-                    let deny = UIAlertAction(title: "No", style: .default) { [unowned ac] _ in
+                    let deny = UIAlertAction(title: "No", style: .cancel) { [unowned ac] _ in
                         _ = ac
                         self.captureSession.startRunning()
                     }

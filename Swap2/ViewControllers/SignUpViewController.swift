@@ -153,7 +153,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
                                 }
                             })
                             let db = Firestore.firestore()
-                            db.collection("users").document(uid).setData(["firstName":GlobalVar.Name, "phoneNumber":phoneNumber], merge: true){ (error) in
+                            db.collection("users").document(uid).setData(["firstName":GlobalVar.Name, "phoneNumber":phoneNumber, "enabled":true], merge: true){ (error) in
                                 
                                 if error != nil {
                                     // Show error message
@@ -162,7 +162,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
                                     self.showError("Error adding user data. Database is most likely down ")
                                 }
                             }
-                            db.collection("users/\(uid)/appData").document("Contact").setData(["enabled":false], merge: true) { (error) in
+                            db.collection("users/\(uid)/appData").document("Contact").setData(["empty":""], merge: true) { (error) in
                                 if error != nil {
                                     print(error ?? "no error")
                                 }
