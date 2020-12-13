@@ -36,15 +36,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     @IBAction func enterClicked(_ sender: Any) {
         signUpTapped((Any).self)
     }
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-
-        //textField code
-
-        //textField.resignFirstResponder()  //if desired
-
-        return true
+    
+    @IBAction func goAwayKeyboard(_ sender: Any) {
+        print("go away keyboard")
+        self.view.endEditing(true)
     }
-
     @IBAction func dismissKeyboard(_ sender: Any) {
         print("byebye pesky keyboard")
         self.view.endEditing(true)
