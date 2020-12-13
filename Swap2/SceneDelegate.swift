@@ -66,12 +66,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //code for Twitter
         if let oauth_verifier = params.first(where: { $0.name == "oauth_verifier" })?.value {
             print("Oauth Verifier: \(oauth_verifier)")
-//            print("Oauth Token: \(Otoken)")
-//
             print(GlobalVar.oauthRequestToken)
             print(GlobalVar.oauthRequestTokenSecret)
 
-            
             let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/twitter/\(GlobalVar.oauthRequestToken)/\(GlobalVar.oauthRequestTokenSecret)/\(oauth_verifier)")
             print("url below")
             print(url ?? "")
@@ -145,11 +142,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if let response = response as? HTTPURLResponse {
                 print("\(host) Response HTTP Status code: \(response.statusCode)")
             
-                
-                if(response.statusCode == 201){
-                    print("Success")
-                }
                 if(response.statusCode == 403 || response.statusCode == 500){
+                    //todo -- do something!!!
+                    
                     print("Backend is down")
                 }
                 

@@ -27,9 +27,7 @@ class UserTableViewCell: UITableViewCell {
         btn.contentMode = .scaleAspectFit
         return btn
     }()
-    
-   
-    
+
     
     lazy var socialLogo: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: self.frame.width/2 - 100, y: 10, width: 180, height: 70))
