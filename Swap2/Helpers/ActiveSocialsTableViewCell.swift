@@ -23,7 +23,7 @@ class ActiveSocialsTableViewCell: UITableViewCell {
     }()
     
     lazy var socialToggle: UISwitch = {
-        let toggleView = UISwitch(frame: CGRect(x: self.frame.width - 0.05*self.frame.width, y: 40, width: 50, height: 30))
+        let toggleView = UISwitch(frame: CGRect(x: self.frame.width - 0.05*self.frame.width, y: 30, width: 100, height: 10))
         toggleView.onTintColor = UIColor.systemTeal
         toggleView.isOn = true
         toggleView.tag = index
