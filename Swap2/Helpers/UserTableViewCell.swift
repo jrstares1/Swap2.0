@@ -18,7 +18,7 @@ class UserTableViewCell: UITableViewCell {
     }()
   
     lazy var deleteButton: UIButton = {
-        let btn = UIButton(frame:CGRect(x: self.frame.width - 20, y: 40, width: 30, height: 30))
+        let btn = UIButton(frame:CGRect(x: self.frame.width - 20, y: 30, width: 30, height: 30))
         btn.isEnabled = true
         //btn.setTitle("testing", for: .normal)
         let image = UIImage(named: "delete")
