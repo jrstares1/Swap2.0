@@ -151,7 +151,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="55W-hI-4e5">
                                         <rect key="frame" x="0.0" y="70" width="334" height="50"/>
                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                         <connections>
                                             <action selector="enterClicked:" destination="j35-ft-mT4" eventType="primaryActionTriggered" id="MW5-3F-H54"/>
                                         </connections>
@@ -258,6 +258,7 @@
                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                         <connections>
+                                            <action selector="dismissKeyboard:" destination="5gB-OG-XC4" eventType="editingDidEnd" id="EZ7-V9-srC"/>
                                             <action selector="enterClicked:" destination="5gB-OG-XC4" eventType="primaryActionTriggered" id="us1-Xt-qIc"/>
                                             <action selector="signUpTapped:" destination="5gB-OG-XC4" eventType="editingDidEnd" id="hFh-Lp-gfm"/>
                                         </connections>
