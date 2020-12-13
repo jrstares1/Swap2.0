@@ -99,9 +99,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
             return "Not a valid phone number"
 
         }
-          
-        //TODO: add correct email address method later here --justin?
-        
+                  
         return nil
     }
     

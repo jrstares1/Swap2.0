@@ -146,21 +146,14 @@ func addTwitter() -> Bool{
                 
 
         }
-        return success;
+        return success
     }
-    else {
-        //TODO: do we need to implement this??? justin
-        print("sign them out")
-        return false;
-    }
-    
+    return false
 
 }
 
 func deleteTwitter(){
-    
-    //NOT YET IMPLEMENTEND
-        
+            
     if (Auth.auth().currentUser != nil) {
         // User is signed in.
         let user = Auth.auth().currentUser

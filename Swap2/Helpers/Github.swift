@@ -47,8 +47,7 @@ func addGithub() -> Bool {
                     success = true
                 }
             }
-                
-            //ADD Later if we get a 403 error stop.
+
             
             // Convert HTTP Response Data to a simple String
             if let data = data, let dataString = String(data: data, encoding: .utf8) {
@@ -62,14 +61,9 @@ func addGithub() -> Bool {
                 }
             }
         }
-        return success;
+        return success
     }
-    else {
-        //TODO do we need to implement this??? justin
-        print("sign them out")
-        return false;
-    }
-    
+    return false
 
 }
 
