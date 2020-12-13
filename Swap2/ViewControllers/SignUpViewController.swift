@@ -36,15 +36,17 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     @IBAction func enterClicked(_ sender: Any) {
         signUpTapped((Any).self)
     }
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//
-//        //textField code
-//
-//        //textField.resignFirstResponder()  //if desired
-//
-//        return true
-//    }
-
+    
+    @IBAction func goAwayKeyboard(_ sender: Any) {
+        print("go away keyboard")
+        self.view.endEditing(true)
+    }
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        print("byebye pesky keyboard")
+        self.view.endEditing(true)
+        
+    }
+    
     
 
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -99,9 +101,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
             return "Not a valid phone number"
 
         }
-          
-        //TODO: add correct email address method later here --justin?
-        
+                  
         return nil
     }
     
@@ -142,7 +142,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
                         let user = Auth.auth().currentUser
                         if let user = user {
                             let uid = user.uid
-                            print("uid " + uid)
                             GlobalVar.Name = firstName + " " + lastName
                             GlobalVar.Email = email
                             GlobalVar.Number = phoneNumber

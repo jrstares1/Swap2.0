@@ -63,17 +63,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     return
             }
 
-        
-        
         //code for Twitter
         if let oauth_verifier = params.first(where: { $0.name == "oauth_verifier" })?.value {
             print("Oauth Verifier: \(oauth_verifier)")
-//            print("Oauth Token: \(Otoken)")
-//
             print(GlobalVar.oauthRequestToken)
             print(GlobalVar.oauthRequestTokenSecret)
 
-            
             let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/twitter/\(GlobalVar.oauthRequestToken)/\(GlobalVar.oauthRequestTokenSecret)/\(oauth_verifier)")
             print("url below")
             print(url ?? "")
@@ -84,8 +79,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             // Specify HTTP Method to use
             request.httpMethod = "POST"
-            // Request Header
-//            print(GlobalVar.IdToken)
+
             request.setValue("Bearer " + GlobalVar.IdToken, forHTTPHeaderField: "Authorization")
 
             // Send HTTP Request
@@ -105,8 +99,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     print("Success")
                 }
                 if(response.statusCode == 403 || response.statusCode == 500){
-                    print("Failure")
-                    //TODO dont add account to table
+                    print("Failure adding to database")
                     
                 }
             }
@@ -122,8 +115,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         //code for Github/Spotify/Reddit
         if let code = params.first(where: { $0.name == "code" })?.value {
-//            print("Code: \(code)")
-        
             // Send token to your backend via HTTPS
 //            print(host)
             let url = URL(string: "https://us-central1-swap-2b365.cloudfunctions.net/api/" + host + "/" + code)
@@ -151,14 +142,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             if let response = response as? HTTPURLResponse {
                 print("\(host) Response HTTP Status code: \(response.statusCode)")
             
-                
-                if(response.statusCode == 201){
-                    print("Success")
-                }
                 if(response.statusCode == 403 || response.statusCode == 500){
-                    print("Failure")
-                    //TODO dont add account to table
+                    //todo -- do something!!!
                     
+                    print("Backend is down")
                 }
                 
                 

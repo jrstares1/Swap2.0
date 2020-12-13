@@ -57,7 +57,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPO-9m-TbU">
                                                         <rect key="frame" x="0.0" y="100" width="100" height="38.5"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
-                                                        <state key="normal" title="Change photo">
+                                                        <state key="normal">
                                                             <color key="titleColor" name="AccentColor"/>
                                                         </state>
                                                         <connections>
