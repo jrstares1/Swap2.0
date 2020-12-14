@@ -101,10 +101,10 @@ class homePageViewController: UIViewController {
     }
     
     func swapListener(){
-        print("big brother is listening")
         var swapped = false
         let user = Auth.auth().currentUser
         if let user = user {
+            print("big brother is listening")
             let uid = user.uid
             let db = Firestore.firestore()
             db.collection("users/\(uid)/swapData")
